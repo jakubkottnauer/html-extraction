@@ -4,6 +4,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var srcPath = path.join(__dirname, "/src");
 var distPath = path.join(__dirname, "/dist");
+var dataPath = path.join(__dirname, "/data");
 
 module.exports = {
   watch: true,
@@ -20,12 +21,9 @@ module.exports = {
     modules: ["node_modules"]
   },
   plugins: [
-    new HtmlWebpackPlugin(),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor'
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'runtime'
+    new HtmlWebpackPlugin({
+      template: dataPath + '/alza.template.ejs',
+      inject: 'body',
     })
   ]
 };
