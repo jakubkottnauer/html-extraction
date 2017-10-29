@@ -10,6 +10,7 @@ const dataPath = path.join(__dirname, '/data')
 
 module.exports = merge(common, {
   watch: true,
+  devtool: '#cheap-module-eval-source-map',
   output: {
     path: distPath,
     filename: '[name].[chunkhash].js',
