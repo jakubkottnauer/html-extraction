@@ -1,23 +1,15 @@
-var webpack = require("webpack");
-var path = require("path");
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack')
+const path = require('path')
 
-var srcPath = path.join(__dirname, "/src");
-var dataPath = path.join(__dirname, "/data");
+const srcPath = path.join(__dirname, '/src')
 
 module.exports = {
   cache: true,
-  devtool: "#cheap-module-eval-source-map",
+  devtool: '#cheap-module-eval-source-map',
   entry: {
-    app: srcPath + "/index.js"
+    app: srcPath + '/index.js',
   },
   resolve: {
-    modules: ["node_modules"]
+    modules: ['node_modules'],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: dataPath + '/alza.template.ejs',
-      inject: 'body',
-    })
-  ]
-};
+}

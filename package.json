@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "author": "Jakub Kottnauer",
   "scripts": {
-    "start": "webpack --config webpack.config.dev.js && open dist/index.html",
+    "start": "open dist/index.html && webpack --config webpack.config.dev.js",
     "build:prod": "webpack --config webpack.config.prod.js",
-    "lint": "eslint './src' --cache",
+    "lint": "eslint . --cache",
     "lint:fix": "yarn lint --fix",
     "test": "jest",
     "test:watch": "yarn test --watch"
@@ -36,6 +36,6 @@
     }
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2"
+    "sizzle": "^2.3.3"
   }
 }
