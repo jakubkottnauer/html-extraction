@@ -18,8 +18,8 @@ module.exports = {
           {
             test: /\.js$/,
             loader: require.resolve('babel-loader'),
-            options: {
-              cacheDirectory: true,
+            query: {
+              presets: ['env', 'stage-2'],
             },
           },
         ],

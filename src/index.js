@@ -1,17 +1,10 @@
-import $ from 'sizzle'
+import { name, price } from './modules'
+import pipe from 'ramda/es/pipe'
+import { getConfig } from './utils'
 
-const headings = $('h1')
-if (headings.length === 1) {
-  console.log('Product title is ' + headings[0].innerHTML.trim())
-}
+const config = getConfig()
 
-const priceSymbols = ['Kč', ',-', 's DPH', 'bez DPH']
+const stage1 = pipe(name, price)
+const results = stage1({})
 
-const priceElements = $('.price')
-priceElements.forEach(e => {
-  const inner = e.innerHTML
-  const found = priceSymbols.some(x => inner.indexOf(x) != -1)
-  if (found && inner.length < 20) {
-    console.log(e.innerHTML)
-  }
-})
+console.log(results)

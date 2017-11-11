@@ -16,7 +16,7 @@ module.exports = {
     sourceType: 'module'
   },
   rules: {
-    'prettier/prettier': [2, {
+    'prettier/prettier': [1, {
       printWidth: 100,
       trailingComma: 'es5',
       semi: false,

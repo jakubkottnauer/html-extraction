@@ -4,9 +4,25 @@ const merge = require('webpack-merge')
 const CompressionPlugin = require('compression-webpack-plugin')
 const common = require('./webpack.config.js')
 const path = require('path')
+const fs = require('fs')
 
 const distPath = path.join(__dirname, '/dist')
-const dataPath = path.join(__dirname, '/data')
+const dataPath = path.join(__dirname, '/templates')
+
+let htmlPlugins = []
+
+fs.readdirSync(dataPath).forEach(file => {
+  // ignore MacOS temp file
+  if (file !== '.DS_Store') {
+    htmlPlugins.push(
+      new HtmlWebpackPlugin({
+        template: dataPath + '/' + file,
+        inject: 'body',
+        filename: path.join(distPath, file.split('.')[0] + '.html'),
+      })
+    )
+  }
+})
 
 module.exports = merge(common, {
   watch: true,
@@ -15,10 +31,5 @@ module.exports = merge(common, {
     path: distPath,
     filename: '[name].[chunkhash].js',
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: dataPath + '/alza.template.ejs',
-      inject: 'body',
-    }),
-  ],
+  plugins: [...htmlPlugins],
 })
