@@ -1,10 +1,23 @@
-import { name, price } from './modules'
+import { description, name, price } from './modules/extraction'
+import { removeBoilerplate, removeSocial } from './modules/cleanup'
 import pipe from 'ramda/es/pipe'
 import { getConfig } from './utils'
+import $ from 'jquery'
 
 const config = getConfig()
 
-const stage1 = pipe(name, price)
-const results = stage1({})
+try {
+  const dom = $('html').clone()
 
-console.log(results)
+  // cleanup
+  const stage1 = pipe(removeBoilerplate, removeSocial)
+  const newDom = stage1(dom)
+
+  // extraction
+  const stage2 = pipe(name, price, description)
+  const { results } = stage2({ dom: newDom, results: {} })
+
+  console.log(results)
+} catch (e) {
+  console.warn('Error during extraction', e)
+}

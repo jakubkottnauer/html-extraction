@@ -4,6 +4,7 @@
   "author": "Jakub Kottnauer",
   "scripts": {
     "build": "webpack --config webpack.config.dev.js",
+    "clean": "rm -rf ./dist",
     "start": "open dist/index.html && yarn:build",
     "start:all": "open dist/index.html && webpack --config webpack.config.dev.js",
     "build:prod": "webpack --config webpack.config.prod.js",
@@ -39,7 +40,7 @@
     }
   },
   "dependencies": {
-    "ramda": "^0.25.0",
-    "sizzle": "^2.3.3"
+    "jquery": "^3.2.1",
+    "ramda": "^0.25.0"
   }
 }
