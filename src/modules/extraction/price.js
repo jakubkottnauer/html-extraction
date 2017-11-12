@@ -1,6 +1,21 @@
-import { cleanupString, levenshtein } from '../../utils'
+import { cleanupString, getItemProp, levenshtein } from '../../utils'
+
+function getSchemaOrgValue(dom) {
+  const price = getItemProp(dom, 'price')
+  if (!price) return null
+
+  return {
+    price,
+    currency: getItemProp(dom, 'currency') || getItemProp(dom, 'priceCurrency'),
+  }
+}
 
 export default function price({ dom, results }) {
+  const metadata = getSchemaOrgValue(dom)
+  if (metadata) {
+    return { dom, results: { ...results, ...metadata } }
+  }
+
   const priceSymbols = ['Kč', ',-', 's DPH', 'bez DPH']
 
   const priceElements = dom.find('.price')

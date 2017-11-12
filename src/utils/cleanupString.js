@@ -1,4 +1,4 @@
-export default function cleanupString(str) {
+export default function cleanupString(str = '') {
   return str
     .replace(/&nbsp/g, '')
     .replace(/\s+/g, ' ')

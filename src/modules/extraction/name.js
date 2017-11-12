@@ -1,6 +1,20 @@
-import { cleanupString, levenshtein } from '../../utils'
+import { cleanupString, getItemProp, levenshtein } from '../../utils'
+
+function getSchemaOrgValue(dom) {
+  const name = getItemProp(dom, 'name')
+  if (!name) return null
+
+  return {
+    name,
+  }
+}
 
 export default function name({ dom, results }) {
+  const metadata = getSchemaOrgValue(dom)
+  if (metadata) {
+    return { dom, results: { ...results, ...metadata } }
+  }
+
   const headings = dom.find('h1')
   if (headings.length === 0) {
     return { dom, results: { ...results, name: 'no name' } }
