@@ -5,8 +5,7 @@
   "scripts": {
     "build": "webpack --config webpack.config.dev.js",
     "clean": "rm -rf ./dist",
-    "start": "open dist/index.html && yarn:build",
-    "start:all": "open dist/index.html && webpack --config webpack.config.dev.js",
+    "start": "open dist/index.html && yarn build",
     "build:prod": "webpack --config webpack.config.prod.js",
     "lint": "eslint ./src",
     "lint:fix": "yarn lint --fix",

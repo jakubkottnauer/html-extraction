@@ -1,3 +1,3 @@
 export default function getConfig() {
-  return window.heConfig || {}
+  return window.extractorConfig || {}
 }
