@@ -8,14 +8,14 @@ const { stage1: stage1Config, stage2: stage2Config } = getConfig()
 
 try {
   const dom = $('html') //.clone()
-  const stage1Plugins = processConfigPlugins([removeBoilerplate, removeSocial], stage1Config)
+  const stage1Plugins = processConfigPlugins(1, [removeBoilerplate, removeSocial], stage1Config)
 
   // cleanup
   const stage1 = pipe(...stage1Plugins)
   const newDom = stage1(dom)
 
   // extraction
-  const stage2Plugins = processConfigPlugins([name, price, description], stage2Config)
+  const stage2Plugins = processConfigPlugins(2, [name, price, description], stage2Config)
   const stage2 = pipe(...stage2Plugins)
   const { results } = stage2({ dom: newDom, results: {} })
 
