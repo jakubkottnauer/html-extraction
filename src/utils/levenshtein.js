@@ -1,4 +1,6 @@
-export default function levenshtein(a, b) {
+// @flow
+
+export default function levenshtein(a: string, b: string) {
   let tmp
   if (a.length === 0) {
     return b.length

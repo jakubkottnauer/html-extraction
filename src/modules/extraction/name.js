@@ -1,4 +1,7 @@
+// @flow
+
 import { cleanupString, getItemProp, levenshtein } from '../../utils'
+import type { Stage2PluginData } from '../../../types/plugin'
 
 function getSchemaOrgValue(dom) {
   const name = getItemProp(dom, 'name')
@@ -9,7 +12,7 @@ function getSchemaOrgValue(dom) {
   }
 }
 
-export default function name({ dom, results }) {
+export default function name({ dom, results }: Stage2PluginData): Stage2PluginData {
   const metadata = getSchemaOrgValue(dom)
   if (metadata) {
     return { dom, results: { ...results, ...metadata } }

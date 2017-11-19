@@ -1,4 +1,7 @@
-export default function removeBoilerplate(dom) {
+// @flow
+import type { Stage1PluginData } from '../../../types/plugin'
+
+export default function removeBoilerplate(dom: Stage1PluginData): Stage1PluginData {
   console.log('REMOVING BOILERPLATE')
   dom
     .find(

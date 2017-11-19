@@ -1,3 +1,5 @@
+// @flow
+
 import { description, name, price } from './modules/extraction'
 import { removeBoilerplate, removeSocial } from './modules/cleanup'
 import pipe from 'ramda/es/pipe'

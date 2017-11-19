@@ -1,7 +1,9 @@
+// @flow
+
 import { cleanupString } from './index'
 import $ from 'jquery'
 
-export default function getItemProp(dom, field) {
+export default function getItemProp(dom: Object, field: string) {
   const node = dom.find(`[itemprop="${field}"]` || [])[0]
   if (!node) return undefined
   const jNode = $(node)
