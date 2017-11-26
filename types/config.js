@@ -10,4 +10,5 @@ export type StageConfig = {
 export type Config = {
   stage1?: StageConfig,
   stage2?: StageConfig,
+  stage3?: StageConfig,
 }

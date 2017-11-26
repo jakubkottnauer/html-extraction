@@ -1,30 +1,32 @@
 // @flow
 
-import { cleanupString, getItemProp, levenshtein } from '../../utils'
-import type { Stage2PluginData } from '../../../types/plugin'
+import { createValue, cleanupString, getItemProp, levenshtein } from '../../utils'
+import type { Stage2PluginData, Value } from '../../../types/plugin'
 
-function getSchemaOrgValue(dom) {
+const KEY = 'name'
+
+function getSchemaOrgValue(dom): ?Value {
   const name = getItemProp(dom, 'name')
   if (!name) return null
-
-  return {
-    name,
-  }
+  return createValue(KEY, name, 100)
 }
 
 export default function name({ dom, results }: Stage2PluginData): Stage2PluginData {
   const metadata = getSchemaOrgValue(dom)
   if (metadata) {
-    return { dom, results: { ...results, ...metadata } }
+    return { dom, results: [...results, metadata] }
   }
 
   const headings = dom.find('h1')
   if (headings.length === 0) {
-    return { dom, results: { ...results, name: 'no name' } }
+    return { dom, results: [...results, createValue(KEY, 'no name', 0)] }
   }
 
   if (headings.length === 1) {
-    return { dom, results: { ...results, name: cleanupString(headings[0].innerText) } }
+    return {
+      dom,
+      results: [...results, createValue(KEY, cleanupString(headings[0].innerText), 90)],
+    }
   }
 
   const pageTitle = dom.find('title')[0].innerText
@@ -33,5 +35,5 @@ export default function name({ dom, results }: Stage2PluginData): Stage2PluginDa
 
   const separated = titleSeparators.map(x => pageTitle.split(x).map(y => cleanupString(y.trim())))
 
-  return { dom, results: { ...results, name: '' } }
+  return { dom, results: [...results, createValue(KEY, '', 0)] }
 }

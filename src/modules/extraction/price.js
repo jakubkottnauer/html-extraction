@@ -1,22 +1,21 @@
 // @flow
 
-import { cleanupString, getItemProp, levenshtein } from '../../utils'
-import type { Stage2PluginData } from '../../../types/plugin'
+import { createValue, cleanupString, getItemProp, levenshtein } from '../../utils'
+import type { Stage2PluginData, Value } from '../../../types/plugin'
 
-function getSchemaOrgValue(dom) {
+const KEY = 'price'
+
+function getSchemaOrgValue(dom): ?Value {
   const price = getItemProp(dom, 'price')
   if (!price) return null
 
-  return {
-    price,
-    currency: getItemProp(dom, 'currency') || getItemProp(dom, 'priceCurrency'),
-  }
+  return createValue(KEY, price, 100)
 }
 
 export default function price({ dom, results }: Stage2PluginData): Stage2PluginData {
   const metadata = getSchemaOrgValue(dom)
   if (metadata) {
-    return { dom, results: { ...results, ...metadata } }
+    return { dom, results: [...results, metadata] }
   }
 
   const priceSymbols = ['Kč', ',-', 's DPH', 'bez DPH']
@@ -31,5 +30,5 @@ export default function price({ dom, results }: Stage2PluginData): Stage2PluginD
     }
   })
 
-  return { dom, results: { ...results, price: 0 } }
+  return { dom, results: [...results, createValue(KEY, 0, 0)] }
 }

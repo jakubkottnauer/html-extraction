@@ -2,12 +2,14 @@
 
 import * as stage1Plugins from '../modules/cleanup'
 import * as stage2Plugins from '../modules/extraction'
+import * as stage3Plugins from '../modules/result'
 import type { Plugin, Stage1PluginData, Stage2PluginData } from '../../types/plugin'
 import type { StageConfig } from '../../types/config'
 
 const builtInPlugins = {
   stage1: stage1Plugins,
   stage2: stage2Plugins,
+  stage3: stage3Plugins,
 }
 
 function loadBuiltinPlugins(stage: number, pipeline: Array<Plugin | string>): Array<Plugin> {
@@ -35,7 +37,7 @@ export default function processConfigPlugins(
   config: ?StageConfig
 ) {
   let plugins = [...defaults]
-  console.log('CONFIG: ', config)
+
   if (config && config.plugins) {
     if (config.append) {
       plugins = [...plugins, ...config.plugins]

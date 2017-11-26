@@ -18,9 +18,6 @@ module.exports = {
           {
             test: /\.js$/,
             loader: require.resolve('babel-loader'),
-            query: {
-              presets: ['flow', 'env', 'stage-2'],
-            },
           },
         ],
       },
