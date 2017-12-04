@@ -12,7 +12,7 @@ export type Stage2PluginData = {
   results: Array<Value>,
 }
 
-export type Stage3PluginData = Object
+export type Stage3PluginData = Array<Value>
 
 export type Plugin = (
   Stage1PluginData | Stage2PluginData | Stage3PluginData

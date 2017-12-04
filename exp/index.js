@@ -2,8 +2,8 @@ import puppeteer from 'puppeteer'
 import fs from 'fs'
 import path from 'path'
 ;(async () => {
-  fs.readdir('./dist', (err, files) => {
-    files.filter(file => path.extname(file) === '.html').forEach(async file => {
+  await fs.readdir('./dist', async (err, files) => {
+    await files.filter(file => path.extname(file) === '.html').forEach(async file => {
       const absolutePath = path.resolve(__dirname, '..', file)
       await testPage(absolutePath)
     })
