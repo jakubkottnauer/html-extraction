@@ -2,7 +2,7 @@
 
 import { description, nameH1, nameMeta, nameTitle, price, currency } from './modules/extraction'
 import { removeBoilerplate, removeSocial } from './modules/cleanup'
-import { name as resultName } from './modules/result'
+import { dedup } from './modules/result'
 import pipe from 'ramda/es/pipe'
 import { getConfig, processConfigPlugins, log } from './utils'
 import $ from 'jquery'
@@ -19,7 +19,11 @@ try {
   const newDom = stage1(dom)
 
   // extraction
-  const stage2Plugins = processConfigPlugins(2, [nameH1, nameTitle, nameMeta, price, currency, description], stage2Config)
+  const stage2Plugins = processConfigPlugins(
+    2,
+    [nameH1, nameTitle, nameMeta, price, currency, description],
+    stage2Config
+  )
   const stage2 = pipe(...stage2Plugins)
   const emptyResult: Stage2PluginData = { dom: newDom, results: [] }
   const { results } = stage2(emptyResult)
@@ -27,7 +31,7 @@ try {
   log(results)
 
   // results
-  const stage3Plugins = processConfigPlugins(3, [resultName], stage3Config)
+  const stage3Plugins = processConfigPlugins(3, [dedup], stage3Config)
   const stage3 = pipe(...stage3Plugins)
   const finalResults = stage3(results)
 

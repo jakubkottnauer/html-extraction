@@ -1,3 +1,3 @@
 // @flow
 
-export { default as name } from './name'
+export { default as dedup } from './dedup'
