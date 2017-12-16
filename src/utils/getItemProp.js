@@ -5,7 +5,7 @@ import $ from 'jquery'
 
 export default function getItemProp(dom: Object, field: string) {
   const node = dom.find(`[itemprop="${field}"]` || [])[0]
-  if (!node) return undefined
+  if (!node) return null
   const jNode = $(node)
   return cleanupString(jNode.attr('content') || node.innerText)
 }

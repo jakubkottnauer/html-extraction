@@ -3,7 +3,13 @@
 import * as stage1Plugins from '../modules/cleanup'
 import * as stage2Plugins from '../modules/extraction'
 import * as stage3Plugins from '../modules/result'
-import type { Plugin, Stage1PluginData, Stage2PluginData } from '../../types/plugin'
+import type {
+  Plugin,
+  Stage1PluginData,
+  Stage2PluginData,
+  Stage3PluginData,
+  Stage1Plugin,
+} from '../../types/plugin'
 import type { StageConfig } from '../../types/config'
 
 const builtInPlugins = {
@@ -12,12 +18,13 @@ const builtInPlugins = {
   stage3: stage3Plugins,
 }
 
+const noop: Stage1Plugin = (x: Stage1PluginData) => x
+
 function loadBuiltinPlugins(stage: number, pipeline: Array<Plugin | string>): Array<Plugin> {
-  const noop: Plugin = stage === 1 ? (x: Stage1PluginData) => x : (x: Stage2PluginData) => x
   return pipeline.map(p => {
     if (typeof p === 'function') return p
     if (typeof p === 'string') {
-      const plugin = builtInPlugins[`stage${stage}`][p]
+      const plugin: Plugin = builtInPlugins[`stage${stage}`][p]
       if (!plugin) {
         console.warn(
           `Plugin '${p}' not found in built-in 'stage${stage}' plugins. Using noop instead.`
@@ -39,11 +46,7 @@ export default function processConfigPlugins(
   let plugins = [...defaults]
 
   if (config && config.plugins) {
-    if (config.append) {
-      plugins = [...plugins, ...config.plugins]
-    } else {
-      plugins = [...config.plugins]
-    }
+    plugins = config.append ? [...plugins, ...config.plugins] : [...config.plugins]
   }
 
   return loadBuiltinPlugins(stage, plugins)
