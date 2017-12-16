@@ -1,15 +1,15 @@
 // @flow
 
-import { createValue, cleanupString, getItemProp, levenshtein } from '../../utils'
+import { valueCreator, cleanupString, getItemProp, levenshtein } from '../../utils'
 import type { Stage2PluginData, Value } from '../../../types/plugin'
 
-const KEY = 'currency'
+const createValue = valueCreator('currency')
 
 function getSchemaOrgValue(dom): ?Value {
   const currency = getItemProp(dom, 'currency') || getItemProp(dom, 'priceCurrency')
   if (!currency) return null
 
-  return createValue(KEY, currency, 100)
+  return createValue(currency, 100)
 }
 
 export default function currency({ dom, results }: Stage2PluginData): Stage2PluginData {
@@ -18,5 +18,5 @@ export default function currency({ dom, results }: Stage2PluginData): Stage2Plug
     return { dom, results: [...results, metadata] }
   }
 
-  return { dom, results: [...results, createValue(KEY, '', 0)] }
+  return { dom, results: [...results, createValue('', 0)] }
 }
