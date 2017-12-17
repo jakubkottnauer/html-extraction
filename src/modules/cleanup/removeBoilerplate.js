@@ -9,7 +9,7 @@ export default function removeBoilerplate(dom: Stage1PluginData): Stage1PluginDa
     )
     .remove()
 
-  const classesIds = ['header', 'footer', 'search', 'banner', 'promo']
+  const classesIds = ['header', 'footer', 'search']
   const classes = '.' + classesIds.join(', .')
   const ids = '#' + classesIds.join(', #')
   dom.find(classes).remove()

@@ -3,13 +3,13 @@
 import { valueCreator, cleanupString, getItemProp, levenshtein } from '../../utils'
 import type { Stage1PluginData, Stage2PluginData, Value } from '../../../types/plugin'
 
-const createValue = valueCreator('currency')
+const createValue = valueCreator('price', 'meta')
 
 function getSchemaOrgValue(dom): ?Value {
-  const currency = getItemProp(dom, 'currency') || getItemProp(dom, 'priceCurrency')
-  if (!currency) return null
+  const price = getItemProp(dom, 'price')
+  if (!price) return null
 
-  return createValue(currency, 100)
+  return createValue(price, 100)
 }
 
 export default (dom: Stage1PluginData): Value => {
@@ -18,5 +18,5 @@ export default (dom: Stage1PluginData): Value => {
     return metadata
   }
 
-  return createValue('', 0)
+  return createValue(0, 0)
 }

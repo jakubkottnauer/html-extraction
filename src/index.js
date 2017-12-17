@@ -1,12 +1,21 @@
 // @flow
 
-import { description, nameH1, nameMeta, nameTitle, price, currency } from './modules/extraction'
+import {
+  description,
+  nameH1,
+  nameMeta,
+  nameTitle,
+  priceDom,
+  priceText,
+  priceMeta,
+  currency,
+} from './modules/extraction'
 import { removeBoilerplate, removeSocial } from './modules/cleanup'
 import { dedup } from './modules/result'
 import pipe from 'ramda/es/pipe'
 import { getConfig, processConfigPlugins, log } from './utils'
 import $ from 'jquery'
-import type { Stage2PluginData } from '../types/plugin'
+import type { Stage2PluginData, Value } from '../types/plugin'
 
 const { stage1: stage1Config, stage2: stage2Config, stage3: stage3Config } = getConfig()
 
@@ -21,14 +30,16 @@ try {
   // extraction
   const stage2Plugins = processConfigPlugins(
     2,
-    [nameH1, nameTitle, nameMeta, price, currency, description],
+    [nameH1, nameTitle, nameMeta, priceDom, priceText, priceMeta, currency, description].map(
+      extractor => (results: Array<Value>) => [...results, extractor(newDom)]
+    ),
     stage2Config
   )
   const stage2 = pipe(...stage2Plugins)
-  const emptyResult: Stage2PluginData = { dom: newDom, results: [] }
-  const { results } = stage2(emptyResult)
+  const emptyResult: Stage2PluginData = []
+  const results = stage2(emptyResult)
 
-  //log(results)
+  log(results)
 
   // results
   const stage3Plugins = processConfigPlugins(3, [dedup], stage3Config)

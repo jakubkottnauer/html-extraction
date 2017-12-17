@@ -1,7 +1,7 @@
 // @flow
 
 import { valueCreator, cleanupString, getItemProp, levenshtein } from '../../utils'
-import type { Stage2PluginData, Value } from '../../../types/plugin'
+import type { Stage1PluginData, Stage2PluginData, Value } from '../../../types/plugin'
 
 const createValue = valueCreator('name', 'name.meta')
 
@@ -11,11 +11,11 @@ function getSchemaOrgValue(dom): ?Value {
   return createValue(name, 100)
 }
 
-export default function name({ dom, results }: Stage2PluginData): Stage2PluginData {
+export default (dom: Stage1PluginData): Value => {
   const metadata = getSchemaOrgValue(dom)
   if (metadata) {
-    return { dom, results: [...results, metadata] }
+    return metadata
   }
 
-  return { dom, results: [...results, createValue('', 0)] }
+  return createValue('', 0)
 }
