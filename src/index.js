@@ -28,7 +28,7 @@ try {
   const emptyResult: Stage2PluginData = { dom: newDom, results: [] }
   const { results } = stage2(emptyResult)
 
-  log(results)
+  //log(results)
 
   // results
   const stage3Plugins = processConfigPlugins(3, [dedup], stage3Config)
