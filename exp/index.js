@@ -1,10 +1,17 @@
+// @flow
 import puppeteer from 'puppeteer'
 import fs from 'fs'
 import path from 'path'
+import { promisify } from 'util'
+import chalk from 'chalk'
+import expected from './expected'
+
+const appendFile = promisify(fs.appendFile)
+const readdir = promisify(fs.readdir)
 ;(async () => {
   const output = 'exp/out.txt'
 
-  await fs.readdir('./dist', async (err, files) => {
+  await readdir('./dist', async (err, files) => {
     const testFiles = files.filter(file => path.extname(file) === '.html')
     console.log(`Starting up. Processing ${testFiles.length} test files.`)
     for (let file of testFiles) {
@@ -20,20 +27,29 @@ const delay = (timeout: number) =>
     setTimeout(resolve, timeout)
   })
 
-async function testPage(file, output) {
-  console.log(`${file} starting.`)
+const diffResultExpected = () => {}
+
+const onConsole = async (msg: { text: string }, file: string, output: string) => {
+  const prefix = 'extractlog'
+  if (msg.text.startsWith(prefix)) {
+    const txtResult = msg.text.split(prefix)[1].trim()
+    const jsonResult = JSON.parse(txtResult)
+    const diff = diffResultExpected()
+    console.log(chalk.bgGreen(file), '\n', jsonResult)
+    await appendFile(output, txtResult + '\n')
+  }
+}
+
+async function testPage(file: string, output: string) {
+  console.log(chalk.grey(`${file} starting.`))
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
   page.on('console', async msg => {
-    if (msg.text.startsWith('extractlog')) {
-      const txt = msg.text.split('extractlog')[1].trim()
-      console.log(file, JSON.parse(txt))
-      await fs.appendFile(output, txt + '\n')
-    }
+    await onConsole(msg, file, output)
   })
 
   await page.goto(`file://${file}`)
-  await delay(2000) // Wait for 2 seconds so that all the parsing has plenty of time to finish.
-  console.log(`${file} done.`)
+  await delay(2000) // Wait for 2 seconds so that all the parsing has enough time to finish.
+  console.log(chalk.gray(`${file} done.`))
   await browser.close()
 }
