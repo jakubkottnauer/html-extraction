@@ -5,6 +5,7 @@ import path from 'path'
 import { promisify } from 'util'
 import chalk from 'chalk'
 import expected from './expected'
+import type { Stage3PluginData } from '../types/plugin'
 
 const appendFile = promisify(fs.appendFile)
 const readdir = promisify(fs.readdir)
@@ -27,15 +28,37 @@ const delay = (timeout: number) =>
     setTimeout(resolve, timeout)
   })
 
-const diffResultExpected = () => {}
+const diffResultExpected = (file: string, extractionResult: Stage3PluginData) => {
+  const filename = path.basename(file, path.extname(file)) // removing absolute path and extension
+  const expectedResult = expected[filename]
+
+  if (!expectedResult) {
+    console.log(chalk.red(`Missing expected result for ${filename}!`))
+    return
+  }
+
+  Object.keys(expectedResult).forEach(x => {
+    const res = extractionResult.find(r => r.key === x)
+    if (res) {
+      const areEqual = res.value === expectedResult[x]
+      if (areEqual) {
+        console.log(chalk.green(`${x}: "${res.value}" === "${expectedResult[x]}".`))
+      } else {
+        console.log(chalk.red(`${x}: Expected "${expectedResult[x]}" but got "${res.value}".`))
+      }
+    } else {
+      console.log(`Property "${x}" not present in ${filename} result.`)
+    }
+  })
+}
 
 const onConsole = async (msg: { text: string }, file: string, output: string) => {
   const prefix = 'extractlog'
   if (msg.text.startsWith(prefix)) {
     const txtResult = msg.text.split(prefix)[1].trim()
-    const jsonResult = JSON.parse(txtResult)
-    const diff = diffResultExpected()
-    console.log(chalk.bgGreen(file), '\n', jsonResult)
+    const jsonResult: Stage3PluginData = JSON.parse(txtResult)
+    const diff = diffResultExpected(file, jsonResult)
+    console.log(file, '\n', jsonResult)
     await appendFile(output, txtResult + '\n')
   }
 }
@@ -50,6 +73,6 @@ async function testPage(file: string, output: string) {
 
   await page.goto(`file://${file}`)
   await delay(2000) // Wait for 2 seconds so that all the parsing has enough time to finish.
-  console.log(chalk.gray(`${file} done.`))
+  console.log(chalk.gray(`${file} done.\n\n\n`))
   await browser.close()
 }
