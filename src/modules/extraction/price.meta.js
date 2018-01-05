@@ -9,7 +9,7 @@ function getSchemaOrgValue(dom): ?Value {
   const price = getItemProp(dom, 'price')
   if (!price) return null
 
-  return createValue(price, 100)
+  return createValue(parseFloat(price), 100)
 }
 
 export default (dom: Stage1PluginData): Value => {

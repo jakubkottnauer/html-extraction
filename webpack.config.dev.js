@@ -9,11 +9,12 @@ const fs = require('fs')
 const distPath = path.join(__dirname, '/dist')
 const dataPath = path.join(__dirname, '/templates')
 
-let htmlPlugins = []
+const htmlPlugins = []
 
-fs.readdirSync(dataPath).forEach(file => {
-  // ignore MacOS temp file
-  if (file !== '.DS_Store') {
+fs
+  .readdirSync(dataPath)
+  .filter(file => path.extname(file) === '.ejs')
+  .forEach(file => {
     htmlPlugins.push(
       new HtmlWebpackPlugin({
         template: dataPath + '/' + file,
@@ -21,8 +22,7 @@ fs.readdirSync(dataPath).forEach(file => {
         filename: path.join(distPath, file.split('.')[0] + '.html'),
       })
     )
-  }
-})
+  })
 
 module.exports = merge(common, {
   watch: true,
