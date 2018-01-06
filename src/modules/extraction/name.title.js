@@ -1,6 +1,6 @@
 // @flow
 
-import { valueCreator, cleanupString, getItemProp, levenshtein } from '../../utils'
+import { valueCreator, cleanupString, getMicrodataValue, levenshtein } from '../../utils'
 import type { Stage1PluginData, Stage2PluginData, Value } from '../../../types/plugin'
 
 const createValue = valueCreator('name', 'name.title')

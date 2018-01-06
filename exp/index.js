@@ -9,18 +9,20 @@ import type { Stage3PluginData } from '../types/plugin'
 
 const appendFile = promisify(fs.appendFile)
 const readdir = promisify(fs.readdir)
-;(async () => {
-  const output = 'exp/out.txt'
 
-  await readdir('./dist', async (err, files) => {
-    const testFiles = files.filter(file => path.extname(file) === '.html')
-    console.log(`Starting up. Processing ${testFiles.length} test files.`)
-    for (let file of testFiles) {
-      const absolutePath = path.resolve(__dirname, '..', file)
-      await testPage(absolutePath, output)
-    }
-    console.log('All done.')
-  })
+const outputPath = 'exp/out.txt'
+const inputPath = './dist'
+
+;(async () => {
+  const files = (await readdir(inputPath)).filter(file => path.extname(file) === '.html')
+
+  console.log(`Starting up. Processing ${files.length} test files.`)
+  for (let file of files) {
+    const absolutePath = path.resolve(__dirname, '..', file)
+    await testPage(absolutePath, outputPath)
+  }
+
+  console.log('All done.')
 })()
 
 const delay = (timeout: number) =>
@@ -37,12 +39,15 @@ const diffResultExpected = (file: string, extractionResult: Stage3PluginData) =>
     return
   }
 
+  const keyCount = Object.keys(expectedResult).length
+  let correctResultCount = 0
   Object.keys(expectedResult).forEach(x => {
     const res = extractionResult.find(r => r.key === x)
     if (res) {
       const areEqual = res.value === expectedResult[x]
       if (areEqual) {
         console.log(chalk.green(`${x}: "${res.value}" === "${expectedResult[x]}".`))
+        correctResultCount++
       } else {
         console.log(chalk.red(`${x}: Expected "${expectedResult[x]}" but got "${res.value}".`))
       }
@@ -50,6 +55,9 @@ const diffResultExpected = (file: string, extractionResult: Stage3PluginData) =>
       console.log(`Property "${x}" not present in ${filename} result.`)
     }
   })
+  console.log(
+    `${correctResultCount}/${keyCount} (${correctResultCount * 100 / keyCount} %) correct.`
+  )
 }
 
 const onConsole = async (msg: { text: string }, file: string, output: string) => {
@@ -58,7 +66,7 @@ const onConsole = async (msg: { text: string }, file: string, output: string) =>
     const txtResult = msg.text.split(prefix)[1].trim()
     const jsonResult: Stage3PluginData = JSON.parse(txtResult)
     const diff = diffResultExpected(file, jsonResult)
-    console.log(file, '\n', jsonResult)
+    //console.log(file, '\n', jsonResult)
     await appendFile(output, txtResult + '\n')
   }
 }
@@ -73,6 +81,6 @@ async function testPage(file: string, output: string) {
 
   await page.goto(`file://${file}`)
   await delay(2000) // Wait for 2 seconds so that all the parsing has enough time to finish.
-  console.log(chalk.gray(`${file} done.\n\n\n`))
+  console.log(chalk.gray(`${file} done.\n\n`))
   await browser.close()
 }

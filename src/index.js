@@ -1,14 +1,15 @@
 // @flow
 
 import {
+  currency,
   description,
   nameH1,
-  nameMeta,
+  nameJsonld,
+  nameMicro,
   nameTitle,
   priceDom,
+  priceMicro,
   priceText,
-  priceMeta,
-  currency,
 } from './modules/extraction'
 import { removeBoilerplate, removeSocial } from './modules/cleanup'
 import { dedup } from './modules/result'
@@ -30,7 +31,7 @@ try {
   // extraction
   const stage2Plugins = processConfigPlugins(
     2,
-    [nameH1, nameTitle, nameMeta, priceDom, priceText, priceMeta, currency, description].map(
+    [nameH1, nameTitle, nameMicro, nameJsonld, priceDom, priceText, priceMicro, currency, description].map(
       extractor => (results: Array<Value>) => [...results, extractor(newDom)]
     ),
     stage2Config

@@ -1,7 +1,7 @@
 // @flow
 
 import { pipe, groupBy, prop, pluck, map, sortBy, negate, pick, values } from 'ramda'
-import { cleanupString, getItemProp, levenshtein } from '../../utils'
+import { cleanupString, getMicrodataValue, levenshtein } from '../../utils'
 import type { Stage3PluginData } from '../../../types/plugin'
 
 export default function dedup(results: Stage3PluginData): Stage3PluginData {
