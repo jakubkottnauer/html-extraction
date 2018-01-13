@@ -5,7 +5,7 @@ import type { Stage1PluginData, Stage2PluginData, Value } from '../../../types/p
 
 const createValue = valueCreator('name', 'name.title')
 
-export default (dom: Stage1PluginData): Value => {
+export default (dom: Stage2PluginData): Value => {
   const pageTitle = (dom.find('title')[0] || {}).innerText
   if (!pageTitle) return createValue('', 0)
   const titleSeparators = ['|', '-', '–']

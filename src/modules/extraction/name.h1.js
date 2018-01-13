@@ -5,7 +5,7 @@ import type { Stage1PluginData, Stage2PluginData, Value } from '../../../types/p
 
 const createValue = valueCreator('name', 'name.h1')
 
-export default (dom: Stage1PluginData): Value => {
+export default (dom: Stage2PluginData): Value => {
   const headings = dom.find('h1')
 
   if (headings.length === 0) {

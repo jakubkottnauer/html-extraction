@@ -12,7 +12,6 @@ const readdir = promisify(fs.readdir)
 
 const outputPath = 'exp/out.txt'
 const inputPath = './dist'
-
 ;(async () => {
   const files = (await readdir(inputPath)).filter(file => path.extname(file) === '.html')
 

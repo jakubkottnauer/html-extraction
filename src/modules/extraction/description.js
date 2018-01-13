@@ -11,7 +11,7 @@ function getSchemaOrgValue(dom): ?Value {
   return createValue(description, 100)
 }
 
-export default (dom: Stage1PluginData): Value => {
+export default (dom: Stage2PluginData): Value => {
   const metadata = getSchemaOrgValue(dom)
   if (metadata) {
     return metadata

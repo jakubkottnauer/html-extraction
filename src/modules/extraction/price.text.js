@@ -6,6 +6,6 @@ import { priceSymbols } from '../../constants'
 
 const createValue = valueCreator('price', 'text')
 
-export default (dom: Stage1PluginData): Value => {
+export default (dom: Stage2PluginData): Value => {
   return createValue(0, 10)
 }

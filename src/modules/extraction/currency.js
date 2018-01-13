@@ -12,7 +12,7 @@ function getSchemaOrgValue(dom): ?Value {
   return createValue(currency, 100)
 }
 
-export default (dom: Stage1PluginData): Value => {
+export default (dom: Stage2PluginData): Value => {
   const metadata = getSchemaOrgValue(dom)
   if (metadata) {
     return metadata

@@ -12,4 +12,4 @@ function getValue(dom): ?Value {
   return createValue(parseFloat(price), 100)
 }
 
-export default (dom: Stage1PluginData): Value => getValue(dom) || createValue(0, 0)
+export default (dom: Stage2PluginData): Value => getValue(dom) || createValue(0, 0)

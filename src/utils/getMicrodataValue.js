@@ -3,7 +3,7 @@
 import { cleanupString } from './index'
 import $ from 'jquery'
 
-export default function getMicrodataValue(dom: Object, field: string) {
+export default function getMicrodataValue(dom: JQuery, field: string) {
   const node = (dom.find(`[itemprop="${field}"]`) || [])[0]
   if (!node) return null
   const jNode = $(node)
