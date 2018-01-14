@@ -1,1 +1,1 @@
-export const priceSymbols = ['Kč', ',-', 's DPH', 'bez DPH']
+export const priceSymbols: Array<string> = ['Kč', ',-', 's DPH', 'bez DPH']

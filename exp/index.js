@@ -61,8 +61,12 @@ const diffResultExpected = (file: string, extractionResult: Stage3PluginData) =>
 
 const onConsole = async (msg: { text: string }, file: string, output: string) => {
   const prefix = 'extractlog'
-  if (msg.text.startsWith(prefix)) {
-    const txtResult = msg.text.split(prefix)[1].trim()
+
+  if (msg.text().startsWith(prefix)) {
+    const txtResult = msg
+      .text()
+      .split(prefix)[1]
+      .trim()
     const jsonResult: Stage3PluginData = JSON.parse(txtResult)
     const diff = diffResultExpected(file, jsonResult)
     //console.log(file, '\n', jsonResult)

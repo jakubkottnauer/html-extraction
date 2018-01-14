@@ -35,7 +35,7 @@ export default {
     currency: 'CZK',
     description:
       'Bezdrátový reproduktor kompaktní pro bezdrátový přenos hudby z mobilního telefonu či tabletu, LED indikace, Bluetooth 4.0, odolné vůči kapkám vody, mikrofon, 3.5mm AUX, microUSB',
-    name: 'Samsung EO-SG510CD EO-SG510CDEGWW',
+    name: 'Samsung EO-SG510CD',
     price: 899,
   },
   doubleshot: {
@@ -85,7 +85,8 @@ export default {
   },
   vasecocky: {
     currency: 'CZK',
-    description: 'Měsíční kontaktní čočky od výrobce Alcon - Air Optix',
+    description:
+      'Nové měsíční kontaktní čočky Air Optix Aqua jsou nástupcem oblíbených čoček Air Optix. Mezi hlavní vylepšení patří zvýšení smáčivosti o 30%.',
     name: 'Air Optix Aqua (6 čoček)',
     price: 589,
   },

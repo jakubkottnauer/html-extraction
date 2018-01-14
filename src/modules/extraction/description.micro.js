@@ -1,12 +1,12 @@
 // @flow
 
-import { valueCreator, cleanupString, getJsonldValue, levenshtein } from '../../utils'
+import { valueCreator, cleanupString, getMicrodataValue, levenshtein } from '../../utils'
 import type { Stage1PluginData, Stage2PluginData, Value } from '../../../types/plugin'
 
-const createValue = valueCreator('name', 'name.jsonld')
+const createValue = valueCreator('description', 'description.micro')
 
 function getValue(dom): ?Value {
-  const value = getJsonldValue(dom, 'name')
+  const value = getMicrodataValue(dom, 'description')
   if (!value) return null
   return createValue(value, 100)
 }

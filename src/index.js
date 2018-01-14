@@ -1,8 +1,9 @@
 // @flow
 
 import {
-  currency,
-  description,
+  currencyMicro,
+  descriptionMeta,
+  descriptionMicro,
   nameH1,
   nameJsonld,
   nameMicro,
@@ -39,14 +40,15 @@ try {
       priceDom,
       priceText,
       priceMicro,
-      currency,
-      description,
+      currencyMicro,
+      descriptionMicro,
+      descriptionMeta,
     ].map((extractor: Stage2Plugin) => (results: Array<Value>) => [...results, extractor(newDom)]),
     stage2Config
   )
   const stage2 = pipe(...stage2Plugins)
-  const emptyResult = {}
-  const results: Array<Value> = stage2(emptyResult)
+  const emptyResult = []
+  const results = stage2(emptyResult)
 
   // log(results)
 
