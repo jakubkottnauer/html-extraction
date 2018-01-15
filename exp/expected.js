@@ -41,7 +41,7 @@ export default {
   doubleshot: {
     currency: 'CZK',
     description:
-      'BSuchým způsobem zpracovaná káva ze soukromé farmy pana Ismala Hassana. Čistá a výrazně aromatická káva s tóny kůry citrusů a hroznového vína, kterou pražíme primárně na přípravu espressa.',
+      'Suchým způsobem zpracovaná káva ze soukromé farmy pana Ismala Hassana. Čistá a výrazně aromatická káva s tóny kůry citrusů a hroznového vína, kterou pražíme primárně na přípravu espressa.',
     name: 'Etiopie Kayo Espresso',
     price: 370,
   },
