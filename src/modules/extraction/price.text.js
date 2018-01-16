@@ -15,5 +15,6 @@ export default (dom: Stage2PluginData): Value | Array<Value> => {
   const currency = price.substr(0, 1)
   const removedCurrency = parseFloat(price.substr(1))
   console.log(currency, removedCurrency)
+  console.log('AHSDFHASDFLKJSADFLJASD')
   return [createValue(removedCurrency, 50), createCurrencyValue(normalizeCurrency(currency), 50)]
 }
