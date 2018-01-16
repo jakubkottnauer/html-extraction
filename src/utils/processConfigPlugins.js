@@ -2,7 +2,7 @@
 
 import * as stage1Plugins from '../modules/cleanup'
 import * as stage2Plugins from '../modules/extraction'
-import * as stage3Plugins from '../modules/result'
+import * as stage3Plugins from '../modules/postprocessing'
 import type {
   Plugin,
   Stage1PluginData,
