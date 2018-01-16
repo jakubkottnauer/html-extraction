@@ -84,6 +84,6 @@ async function testPage(file: string, output: string) {
 
   await page.goto(`file://${file}`)
   await delay(2000) // Wait for 2 seconds so that all the parsing has enough time to finish.
-  console.log(chalk.gray(`${file} done.\n\n`))
+  console.log(chalk.gray(`${file} done.\n`))
   await browser.close()
 }

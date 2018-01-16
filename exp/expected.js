@@ -21,13 +21,15 @@ export default {
   },
   bookdepository: {
     currency: 'CZK',
-    description: '',
-    name: 'Daniel X: Lights Out : (Daniel X 6)',
+    description:
+      'Daniel X: Lights Out by James Patterson, 9780099567295, available at Book Depository with free delivery worldwide.',
+    name: 'Daniel X: Lights Out',
     price: 121.2,
   },
   cestujlevnecom: {
     currency: 'CZK',
-    description: '',
+    description:
+      'Akční Letenky Česká republika – Španělsko za 1 540 Kč. Běžně tyto Letenky stojí 2 000 Kč, proto s námi ušetříš 23 %.',
     name: 'Za akční cenu z Prahy a Vídně do Barcelony s Vuelingem. Letenky od 1 540 Kč',
     price: 1540,
   },
@@ -58,6 +60,13 @@ export default {
     name: 'Konec hazardu v hospodďż˝ch. Automaty budou vďż˝hradnďż˝ v hernďż˝ch',
     price: 0,
   },
+  iprima: {
+    currency: '',
+    description:
+      'Šedesát tisíc pro nejlepšího hostitele! Výzva, kterou rozhodně stojí za to přijmout. Pět soutěžících, pět večeří, menu tradiční, exotická i experimentální!...',
+    name: 'Prostřeno! XV (43)',
+    price: 0,
+  },
   lidl: {
     currency: 'CZK',
     description: 'Regulovatelná teplota od cca +200 °C do +450 °C',
@@ -73,7 +82,8 @@ export default {
   },
   ponyfoo: {
     currency: null,
-    description: null,
+    description:
+      'An impressively low-level article that we hope gives you a good idea about what happens in V8 when it comes to optimization.',
     name: 'An Introduction to Speculative Optimization in V8',
     price: null,
   },
@@ -91,10 +101,23 @@ export default {
     name: 'Air Optix Aqua (6 čoček)',
     price: 589,
   },
+  vimeo: {
+    currency: '',
+    description:
+      'Fly over a Rocky Mountain college town known for its expansive views, hyper-active residents, socks in Chacos, and bikes more expensive than the cars they’re…',
+    name: 'ABOVE BOULDER - 4K Drone Film',
+    price: 0,
+  },
   wikipedia: {
     currency: '',
     description: '',
     name: 'Computer',
+    price: 0,
+  },
+  youtube: {
+    currency: '',
+    description: '',
+    name: 'Chinese Food - YELLOW BEEF Hot Pot and Hot CHILI OIL RECIPE!',
     price: 0,
   },
   zajezdy_studentagency: {
