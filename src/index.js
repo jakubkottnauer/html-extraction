@@ -43,14 +43,18 @@ try {
       currencyMicro,
       descriptionMicro,
       descriptionMeta,
-    ].map((extractor: Stage2Plugin) => (results: Array<Value>) => [...results, extractor(newDom)]),
+    ].map((extractor: Stage2Plugin) => (results: Array<Value>) => { 
+      const result = extractor(newDom)
+      const toAppend = Array.isArray(result) ? result : [result]
+      return [...results, ...toAppend]
+    }),
     stage2Config
   )
   const stage2 = pipe(...stage2Plugins)
   const emptyResult = []
   const results = stage2(emptyResult)
 
-  // log(results)
+  log(results)
 
   // results
   const stage3Plugins = processConfigPlugins(3, [dedup], stage3Config)

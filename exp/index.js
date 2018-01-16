@@ -69,7 +69,7 @@ const onConsole = async (msg: { text: string }, file: string, output: string) =>
       .trim()
     const jsonResult: Stage3PluginData = JSON.parse(txtResult)
     const diff = diffResultExpected(file, jsonResult)
-    //console.log(file, '\n', jsonResult)
+    console.log(jsonResult)
     await appendFile(output, txtResult + '\n')
   }
 }

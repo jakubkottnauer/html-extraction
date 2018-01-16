@@ -46,16 +46,17 @@ export default {
     price: 370,
   },
   foodlover: {
-    currency: null,
-    description: null,
+    currency: '',
+    description: '',
     name: 'Čokoládová bábovka',
-    price: null,
+    price: 0,
   },
   idnes: {
-    currency: null,
-    description: null,
+    currency: '',
+    description:
+      'Herny a hospody s automaty ďż˝ekajďż˝ po Novďż˝m roce velkďż˝, pďż˝ďż˝mo historickďż˝ zmďż˝ny. Z hospod pďż˝ďż˝stroje nadobro zmizďż˝. A herny budou muset investovat do ďż˝pravy pďż˝ďż˝strojďż˝. Pďż˝ďż˝snďż˝jďż˝ďż˝ regulaci pocďż˝tďż˝ takďż˝ hrďż˝ďż˝i ďż˝ anonymnďż˝ uďż˝ si nikdo nezahraje. Od 1. ledna zaďż˝ďż˝nďż˝ v kamennďż˝ch provozovnďż˝ch platit novďż˝ zďż˝kon o hazardnďż˝m hranďż˝.',
     name: 'Konec hazardu v hospodďż˝ch. Automaty budou vďż˝hradnďż˝ v hernďż˝ch',
-    price: null,
+    price: 0,
   },
   lidl: {
     currency: 'CZK',
@@ -91,10 +92,10 @@ export default {
     price: 589,
   },
   wikipedia: {
-    currency: null,
-    description: null,
+    currency: '',
+    description: '',
     name: 'Computer',
-    price: null,
+    price: 0,
   },
   zajezdy_studentagency: {
     currency: 'CZK',

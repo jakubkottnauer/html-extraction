@@ -4,7 +4,7 @@ import { valueCreator, cleanupString, getMicrodataValue, levenshtein } from '../
 import type { Stage1PluginData, Stage2PluginData, Value } from '../../../types/plugin'
 import { priceSymbols } from '../../constants'
 
-const createValue = valueCreator('price', 'dom')
+const createValue = valueCreator('price', 'price.dom')
 
 export default (dom: Stage2PluginData): Value => {
   const priceElements = dom.find('.price')
