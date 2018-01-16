@@ -2,6 +2,8 @@
 
 export type Value = {
   confidence: number,
+  selector: ?string,
+  extractor: string,
   key: string,
   value: string | number,
 }

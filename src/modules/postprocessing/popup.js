@@ -5,8 +5,6 @@ import { cleanupString, getMicrodataValue, levenshtein } from '../../utils'
 import type { Stage3PluginData } from '../../../types/plugin'
 
 export default (dom: JQuery) => (results: Stage3PluginData): Stage3PluginData => {
-  console.log('WUUUUUTß')
-  console.log(dom.find('body').eq(0))
   dom
     .find('body')
     .eq(0)
@@ -24,7 +22,11 @@ export default (dom: JQuery) => (results: Stage3PluginData): Stage3PluginData =>
         border: 1px solid black;">
           <p><b>Extraction results</b></p>
           <ul>
-            ${results.reduce((acc, x) => acc + `<li>${x.key} - ${x.value} (${x.extractor}) - ${x.confidence} %</li>`, '')}
+            ${results.reduce(
+              (acc, x) =>
+                acc + `<li>${x.key} - ${x.value} (${x.extractor}) - ${x.confidence} %</li>`,
+              ''
+            )}
           </ul>
       </div>`
     )

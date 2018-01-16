@@ -4,7 +4,7 @@ import $ from 'jquery'
 import pipe from 'ramda/es/pipe'
 import * as extractionModules from './modules/extraction'
 import { removeBoilerplate, removeSocial } from './modules/cleanup'
-import { dedup, resultPopup } from './modules/postprocessing'
+import { dedup, highlight, popup } from './modules/postprocessing'
 import { getConfig, processConfigPlugins, log } from './utils'
 import type { Stage1PluginData, Stage2Plugin, Stage2PluginData, Value } from '../types/plugin'
 
@@ -41,7 +41,11 @@ function extract(dom: JQuery) {
 
 function postprocess(originalDom: JQuery) {
   return function(results) {
-    const plugins = processConfigPlugins(3, [dedup, resultPopup(originalDom)], stage3Config)
+    const plugins = processConfigPlugins(
+      3,
+      [dedup, popup(originalDom), highlight(originalDom)],
+      stage3Config
+    )
     const p = pipe(...plugins)
     return p(results)
   }

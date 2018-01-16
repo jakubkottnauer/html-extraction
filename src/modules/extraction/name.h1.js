@@ -13,7 +13,7 @@ export default (dom: Stage2PluginData): Value => {
   }
 
   if (headings.length === 1) {
-    return createValue(cleanupString(headings[0].innerText), 90)
+    return createValue(cleanupString(headings[0].innerText), 90, 'h1')
   }
 
   return createValue('', 0)
