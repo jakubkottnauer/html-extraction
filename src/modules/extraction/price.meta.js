@@ -1,12 +1,12 @@
 // @flow
 
-import { valueCreator, cleanupString, getMicrodataValue, levenshtein } from '../../utils'
+import { valueCreator, cleanupString, getMetaValue } from '../../utils'
 import type { Stage1PluginData, Stage2PluginData, Value } from '../../../types/plugin'
 
-const createValue = valueCreator('name', 'name.micro')
+const createValue = valueCreator('price', 'price.meta')
 
 function getValue(dom): ?Value {
-  const value = getMicrodataValue(dom, 'name')
+  const value = getMetaValue(dom, 'product:price:currency')
   if (!value) return null
   return createValue(value, 100)
 }

@@ -1,7 +1,6 @@
 // @flow
 
-import { pipe, groupBy, prop, pluck, map, sortBy, negate, pick, values } from 'ramda'
-import { cleanupString, getMicrodataValue, levenshtein } from '../../utils'
+import { pipe, groupBy, prop, pluck, map, sortBy, negate, values } from 'ramda'
 import type { Stage3PluginData } from '../../../types/plugin'
 
 export default (results: Stage3PluginData): Stage3PluginData => {
@@ -11,5 +10,6 @@ export default (results: Stage3PluginData): Stage3PluginData => {
     pluck(0),
     values
   )
+
   return process(results)
 }
