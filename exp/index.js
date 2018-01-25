@@ -81,7 +81,9 @@ async function testPage(file: string, output: string) {
   page.on('console', async msg => {
     await onConsole(msg, file, output)
   })
-
+  page.on('dialog', async dialog => {
+    await dialog.dismiss()
+  })
   await page.goto(`file://${file}`)
   await delay(2000) // Wait for 2 seconds so that all the parsing has enough time to finish.
   console.log(chalk.gray(`${file} done.\n`))

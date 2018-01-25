@@ -11,4 +11,4 @@ function getValue(dom): ?Value {
   return createValue(value, 100)
 }
 
-export default (dom: Stage2PluginData): Value => getValue(dom) || createValue('', 0)
+export default (dom: Stage2PluginData): Value => getValue(dom) || createValue(null, 0)

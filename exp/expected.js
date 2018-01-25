@@ -1,9 +1,11 @@
+// @flow
+
 export default {
   abebooks: {
     currency: 'USD',
-    description: '',
+    description: 'AbeBooks.com: A Game of Thrones (A Song of Ice and Fire, Book 1) (9780553573404) by George R.R. Martin and a great selection of similar New, Used and Collectible Books available now at great prices.',
     name: 'A Game of Thrones (A Song of Ice and Fire, Book 1)',
-    price: 4.86,
+    price: '4.86',
     entityType: 'product',
   },
   alza: {
@@ -11,15 +13,15 @@ export default {
     description:
       'Mobilní telefon 4.7" Retina 1334x750 IPS s technologií 3D Touch, procesor Apple A11 Bionic Hexa Core 64bit, interní paměť 64GB, fotoaparát 12Mpx F/1.8 + 7Mpx F/2.2, optická stabilizace, GPS, NFC, 3G/LTE, Lightning, snímač otisků prstů v tlačítku plochy, Qi bezdrátové nabíjení, rychlé nabíjení, voděodolný dle IP67, Nano SIM, iOS 11',
     name: 'iPhone 8 64GB Stříbrný',
-    price: 20639,
+    price: '20639',
     entityType: 'product',
   },
   amazon: {
     currency: 'USD',
-    description: '',
+    description: 'Our best-selling Kindle. 6" high-resolution display with built-in light--provides crisp, laser quality text with the highest resolution of any ereader.',
     name:
       'Kindle Paperwhite E-reader - Black, 6" High-Resolution Display (300 ppi) with Built-in Light, Wi-Fi - Includes Special Offers',
-    price: 119.99,
+    price: '119.99',
     entityType: 'product',
   },
   bookdepository: {
@@ -27,7 +29,7 @@ export default {
     description:
       'Daniel X: Lights Out by James Patterson, 9780099567295, available at Book Depository with free delivery worldwide.',
     name: 'Daniel X: Lights Out',
-    price: 121.2,
+    price: '121.2',
     entityType: 'product',
   },
   cestujlevnecom: {
@@ -35,7 +37,7 @@ export default {
     description:
       'Akční Letenky Česká republika – Španělsko za 1 540 Kč. Běžně tyto Letenky stojí 2 000 Kč, proto s námi ušetříš 23 %.',
     name: 'Za akční cenu z Prahy a Vídně do Barcelony s Vuelingem. Letenky od 1 540 Kč',
-    price: 1540,
+    price: '1540',
     entityType: 'vacation',
   },
   czc: {
@@ -43,7 +45,7 @@ export default {
     description:
       'Bezdrátový reproduktor kompaktní pro bezdrátový přenos hudby z mobilního telefonu či tabletu, LED indikace, Bluetooth 4.0, odolné vůči kapkám vody, mikrofon, 3.5mm AUX, microUSB',
     name: 'Samsung EO-SG510CD',
-    price: 899,
+    price: '899',
     entityType: 'product',
   },
   doubleshot: {
@@ -51,37 +53,38 @@ export default {
     description:
       'Suchým způsobem zpracovaná káva ze soukromé farmy pana Ismala Hassana. Čistá a výrazně aromatická káva s tóny kůry citrusů a hroznového vína, kterou pražíme primárně na přípravu espressa.',
     name: 'Etiopie Kayo Espresso',
-    price: 370,
+    price: '370',
     entityType: 'product',
   },
   foodlover: {
-    currency: '',
-    description: '',
+    currency: null,
+    description:
+      'Symbol neděle? Bábovka. Je to taková jistota, ke které se vracím vždycky, když nemám nápad na nic jiného nebo když toho doma moc nemáme a přesto chci něco upéct. Tahle je s máslem a čokoládou. Skvělá na upršené zimní odpoledne, když si k ní uvaříte čaj nebo kakao, bude vám dobře.',
     name: 'Čokoládová bábovka',
-    price: 0,
+    price: null,
     entityType: 'recipe',
   },
   idnes: {
-    currency: '',
+    currency: null,
     description:
       'Herny a hospody s automaty ďż˝ekajďż˝ po Novďż˝m roce velkďż˝, pďż˝ďż˝mo historickďż˝ zmďż˝ny. Z hospod pďż˝ďż˝stroje nadobro zmizďż˝. A herny budou muset investovat do ďż˝pravy pďż˝ďż˝strojďż˝. Pďż˝ďż˝snďż˝jďż˝ďż˝ regulaci pocďż˝tďż˝ takďż˝ hrďż˝ďż˝i ďż˝ anonymnďż˝ uďż˝ si nikdo nezahraje. Od 1. ledna zaďż˝ďż˝nďż˝ v kamennďż˝ch provozovnďż˝ch platit novďż˝ zďż˝kon o hazardnďż˝m hranďż˝.',
     name: 'Konec hazardu v hospodďż˝ch. Automaty budou vďż˝hradnďż˝ v hernďż˝ch',
-    price: 0,
+    price: null,
     entityType: 'article',
   },
   iprima: {
-    currency: '',
+    currency: null,
     description:
       'Šedesát tisíc pro nejlepšího hostitele! Výzva, kterou rozhodně stojí za to přijmout. Pět soutěžících, pět večeří, menu tradiční, exotická i experimentální!...',
     name: 'Prostřeno! XV (43)',
-    price: 0,
+    price: null,
     entityType: 'video',
   },
   lidl: {
     currency: 'CZK',
     description: 'Regulovatelná teplota od cca +200 °C do +450 °C',
     name: 'PARKSIDE® Digitální pájecí stanice PLSD 48 A1',
-    price: 599,
+    price: '599',
     entityType: 'product',
   },
   mall: {
@@ -89,7 +92,7 @@ export default {
     description:
       'Pozoruhodně tenký design Apple iPhone 6, který má Retina displej o úhlopříčce 4,7" a ještě rychlejší 64 bitový čip A8.',
     name: 'Apple iPhone 6, 32 GB, vesmírně šedý',
-    price: 9990,
+    price: '9990',
     entityType: 'product',
   },
   ponyfoo: {
@@ -113,36 +116,36 @@ export default {
     description:
       'Nové měsíční kontaktní čočky Air Optix Aqua jsou nástupcem oblíbených čoček Air Optix. Mezi hlavní vylepšení patří zvýšení smáčivosti o 30%.',
     name: 'Air Optix Aqua (6 čoček)',
-    price: 589,
+    price: '589.00',
     entityType: 'product',
   },
   vimeo: {
-    currency: '',
+    currency: null,
     description:
       'Fly over a Rocky Mountain college town known for its expansive views, hyper-active residents, socks in Chacos, and bikes more expensive than the cars they’re…',
     name: 'ABOVE BOULDER - 4K Drone Film',
-    price: 0,
+    price: null,
     entityType: 'video',
   },
   wikipedia: {
-    currency: '',
-    description: '',
+    currency: null,
+    description: null,
     name: 'Computer',
-    price: 0,
+    price: null,
     entityType: 'article',
   },
   youtube: {
-    currency: '',
-    description: '',
+    currency: null,
+    description: 'This Day 3 of this 4-part video Chinese food tour of Yunnan. Watch it all here: https://goo.gl/QhiJUb',
     name: 'Chinese Food - YELLOW BEEF Hot Pot and Hot CHILI OIL RECIPE!',
-    price: 0,
+    price: null,
     entityType: 'video',
   },
   zajezdy_studentagency: {
     currency: 'CZK',
     description: null,
     name: 'The Three Corners Triton Empire ***',
-    price: 4634,
+    price: '4634',
     entityType: 'vacation',
   },
 }

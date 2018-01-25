@@ -17,5 +17,5 @@ export default (dom: Stage2PluginData): Value => {
     }
   })
 
-  return createValue(0, 0)
+  return createValue(null, 0)
 }

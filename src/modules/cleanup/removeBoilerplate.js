@@ -2,7 +2,6 @@
 import type { Stage1PluginData } from '../../../types/plugin'
 
 export default function removeBoilerplate(dom: Stage1PluginData): Stage1PluginData {
-  console.log('REMOVING BOILERPLATE')
   dom
     .find(
       'a, input, button, menu, br, footer, nav, script, noscript, applet, embed, canvas, audio, iframe, hr, aside, form, style'

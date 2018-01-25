@@ -2,7 +2,7 @@
 import type { Value } from '../../types/plugin'
 
 export default (key: string, extractor: string = key) => (
-  value: string | number,
+  value: string | number | null,
   confidence: number,
   selector: ?string
 ): Value => ({

@@ -16,5 +16,5 @@ export default (dom: Stage2PluginData): Value => {
     return createValue(cleanupString(headings[0].innerText), 90, 'h1')
   }
 
-  return createValue('', 0)
+  return createValue(null, 0)
 }
