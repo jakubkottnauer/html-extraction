@@ -3,7 +3,11 @@
 import { valueCreator, cleanupString, getMetaValue, levenshtein } from '../../utils'
 import type { Stage1PluginData, Stage2PluginData, Value } from '../../../types/plugin'
 
-const fields = ['description', { field: 'og:description', sameAs: 'description' }, { field: 'product:price:currency', sameAs: 'price' }]
+const fields = [
+  'description',
+  { field: 'og:description', sameAs: 'description' },
+  { field: 'product:price:currency', sameAs: 'price' },
+]
 
 function getValue(dom, field: string | { field: string, sameAs: string }): Value {
   const resultName = typeof field === 'string' ? field : field.sameAs

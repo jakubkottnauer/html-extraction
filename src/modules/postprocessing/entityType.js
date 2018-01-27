@@ -6,7 +6,7 @@ import { entityTypes } from '../../constants'
 
 const createValue = valueCreator('entityType')
 
-const some = (results, key) => results.some(x => x.key === key && x.confidence > 0)
+const some = (results, key) => results.some(x => x.key === key && x.confidence > 0)
 
 export default (results: Stage3PluginData): Stage3PluginData => {
   let type = null

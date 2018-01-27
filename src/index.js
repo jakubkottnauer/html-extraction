@@ -27,7 +27,8 @@ function cleanup(dom: JQuery) {
 }
 
 function extract(dom: JQuery) {
-  const plugins = processConfigPlugins(2, Object.values(extractionModules), stage2Config)
+  const modules: Array<Stage2Plugin> = Object.values(extractionModules)
+  const plugins = processConfigPlugins(2, modules, stage2Config)
   const p = pipe(
     ...plugins.map((extractor: Stage2Plugin) => (results: Array<Value>) => {
       const result = extractor(dom)
@@ -43,7 +44,7 @@ function postprocess(originalDom: JQuery) {
   return function(results) {
     const plugins = processConfigPlugins(
       3,
-      [entityType, dedup, popup(originalDom), highlight(originalDom)],
+      [entityType, /*dedup,*/ popup(originalDom), highlight(originalDom)],
       stage3Config
     )
     const p = pipe(...plugins)

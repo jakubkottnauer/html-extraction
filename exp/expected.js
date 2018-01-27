@@ -3,7 +3,8 @@
 export default {
   abebooks: {
     currency: 'USD',
-    description: 'AbeBooks.com: A Game of Thrones (A Song of Ice and Fire, Book 1) (9780553573404) by George R.R. Martin and a great selection of similar New, Used and Collectible Books available now at great prices.',
+    description:
+      'AbeBooks.com: A Game of Thrones (A Song of Ice and Fire, Book 1) (9780553573404) by George R.R. Martin and a great selection of similar New, Used and Collectible Books available now at great prices.',
     name: 'A Game of Thrones (A Song of Ice and Fire, Book 1)',
     price: '4.86',
     entityType: 'product',
@@ -18,7 +19,8 @@ export default {
   },
   amazon: {
     currency: 'USD',
-    description: 'Our best-selling Kindle. 6" high-resolution display with built-in light--provides crisp, laser quality text with the highest resolution of any ereader.',
+    description:
+      'Our best-selling Kindle. 6" high-resolution display with built-in light--provides crisp, laser quality text with the highest resolution of any ereader.',
     name:
       'Kindle Paperwhite E-reader - Black, 6" High-Resolution Display (300 ppi) with Built-in Light, Wi-Fi - Includes Special Offers',
     price: '119.99',
@@ -136,7 +138,8 @@ export default {
   },
   youtube: {
     currency: null,
-    description: 'This Day 3 of this 4-part video Chinese food tour of Yunnan. Watch it all here: https://goo.gl/QhiJUb',
+    description:
+      'This Day 3 of this 4-part video Chinese food tour of Yunnan. Watch it all here: https://goo.gl/QhiJUb',
     name: 'Chinese Food - YELLOW BEEF Hot Pot and Hot CHILI OIL RECIPE!',
     price: null,
     entityType: 'video',

@@ -12,17 +12,20 @@ const readdir = promisify(fs.readdir)
 
 const outputPath = 'exp/out.txt'
 const inputPath = './dist'
-;(async () => {
+
+const main = async () => {
   const files = (await readdir(inputPath)).filter(file => path.extname(file) === '.html')
 
   console.log(`Starting up. Processing ${files.length} test files.`)
+  const summary = {}
   for (let file of files) {
-    const absolutePath = path.resolve(__dirname, '..', file)
-    await testPage(absolutePath, outputPath)
+    await testPage(file, outputPath, s => { summary[file] = s } )
   }
 
-  console.log('All done.')
-})()
+  console.log(summary)
+}
+
+main().then(() => { console.log('All done.') })
 
 const delay = (timeout: number) =>
   new Promise((resolve: any) => {
@@ -38,53 +41,60 @@ const diffResultExpected = (file: string, extractionResult: Stage3PluginData) =>
     return
   }
 
-  const keyCount = Object.keys(expectedResult).length
-  let correctResultCount = 0
+  let summary = {}
+  const sortedExtractrationResult = extractionResult.sort((a, b) => a.confidence < b.confidence ? 1 : -1)
   Object.keys(expectedResult).forEach(x => {
-    const res = extractionResult.find(r => r.key === x)
+    const res = sortedExtractrationResult.find(r => r.key === x)
     if (res) {
       const areEqual = res.value === expectedResult[x]
       if (areEqual) {
-        console.log(chalk.green(`${x}: "${res.value}" === "${expectedResult[x]}".`))
-        correctResultCount++
+        console.log(chalk.green(`${x}: "${res.value || ''}" === "${expectedResult[x]}".`))
+        summary = { ...summary, [res.key]: true }
       } else {
-        console.log(chalk.red(`${x}: Expected "${expectedResult[x]}" but got "${res.value}".`))
+        console.log(
+          chalk.red(`${x}: Expected "${expectedResult[x]}" but got "${res.value || ''}".`)
+        )
+        summary = { ...summary, [res.key]: false }
       }
     } else {
       console.log(`Property "${x}" not present in ${filename} result.`)
     }
   })
+  const keyCount = Object.keys(summary).length
+  const correctResultCount = Object.keys(summary).filter(x => summary[x]).length
   console.log(
     `${correctResultCount}/${keyCount} (${correctResultCount * 100 / keyCount} %) correct.`
   )
+
+  return summary
 }
 
 const onConsole = async (msg: { text: string }, file: string, output: string) => {
   const prefix = 'extractlog'
-
-  if (msg.text().startsWith(prefix)) {
-    const txtResult = msg
-      .text()
-      .split(prefix)[1]
-      .trim()
+  const txt = msg.text()
+  if (txt.startsWith(prefix)) {
+    const txtResult = txt.split(prefix)[1].trim()
     const jsonResult: Stage3PluginData = JSON.parse(txtResult)
-    const diff = diffResultExpected(file, jsonResult)
-    console.log(jsonResult)
+    const summary = diffResultExpected(file, jsonResult)
     await appendFile(output, txtResult + '\n')
+
+    return summary
   }
 }
 
-async function testPage(file: string, output: string) {
+async function testPage(file: string, output: string, onSummary: Function) {
+  const absolutePath = path.resolve(__dirname, '..', file)
   console.log(chalk.grey(`${file} starting.`))
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
   page.on('console', async msg => {
-    await onConsole(msg, file, output)
+    const summary = await onConsole(msg, absolutePath, output)
+    summary && onSummary(summary)
   })
   page.on('dialog', async dialog => {
     await dialog.dismiss()
   })
-  await page.goto(`file://${file}`)
+  await page.goto(`file://${absolutePath}`)
   await delay(2000) // Wait for 2 seconds so that all the parsing has enough time to finish.
   console.log(chalk.gray(`${file} done.\n`))
   await browser.close()
