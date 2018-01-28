@@ -13,7 +13,7 @@ const htmlPlugins = []
 
 fs
   .readdirSync(dataPath)
-  .filter(file => path.extname(file) === '.ejs')
+  .filter(file => path.extname(file) === '.html' || path.extname(file) === '.htm')
   .forEach(file => {
     htmlPlugins.push(
       new HtmlWebpackPlugin({
