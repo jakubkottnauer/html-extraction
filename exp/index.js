@@ -19,13 +19,17 @@ const main = async () => {
   console.log(`Starting up. Processing ${files.length} test files.`)
   const summary = {}
   for (let file of files) {
-    await testPage(file, outputPath, s => { summary[file] = s } )
+    await testPage(file, outputPath, s => {
+      summary[file] = s
+    })
   }
 
   console.log(summary)
 }
 
-main().then(() => { console.log('All done.') })
+main().then(() => {
+  console.log('All done.')
+})
 
 const delay = (timeout: number) =>
   new Promise((resolve: any) => {
@@ -42,7 +46,9 @@ const diffResultExpected = (file: string, extractionResult: Stage3PluginData) =>
   }
 
   let summary = {}
-  const sortedExtractrationResult = extractionResult.sort((a, b) => a.confidence < b.confidence ? 1 : -1)
+  const sortedExtractrationResult = extractionResult.sort(
+    (a, b) => (a.confidence < b.confidence ? 1 : -1)
+  )
   Object.keys(expectedResult).forEach(x => {
     const res = sortedExtractrationResult.find(r => r.key === x)
     if (res) {

@@ -14,8 +14,7 @@ try {
   const dom = $('html')
   const domClone = dom.clone()
 
-  const run = pipe(cleanup, extract, postprocess(dom), log)
-  run(domClone)
+  domClone |> cleanup |> extract |> postprocess(dom) |> log
 } catch (e) {
   console.warn('Error during extraction', e)
 }
