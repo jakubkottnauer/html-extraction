@@ -1099,17 +1099,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	});</script></div></div></footer><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"33dd46c4d6","applicationID":"54994561","transactionName":"MVxRMBQHWkIAAkFQDQgWcgcSD1tfTgJUTQMKVlRLFhRbVRQCQRYUD1xE","queueTime":0,"applicationTime":1947,"atts":"HRtSRlwdSUw=","errorBeacon":"bam.nr-data.net","agent":""}</script>
 	
 <script>
-	console.log("CONFIG SET FROM TEMPLATE")
-
 	function x(data) {
-		console.log("LOGGING FROM PLUGIN")
+		console.log('LOGGING FROM PLUGIN', data)
 		return data
 	}
 
 	window.extractorConfig = {
 		stage1: {
 			append: false,
-			plugins: [x, 'removeBoilerplate', 'removeSocial']
+			plugins: [x, 'removeBoilerplate', 'removeSocial', x]
+		},
+		stage3: {
+			append: true,
+			plugins: [x]
 		},
 	}
 </script>

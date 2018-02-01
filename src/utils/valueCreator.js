@@ -7,7 +7,7 @@ export default (key: string, extractor: string = key) => (
   selector: ?string
 ): Value => ({
   key,
-  value: confidence < 0 || confidence > 100 ? 'INVALID CONFIDENCE' : value,
+  value: (confidence < 0 || confidence > 100) ? 'INVALID CONFIDENCE' : value,
   confidence,
   extractor,
   selector,

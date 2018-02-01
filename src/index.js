@@ -13,7 +13,6 @@ const { stage1: stage1Config, stage2: stage2Config, stage3: stage3Config } = get
 try {
   const dom = $('html')
   const domClone = dom.clone()
-
   domClone |> cleanup |> extract |> postprocess(dom) |> log
 } catch (e) {
   console.warn('Error during extraction', e)
@@ -29,8 +28,8 @@ function extract(dom: JQuery) {
   const modules: Array<Stage2Plugin> = Object.values(extractionModules)
   const plugins = processConfigPlugins(2, modules, stage2Config)
   const p = pipe(
-    ...plugins.map((extractor: Stage2Plugin) => (results: Array<Value>) => {
-      const result = extractor(dom)
+    ...plugins.map((plugin: Stage2Plugin) => (results: Array<Value>) => {
+      const result = plugin(dom)
       const toAppend = Array.isArray(result) ? result : [result]
       return [...results, ...toAppend]
     })
