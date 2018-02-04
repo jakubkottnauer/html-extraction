@@ -5,7 +5,7 @@ export type Value = {
   selector: ?string,
   extractor: string,
   key: string,
-  value: string | number | null,
+  value: string | number | boolean | null,
 }
 
 export type Stage1PluginData = JQuery

@@ -1,7 +1,6 @@
 // @flow
 
 import { cleanupString } from './index'
-import $ from 'jquery'
 
 export default function getJsonldValue(dom: JQuery, field: string): ?string {
   const tag = dom.find('script[type="application/ld+json"]')[0]

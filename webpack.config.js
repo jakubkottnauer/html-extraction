@@ -10,6 +10,9 @@ module.exports = {
   },
   resolve: {
     modules: ['node_modules'],
+    alias: {
+      jquery: path.resolve(__dirname, 'lib/jquery.js'),
+    },
   },
   module: {
     rules: [
