@@ -14,7 +14,6 @@ module.exports = merge(common, {
   },
   plugins: [
     new UglifyJsPlugin(),
-    new webpack.optimize.OccurrenceOrderPlugin(),
     new CompressionPlugin({
       asset: '[path].gz[query]',
       algorithm: 'gzip',
