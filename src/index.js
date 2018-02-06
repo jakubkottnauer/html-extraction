@@ -18,13 +18,13 @@ try {
   console.warn('Error during extraction', e)
 }
 
-const cleanup = (dom: JQuery) => {
+function cleanup(dom: JQuery) {
   const plugins = processConfigPlugins(1, [removeBoilerplate, removeSocial], stage1Config)
   const p = pipe(...plugins)
   return p(dom)
 }
 
-const extract = (dom: JQuery) => {
+function extract(dom: JQuery) {
   const modules: Array<Stage2Plugin> = Object.values(extractionModules)
   const plugins = processConfigPlugins(2, modules, stage2Config)
   const p = pipe(
@@ -38,9 +38,13 @@ const extract = (dom: JQuery) => {
   return p([])
 }
 
-const postprocess = (originalDom: JQuery) => {
+function postprocess(originalDom: JQuery) {
   return function(results) {
-    const plugins = processConfigPlugins(3, [entityType, dedup, popup, highlight], stage3Config)
+    const plugins = processConfigPlugins(
+      3,
+      [entityType, dedup, popup, highlight],
+      stage3Config
+    )
     const p = pipe(...plugins.map(p => p(originalDom)))
     return p(results)
   }
