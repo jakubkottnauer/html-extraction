@@ -54,6 +54,7 @@
   },
   "dependencies": {
     "npm-check-updates": "^2.14.0",
-    "ramda": "^0.25.0"
+    "ramda": "^0.25.0",
+    "whatwg-fetch": "^2.0.3"
   }
 }
