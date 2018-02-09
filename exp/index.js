@@ -18,7 +18,7 @@ const main = async () => {
 
   console.log(`Starting up. Processing ${files.length} test files.`)
   const summary = {}
-  for (let file of files) {
+  for (const file of files) {
     await testPage(file, outputPath, s => {
       summary[file] = s
     })
@@ -52,14 +52,13 @@ const diffResultExpected = (file: string, extractionResult: Stage3PluginData) =>
   Object.keys(expectedResult).forEach(x => {
     const res = sortedExtractrationResult.find(r => r.key === x)
     if (res) {
+      const strValue = res.value ? res.value.toString() : ''
       const areEqual = res.value === expectedResult[x]
       if (areEqual) {
-        console.log(chalk.green(`${x}: "${res.value || ''}" === "${expectedResult[x]}".`))
+        console.log(chalk.green(`${x}: "${strValue}" === "${expectedResult[x]}".`))
         summary = { ...summary, [res.key]: true }
       } else {
-        console.log(
-          chalk.red(`${x}: Expected "${expectedResult[x]}" but got "${res.value || ''}".`)
-        )
+        console.log(chalk.red(`${x}: Expected "${expectedResult[x]}" but got "${strValue}".`))
         summary = { ...summary, [res.key]: false }
       }
     } else {
