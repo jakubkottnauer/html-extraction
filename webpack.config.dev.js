@@ -26,7 +26,7 @@ fs
 
 module.exports = merge(common, {
   watch: true,
-  devtool: '#cheap-module-eval-source-map',
+  mode: 'development',
   output: {
     path: distPath,
     filename: '[name].[chunkhash].js',

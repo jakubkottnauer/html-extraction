@@ -36,6 +36,7 @@ main().then(() => {
 })
 
 function cleanup(dom: JQuery) {
+  console.log("sdf")
   const plugins = processConfigPlugins(1, [removeBoilerplate, removeSocial], stage1Config)
   const p = pipe(...plugins)
   return p(dom)

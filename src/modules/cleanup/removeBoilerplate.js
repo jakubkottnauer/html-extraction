@@ -13,8 +13,6 @@ export default function removeBoilerplate(dom: Stage1PluginData): Stage1PluginDa
   const ids = '#' + classesIds.join(', #')
   dom.find(classes).remove()
   dom.find(ids).remove()
-  dom.find('[style*="display: none"]').remove()
-  dom.find('[onclick]').remove()
-  dom.find('img[alt=""]').remove()
+  dom.find('[style*="display: none"], [onclick], img[alt=""]').remove()
   return dom
 }

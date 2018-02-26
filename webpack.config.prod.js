@@ -8,12 +8,12 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const distPath = path.join(__dirname, '/dist')
 
 module.exports = merge(common, {
+  mode: 'production',
   output: {
     path: distPath,
     filename: 'prod.js',
   },
   plugins: [
-    new UglifyJsPlugin(),
     new CompressionPlugin({
       asset: '[path].gz[query]',
       algorithm: 'gzip',
