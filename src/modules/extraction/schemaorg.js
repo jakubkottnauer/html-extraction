@@ -3,22 +3,16 @@
 import { valueCreator, cleanupString, getMicrodataValue, levenshtein } from '../../utils'
 import type { Stage1PluginData, Stage2PluginData, Value } from '../../../types/plugin'
 
-export default async (dom: Stage2PluginData): Promise<Value> => {
-  const createValue = valueCreator('schemaorg')
-  return createValue('no data', 0)
-  /*try {
-    /*const response = await fetch('http://schema.org/version/latest/schema.jsonld', {
+const key = 'microdata.schemaorg'
 
-      headers: {
-        'Accept': 'application/ld+json',
-        'Content-Type': 'application/ld+json',
-      },
-    })
-    const data = await response.json();
-    console.log(data)
-    return createValue('YEEES', 0)
-  } catch (e) {
-    console.log(e)
-    return createValue('fetch error', 0)
-  }*/
+export default async (dom: Stage2PluginData): Promise<Value> => {
+  const schema = await import('./schema.json')
+  if (!schema) return valueCreator(key)('no data', 0)
+
+  return schema['@graph']
+    .filter(node => node['@type'] === 'rdf:Property')
+    .map(node => node['rdfs:label'])
+    .map(field => ({ field, value: getMicrodataValue(dom, field) }))
+    .filter(r => r.value)
+    .map(r => valueCreator(r.field, key)(r.value, 100))
 }

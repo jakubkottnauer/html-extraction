@@ -5,3 +5,4 @@ exp/out.txt
 .eslintcache
 .DS_STORE
 flow-typed
+yarn-error.log

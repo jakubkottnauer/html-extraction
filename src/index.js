@@ -48,7 +48,7 @@ async function extract(dom: JQuery) {
   let results: Array<Value> = []
   for (const p of plugins) {
     try {
-      const result = await p(dom)
+      const result = await p(dom.clone())
       const toAppend: Array<Value> = Array.isArray(result) ? result : [result]
       results = [...results, ...toAppend]
     } catch (e) {
