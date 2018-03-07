@@ -5,7 +5,7 @@ const common = require('./webpack.config.js')
 const path = require('path')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
-const distPath = path.join(__dirname, '/dist')
+const distPath = path.join(__dirname, '..', '/dist')
 
 module.exports = merge(common, {
   mode: 'production',

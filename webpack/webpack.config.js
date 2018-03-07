@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 const path = require('path')
 
-const srcPath = path.join(__dirname, '/src')
+const srcPath = path.join(__dirname, '..', '/src')
 
 module.exports = {
   cache: true,
@@ -11,7 +11,7 @@ module.exports = {
   resolve: {
     modules: ['node_modules'],
     alias: {
-      jquery: path.resolve(__dirname, 'lib/jquery.js'),
+      jquery: path.resolve(__dirname, '../lib/jquery.js'),
     },
   },
   module: {
