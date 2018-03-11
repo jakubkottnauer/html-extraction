@@ -17,12 +17,9 @@ module.exports = {
   module: {
     rules: [
       {
-        oneOf: [
-          {
-            test: /\.js$/,
-            loader: require.resolve('babel-loader'),
-          },
-        ],
+        include: [srcPath],
+        test: /\.js$/,
+        loader: require.resolve('babel-loader'),
       },
     ],
   },

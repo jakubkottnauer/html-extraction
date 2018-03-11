@@ -11,7 +11,7 @@ module.exports = merge(common, {
   mode: 'production',
   output: {
     path: distPath,
-    filename: 'prod.js',
+    filename: 'html_extract.js',
   },
   plugins: [
     new CompressionPlugin({
