@@ -1,0 +1,1118 @@
+ <!doctype html><html lang="cs-CZ"><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# product: http://ogp.me/ns/product#"> <script>
+    var require = {
+        "baseUrl": "https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ"
+    };</script> <meta charset="utf-8"/><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+<meta name="description" content="Such&yacute;m způsobem zpracovan&aacute; k&aacute;va ze soukrom&eacute; farmy pana Ismala Hussana. Čist&aacute; a v&yacute;razně aromatick&aacute; k&aacute;va s t&oacute;ny kůry citrusů a hroznov&eacute;ho v&iacute;na, kterou praž&iacute;me prim&aacute;rně na př&iacute;pravu espressa."/>
+<meta name="keywords" content="kayo, kayon mountain, jednodruhov&eacute; espresso, single origin espresso, etiopsk&aacute; k&aacute;va, shakiso, Ismal Hussan"/>
+<meta name="robots" content="INDEX,FOLLOW"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+<title>Etiopie Kayo Natural Espresso doubleshot - česká pražírna výběrové kávy</title>
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/mage/calendar.min.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/css/styles-m.min.css" />
+<link  rel="stylesheet" type="text/css"  media="all" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/mage/gallery/gallery.min.css" />
+<link  rel="stylesheet" type="text/css"  media="screen and (min-width: 768px)" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/css/styles-l.min.css" />
+<link  rel="stylesheet" type="text/css"  media="print" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/css/print.min.css" />
+<link  rel="icon" type="image/x-icon" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/Magento_Theme/favicon.ico" />
+<link  rel="shortcut icon" type="image/x-icon" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/Magento_Theme/favicon.ico" />
+<script  type="text/javascript"  src="https://www.doubleshot.cz/pub/static/version1510331080/_cache/merged/d8d15098748e3799fc58556cf57a1436.js"></script>
+<link  rel="canonical" href="https://www.doubleshot.cz/etiopie-kayo-natural-espresso" />
+<!--d6d89b533317a6e19b144579f04340da-->  <link rel="stylesheet" type="text/css" media="all" href="//maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"/><script>
+
+	 window.dataLayer = window.dataLayer || [], collection = [];
+
+	 AEC.Const = 
+	{
+		TIMING_CATEGORY_ADD_TO_CART:		'Add To Cart Time',
+		TIMING_CATEGORY_REMOVE_FROM_CART:	'Remove From Cart Time',
+		TIMING_CATEGORY_PRODUCT_CLICK:		'Product Detail Click Time',
+		TIMING_CATEGORY_CHECKOUT:			'Checkout Time',
+		TIMING_CATEGORY_CHECKOUT_STEP:		'Checkout Step Time'
+	};
+
+	AEC.Const.URL 					= 'https://www.doubleshot.cz/';
+	AEC.Const.VARIANT_DELIMITER 	= '-';
+	AEC.Const.VARIANT_DELIMITER_ATT = ':';
+
+	 AEC.Const.CHECKOUT_STEP_SHIPPING 	= 1;
+	AEC.Const.CHECKOUT_STEP_PAYMENT  	= 2;
+	AEC.Const.CHECKOUT_STEP_ORDER  		= 3;
+
+	 AEC.Message = 
+	{
+		confirmRemove: 'Opravdu chcete tento produkt odstranit z košíku?'
+	};
+			
+	AEC.storeName 			= 'cz';
+	AEC.currencyCode	 	= 'CZK';
+	AEC.useDefaultValues 	=  true;
+	AEC.facebook 			=  false;
+	AEC.eventCallback		=  true;
+
+	 AEC.SUPER = [];
+
+	</script> <script>
+
+	/**
+ 	 * Define dataLayer[] object
+	 */
+	window.dataLayer = window.dataLayer || [];
+
+	/**
+	 * Define transport layer to use as fallback in case of Ad-Blockers
+	 * 
+	 * @copyright Anowave
+	 */
+	var dataLayerTransport = (function()
+	{
+		var data = [];
+		
+		return {
+			data:[],
+			push: function(data)
+			{
+				this.data.push(data);
+				
+				return this;
+			},
+			serialize: function()
+			{
+				return this.data;
+			}
+		}	
+	})();</script> <script>
+
+	var EC = [], Purchase = [];
+
+	/* Dynamic remarketing */
+	window.google_tag_params = window.google_tag_params || {};
+
+	/* Default pagetype */
+	window.google_tag_params.ecomm_pagetype = 'product';
+
+	/* Grouped products collection */
+	window.G = [];
+
+	/**
+	 * Global revenue 
+	 */
+	window.revenue = 0;
+
+	/**
+	 * DoubleClick
+	 */
+	window.DoubleClick = 
+	{
+		DoubleClickRevenue:	 	0,
+		DoubleClickTransaction: 0,
+		DoubleClickQuantity: 	0
+	};
+	
+	var visitor = {
+    "visitorLoginState": "Logged out",
+    "visitorLifetimeValue": 0,
+    "visitorExistingCustomer": "Ne",
+    "visitorType": "NOT LOGGED IN",
+    "currentStore": "cz"
+};
+
+	  AEC.Cookie.visitor(visitor).push(dataLayer);</script>   <script>
+	
+		 window.google_tag_params.ecomm_pagetype 	= 'product';
+		window.google_tag_params.ecomm_category 	= 'Káva';
+		window.google_tag_params.ecomm_prodid		= '04452201_350';
+		window.google_tag_params.ecomm_totalvalue 	=  370;
+		window.google_tag_params.returnCustomer 	=  false;
+		
+		 AEC.Cookie.detail({
+    "ecommerce": {
+        "currencyCode": "CZK",
+        "detail": {
+            "actionField": {
+                "list": "K\u00e1va"
+            },
+            "products": [
+                {
+                    "id": "04452201_350",
+                    "name": "Etiopie Kayo Espresso",
+                    "price": 370,
+                    "brand": "doubleshot",
+                    "category": "K\u00e1va",
+                    "quantity": 1
+                }
+            ]
+        },
+        "impressions": [
+            {
+                "list": "Related products",
+                "category": "Related products",
+                "id": "VSTM-2000HSV",
+                "name": "Hario V60 nerezov\u00e1 digit\u00e1ln\u00ed v\u00e1ha se stopkami",
+                "brand": "Hario (Japonsko)",
+                "price": 1995,
+                "position": 1
+            },
+            {
+                "list": "Related products",
+                "category": "Related products",
+                "id": "BSSRB2",
+                "name": "Brewista v\u00e1ha Smart Scale V2",
+                "brand": "Brewista (\u010c\u00edna)",
+                "price": 2050,
+                "position": 2
+            },
+            {
+                "list": "Related products",
+                "category": "Related products",
+                "id": "1085-230V",
+                "name": "Baratza Fort\u00e9 AP (espresso)",
+                "brand": "Baratza (Taiwan)",
+                "price": 25590,
+                "position": 3
+            },
+            {
+                "list": "Related products",
+                "category": "Related products",
+                "id": "sette270",
+                "name": "Baratza Sette 270",
+                "brand": "Baratza (Taiwan)",
+                "price": 10990,
+                "position": 4
+            }
+        ]
+    },
+    "currentStore": "cz"
+}).push(dataLayer);
+		
+		 window.G = [];
+
+		</script>   <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MSFWC4');</script>
+<!-- End Google Tag Manager -->  <script>AEC.Persist.merge()</script><script>AEC.Cookie.pushPrivate()</script>   <!-- favicons --><link rel="icon" type="image/png" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/apple-icon-180x180.png" /><link rel="apple-touch-startup-image" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/apple-icon-180x180.png"><link rel="apple-touch-icon" sizes="57x57" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/apple-icon-57x57.png" /><link rel="apple-touch-icon" sizes="60x60" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/apple-icon-60x60.png" /><link rel="apple-touch-icon" sizes="72x72" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/apple-icon-72x72.png" /><link rel="apple-touch-icon" sizes="76x76" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/apple-icon-76x76.png" /><link rel="apple-touch-icon" sizes="114x114" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/apple-icon-114x114.png" /><link rel="apple-touch-icon" sizes="120x120" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/apple-icon-120x120.png" /><link rel="apple-touch-icon" sizes="144x144" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/apple-icon-144x144.png" /><link rel="apple-touch-icon" sizes="152x152" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/apple-icon-152x152.png" /><link rel="apple-touch-icon" sizes="180x180" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/apple-icon-180x180.png" /><link rel="icon" type="image/png" sizes="72x72" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/android-icon-72x72.png" /><link rel="icon" type="image/png" sizes="144x144" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/android-icon-144x144.png" /><link rel="icon" type="image/png" sizes="192x192" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/android-icon-192x192.png" /><link rel="icon" type="image/png" sizes="32x32" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/favicon-32x32.png" /><link rel="icon" type="image/png" sizes="96x96" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/favicon-96x96.png" /><link rel="icon" type="image/png" sizes="16x16" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/favicon-16x16.png" /><link rel="manifest" href="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/manifest.json" /><meta name="msapplication-TileColor" content="#ffffff" /><meta name="msapplication-TileImage" content="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/ms-icon-144x144.png" /><meta name="theme-color" content="#ffffff" /><!-- /favicons --> <meta property="og:type" content="og:product" /><meta property="og:title" content="Etiopie Kayo Espresso" /><meta property="og:image" content="https://www.doubleshot.cz/pub/media/catalog/product/cache/image/265x265/1ac472b2e3bed24f4b7f75082897d970/e/t/etiopie_kayo_natural_350.jpg" /><meta property="og:description" content="&lt;p&gt;Suchým způsobem zpracovaná káva ze soukromé farmy pana &lt;strong&gt;Ismala Hassana&lt;/strong&gt;. Čistá a výrazně aromatická káva s tóny kůry citrusů a hroznového vína, kterou pražíme primárně na přípravu espressa.&lt;/p&gt; " /><meta property="og:url" content="https://www.doubleshot.cz/etiopie-kayo-natural-espresso" /> <meta property="product:price:amount" content="370"/> <meta property="product:price:currency" content="CZK"/> 
+<meta property="og:type" content="product"/>
+<meta property="og:title" content="Etiopie Kayo Espresso"/>
+<meta property="og:description" content="&lt;p&gt;Suchým způsobem zpracovaná káva ze soukromé farmy pana &lt;strong&gt;Ismala Hassana&lt;/strong&gt;. Čistá a výrazně aromatická káva s tóny kůry citrusů a hroznového vína, kterou pražíme primárně na přípravu espressa.&lt;/p&gt;"/>
+<meta property="og:url" content="https://www.doubleshot.cz/etiopie-kayo-natural-espresso"/>
+<meta property="product:price:amount" content="370"/>
+<meta property="product:price:currency" content="CZK"/>
+<meta property="og:image" content="https://www.doubleshot.cz/pub/media/catalog/product/cache/image/265x265/1ac472b2e3bed24f4b7f75082897d970/e/t/etiopie_kayo_natural_350.jpg"/>
+<meta property="og:brand" content="doubleshot"/>
+<meta property="og:site_name" content="doubleshot.cz"/>
+<meta property="og:category" content="Káva"/>
+<meta property="og:availability" content="instock"/>
+<meta property="og:condition" content="new"/>
+<meta property="twitter:site" content="doubleshot_cz"/>
+<meta property="twitter:creator" content="doubleshot_cz"/>
+<meta property="twitter:card" content="product"/>
+<meta property="twitter:title" content="Etiopie Kayo Espresso"/>
+<meta property="twitter:description" content="&lt;p&gt;Suchým způsobem zpracovaná káva ze soukromé farmy pana &lt;strong&gt;Ismala Hassana&lt;/strong&gt;. Čistá a výrazně aromatická káva s tóny kůry citrusů a hroznového vína, kterou pražíme primárně na přípravu espressa.&lt;/p&gt;"/>
+<meta property="twitter:url" content="https://www.doubleshot.cz/etiopie-kayo-natural-espresso"/>
+<meta property="twitter:label1" content="Price"/>
+<meta property="twitter:data1" content="370"/>
+<meta property="twitter:label2" content="Availability"/>
+<meta property="twitter:data2" content="instock"/>
+<script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"WebSite","url":"https:\/\/www.doubleshot.cz\/","name":"doubleshot.cz","about":"doubleshot - \u010desk\u00e1 pra\u017e\u00edrna v\u00fdb\u011brov\u00e9 k\u00e1vy"}</script><script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"Organization","name":"doubleshot s.r.o.","description":"Jsme \u010desk\u00e1 pra\u017e\u00edrna v\u00fdb\u011brov\u00e9 k\u00e1vy, kterou nakupujeme osobn\u011b z rukou farm\u00e1\u0159\u016f a ka\u017ed\u00fd den pro v\u00e1s pe\u010dliv\u011b pra\u017e\u00edme. V Praze provozujeme kav\u00e1rny, cukr\u00e1rnu a tak\u00e9 e\u2011shop, kter\u00fd von\u00ed k\u00e1vou.","telephone":"+420314004550","email":"info@doubleshot.cz","address":{"@type":"PostalAddress","addressLocality":"Praha","addressRegion":"","streetAddress":"Deht\u00e1ry 37","postalCode":"25091"},"sameAs":[["https:\/\/www.facebook.com\/doubleshot.cze","https:\/\/twitter.com\/doubleshot_cz","https:\/\/www.instagram.com\/doubleshotcz\/"]],"image":"https:\/\/www.doubleshot.cz\/pub\/media\/seller_image\/default\/logo_new_500x500.png","url":"https:\/\/www.doubleshot.cz\/"}</script><script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"Product","name":"Etiopie Kayo Espresso","description":"<p>Such\u00fdm zp\u016fsobem zpracovan\u00e1 k\u00e1va ze soukrom\u00e9 farmy pana <strong>Ismala Hassana<\/strong>. \u010cist\u00e1 a v\u00fdrazn\u011b aromatick\u00e1 k\u00e1va s t\u00f3ny k\u016fry citrus\u016f a hroznov\u00e9ho v\u00edna, kterou pra\u017e\u00edme prim\u00e1rn\u011b na p\u0159\u00edpravu espressa.<\/p>","image":"https:\/\/www.doubleshot.cz\/pub\/media\/catalog\/product\/cache\/image\/265x265\/1ac472b2e3bed24f4b7f75082897d970\/e\/t\/etiopie_kayo_natural_350.jpg","offers":{"@type":"http:\/\/schema.org\/Offer","price":370,"priceCurrency":"CZK","availability":"http:\/\/schema.org\/InStock","itemCondition":"NewCondition"},"brand":"doubleshot","manufacturer":"doubleshot","sku":"04452201_350","weight":"0.3500 kgs","category":"K\u00e1va"}</script></head><body data-container="body" data-mage-init='{"loaderAjax": {}, "loader": { "icon": "https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/images/loader-2.gif"}}' class="catalog-product-view product-etiopie-kayo-natural-espresso categorypath-kava category-kava page-layout-1column">           <script>
+        require.config({
+            deps: [
+                'jquery',
+                'mage/translate',
+                'jquery/jquery-storageapi'
+            ],
+            callback: function ($) {
+                'use strict';
+
+                var dependencies = [],
+                    versionObj;
+
+                $.initNamespaceStorage('mage-translation-storage');
+                $.initNamespaceStorage('mage-translation-file-version');
+                versionObj = $.localStorage.get('mage-translation-file-version');
+
+                if (versionObj.version !== 'd6161411f7de10b784517dd3760e36009653ec33') {
+                    dependencies.push(
+                        'text!js-translation.json'
+                    );
+
+                }
+
+                require.config({
+                    deps: dependencies,
+                    callback: function (string) {
+                        if (typeof string === 'string') {
+                            $.mage.translate.add(JSON.parse(string));
+                            $.localStorage.set('mage-translation-storage', string);
+                            $.localStorage.set(
+                                'mage-translation-file-version',
+                                {
+                                    version: 'd6161411f7de10b784517dd3760e36009653ec33'
+                                }
+                            );
+                        } else {
+                            $.mage.translate.add($.localStorage.get('mage-translation-storage'));
+                        }
+                    }
+                });
+            }
+        });</script>  <script type="text/x-magento-init">
+    {
+        "*": {
+            "mage/cookies": {
+                "expires": null,
+                "path": "/",
+                "domain": ".doubleshot.cz",
+                "secure": false,
+                "lifetime": "3600"
+            }
+        }
+    }</script>   <noscript><div class="message global noscript"><div class="content"><p><strong>Javascript ve vašem prohlížeči se zdá být vypnutý.</strong> <span>Pro optimální funkčnost webu je nutné ve vašem prohlížeči zapnout Javascript.</span></p></div></div></noscript>      <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSFWC4"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) --> <div data-bind="scope: 'autocomplete'"><!-- ko template: getTemplate() --><!-- /ko --></div><script type="text/x-magento-init">
+    {"*":{"Magento_Ui\/js\/core\/app":{"components":{"autocompleteInjection":{"component":"Mirasvit_SearchAutocomplete\/js\/injection","config":[]},"autocomplete":{"component":"Mirasvit_SearchAutocomplete\/js\/autocomplete","provider":"autocompleteProvider","config":{"query":"","priceFormat":{"pattern":"%s\u00a0K\u010d","precision":2,"requiredPrecision":2,"decimalSymbol":",","groupSymbol":"\u00a0","groupLength":3,"integerRequired":1},"minSearchLength":3}},"autocompleteProvider":{"component":"Mirasvit_SearchAutocomplete\/js\/provider","config":{"url":"https:\/\/www.doubleshot.cz\/searchautocomplete\/ajax\/suggest\/","delay":30,"minSearchLength":3}},"autocompleteNavigation":{"component":"Mirasvit_SearchAutocomplete\/js\/navigation","autocomplete":"autocomplete"},"autocompleteRecent":{"component":"Mirasvit_SearchAutocomplete\/js\/recent","autocomplete":"autocomplete","provider":"autocompleteProvider","config":{"limit":5,"minSearchLength":3}}}}}}</script><div class="page-wrapper"> <div class="hello-bar-container"> </div><script type="text/x-magento-init">
+	{
+		"*": {
+			"MageXo_HelloBar/js/HelloBar": {}
+		}
+	}</script><header class="page-header"><div class="panel wrapper"><div class="panel header"> <a class="action skip contentarea" href="#contentarea"><span>Přejít na obsah</span></a>       <div class="single-language-switcher"><a href="#" data-post='{"action":"https:\/\/www.doubleshot.cz\/stores\/store\/switch\/","data":{"uenc":"aHR0cHM6Ly93d3cuZG91Ymxlc2hvdC5jei9jb2ZmZWUvZXRoaW9waWEta2F5by1uYXR1cmFsLWVzcHJlc3Nv","___store":"en"}}'>en</a></div> <ul class="header links"> <li class="greet welcome" data-bind="scope: 'customer'"><!-- ko if: customer().fullname --><span data-bind="text: new String('Přihlášen(a) %1').replace('%1', '')"></span> <!-- /ko --><!-- ko ifnot: customer().fullname --><span data-bind="html:''"></span> <!-- /ko --></li> <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "customer": {
+                            "component": "Magento_Customer/js/view/customer"
+                        }
+                    }
+                }
+            }
+        }</script> <script>
+	require(['jquery'], function ($) {
+		var pageHeader = $('.page-header');
+
+		$(window).on('scroll.sticker',function() {
+			init();
+		});
+
+		$('.logo').click(function(e) {
+			if (pageHeader.hasClass('sticker-header-wrapper')) {
+				e.preventDefault();
+
+				$('body,html').animate({'scrollTop':0},200,function() {
+					$('.page-wrapper').removeAttr('style');
+					pageHeader.removeClass('sticker-header-wrapper show');
+				});
+			}
+		});
+
+		$(".content-list a").click(function() {
+			$(".content-list a").removeClass('active');
+			$(this).addClass('active');
+			var sectionId = $(this).attr('href');
+
+			$('html, body').animate({
+				scrollTop: $(sectionId).offset().top-100
+			}, 1000);
+		});
+
+		$(".back-to-top").click(function() {
+			$('html,body').animate({ scrollTop: 0 }, 1000);
+		});
+
+		$(".content-list-non-static a").click(function() {
+			$(".content-list-non-static a").removeClass('active');
+			$(this).addClass('active');
+			$(".faq-content .panel").hide();
+			var panelId = $(this).attr('href');
+			var panel = '.faq-content #panel_'+panelId.replace('#','');
+			$(panel).show();
+			$('html, body').animate({
+				scrollTop: $(panel).offset().top-100
+			}, 1000);
+
+		});
+
+		function setSticky(height) {
+			$('.page-wrapper').css('padding-top',height + 'px');
+			pageHeader.addClass('sticker-header-wrapper show');
+			$('#maincontent').addClass('sticker-header');
+		}
+
+		function unsetSticky() {
+			$('.page-wrapper').removeAttr('style');
+			pageHeader.removeClass('sticker-header-wrapper show');
+			$('#maincontent').removeClass('sticker-header');
+		}
+
+		function init() {
+			var showPoint = $('#maincontent').offset().top + 5,
+				headerHeight = pageHeader.height() + parseInt(pageHeader.css('margin-bottom').replace('px','')),
+				scrollTop = $(window).scrollTop();
+
+			if (scrollTop > showPoint && !pageHeader.hasClass('show')) {
+				setSticky(headerHeight);
+			}
+			else if (scrollTop <= showPoint && pageHeader.hasClass('show')) {
+				unsetSticky();
+			}
+		}
+	});</script>  <li class="authorization-link"><a href="https://www.doubleshot.cz/customer/account/login/">Přihlásit</a></li><li><a href="https://www.doubleshot.cz/customer/account/create/" >Registrace</a></li></ul></div></div><div class="header content"><div class="sticker-logo">   <a class="logo" href="https://www.doubleshot.cz/" title="čerstvě pražená výběrová káva doubleshot"> <img src="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/images/logo-sticky.svg" alt="čerstvě pražená výběrová káva doubleshot" /></a> </div> <div data-block="minicart" class="minicart-wrapper"><a class="action showcart" href="https://www.doubleshot.cz/checkout/cart/" data-bind="scope: 'minicart_content'"><span class="text">Můj košík</span> <span class="counter qty empty" data-bind="css: { empty: !!getCartParam('summary_count') == false }, blockLoader: isLoading"><span class="counter-number"><!-- ko text: getCartParam('summary_count') --><!-- /ko --></span> <span class="counter-label"><!-- ko if: getCartParam('summary_count') --><!-- ko text: getCartParam('summary_count') --><!-- /ko --><!-- ko i18n: 'items' --><!-- /ko --><!-- /ko --></span></span></a>  <div class="block block-minicart empty" data-role="dropdownDialog" data-mage-init='{"dropdownDialog":{ "appendTo":"[data-block=minicart]", "triggerTarget":".showcart", "timeout": "2000", "closeOnMouseLeave": false, "closeOnEscape": true, "triggerClass":"active", "parentClass":"active", "buttons":[]}}'><div id="minicart-content-wrapper" data-bind="scope: 'minicart_content'"><!-- ko template: getTemplate() --><!-- /ko --></div></div> <script>
+        window.checkout = {"shoppingCartUrl":"https:\/\/www.doubleshot.cz\/checkout\/cart\/","checkoutUrl":"https:\/\/www.doubleshot.cz\/checkout\/","updateItemQtyUrl":"https:\/\/www.doubleshot.cz\/checkout\/sidebar\/updateItemQty\/","removeItemUrl":"https:\/\/www.doubleshot.cz\/checkout\/sidebar\/removeItem\/","imageTemplate":"Magento_Catalog\/product\/image_with_borders","baseUrl":"https:\/\/www.doubleshot.cz\/","minicartMaxItemsVisible":3,"websiteId":"1","maxItemsToDisplay":10,"customerLoginUrl":"https:\/\/www.doubleshot.cz\/customer\/account\/login\/","isRedirectRequired":false,"autocomplete":"off","captcha":{"user_login":{"isCaseSensitive":false,"imageHeight":50,"imageSrc":"","refreshUrl":"https:\/\/www.doubleshot.cz\/captcha\/refresh\/","isRequired":false},"guest_checkout":{"isCaseSensitive":false,"imageHeight":50,"imageSrc":"","refreshUrl":"https:\/\/www.doubleshot.cz\/captcha\/refresh\/","isRequired":false}}};</script><script type="text/x-magento-init">
+    {
+        "[data-block='minicart']": {
+            "Magento_Ui/js/core/app": {"components":{"minicart_content":{"children":{"subtotal.container":{"children":{"subtotal":{"children":{"subtotal.totals":{"config":{"display_cart_subtotal_incl_tax":1,"display_cart_subtotal_excl_tax":0,"template":"Magento_Checkout\/minicart\/subtotal\/totals"},"component":"Magento_Checkout\/js\/view\/checkout\/minicart\/subtotal\/totals","children":{"subtotal.totals.msrp":{"component":"Magento_Msrp\/js\/view\/checkout\/minicart\/subtotal\/totals","config":{"displayArea":"minicart-subtotal-hidden","template":"Magento_Msrp\/checkout\/minicart\/subtotal\/totals"}}}}},"component":"uiComponent","config":{"template":"Magento_Checkout\/minicart\/subtotal"}}},"component":"uiComponent","config":{"displayArea":"subtotalContainer"}},"item.renderer":{"component":"uiComponent","config":{"displayArea":"defaultRenderer","template":"Magento_Checkout\/minicart\/item\/default"},"children":{"item.image":{"component":"Magento_Catalog\/js\/view\/image","config":{"template":"Magento_Catalog\/product\/image","displayArea":"itemImage"}},"checkout.cart.item.price.sidebar":{"component":"uiComponent","config":{"template":"Magento_Checkout\/minicart\/item\/price","displayArea":"priceSidebar"}}}},"extra_info":{"component":"uiComponent","config":{"displayArea":"extraInfo"}},"promotion":{"component":"uiComponent","config":{"displayArea":"promotion"}}},"config":{"itemRenderer":{"default":"defaultRenderer","simple":"defaultRenderer","virtual":"defaultRenderer"},"template":"Magento_Checkout\/minicart\/content"},"component":"Magento_Checkout\/js\/view\/minicart"}},"types":[]} },
+        "*": {
+            "Magento_Ui/js/block-loader": "https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/images/loader-1.gif"
+        }
+    }</script></div>  <div class="block block-search"><div class="block block-title"><strong>Vyhledat</strong></div><div class="block block-content"><form class="form minisearch" id="search_mini_form" action="https://www.doubleshot.cz/catalogsearch/result/" method="get"><div class="field search"><label class="label" for="search" data-role="minisearch-label"><span>Vyhledat</span></label> <div class="control"><input id="search" aria-expanded="true" data-mage-init='{"quickSearch":{ "formSelector":"#search_mini_form", "url":"https://www.doubleshot.cz/search/ajax/suggest/", "destinationSelector":"#search_autocomplete"} }' type="text" name="q" value="" placeholder="Hledat v obchodu..." class="input-text" maxlength="128" role="combobox" aria-haspopup="false" aria-autocomplete="both" autocomplete="off"/><div id="search_autocomplete" class="search-autocomplete"></div> <div class="nested"><a class="action advanced" href="https://www.doubleshot.cz/catalogsearch/advanced/" data-action="advanced-search">Rozšířené hledání</a></div></div></div><div class="actions"><button type="submit" title="Vyhledat" class="action search"><span>Vyhledat</span></button></div></form></div></div><div class="header-content-wrapper">   <a class="logo" href="https://www.doubleshot.cz/" title="čerstvě pražená výběrová káva doubleshot"> <img class="desktop-logo" src="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/images/logo.svg" alt="čerstvě pražená výběrová káva doubleshot" /><img class="mobile-logo" src="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/images/logo_mobile.svg" alt="čerstvě pražená výběrová káva doubleshot"></a> </div>    <nav class="navigation" data-action="navigation"><ul data-mage-init='{"menu":{"responsive":false, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'><li  class="level0 nav-1 first level-top"><a href="https://www.doubleshot.cz/uvod"  class="level-top" ><span>Úvod</span></a></li><li  class="level0 nav-2 active level-top parent"><a href="https://www.doubleshot.cz/kava"  class="level-top" ><span>Káva</span></a><ul class="level0 submenu"><li  class="level1 nav-2-1 first"><a href="https://www.doubleshot.cz/kava/espresso-smes" ><span>Espresso</span></a></li><li  class="level1 nav-2-2"><a href="https://www.doubleshot.cz/kava/limitovana-edice" ><span>Limitovaná edice</span></a></li><li  class="level1 nav-2-3"><a href="https://www.doubleshot.cz/kava/degustacni-baleni" ><span>Degustační balení</span></a></li><li  class="level1 nav-2-4"><a href="https://www.doubleshot.cz/kava/kavovepredplatne" ><span>Kávové předplatné</span></a></li><li  class="level1 nav-2-5 last"><a href="https://www.doubleshot.cz/kava/kava-do-kancelare" ><span>Káva do kanceláře</span></a></li></ul></li><li  class="level0 nav-3 level-top parent"><a href="https://www.doubleshot.cz/prislusenstvi"  class="level-top" ><span>Příslušenství</span></a><ul class="level0 submenu"><li  class="level1 nav-3-1 first"><a href="https://www.doubleshot.cz/prislusenstvi/priprava-kavy" ><span>Příprava kávy</span></a></li><li  class="level1 nav-3-2"><a href="https://www.doubleshot.cz/prislusenstvi/mlynky-na-kavu" ><span>Mlýnky</span></a></li><li  class="level1 nav-3-3"><a href="https://www.doubleshot.cz/prislusenstvi/darkove-sety" ><span>Dárkové sety</span></a></li><li  class="level1 nav-3-4"><a href="https://www.doubleshot.cz/prislusenstvi/doplnky-filtry" ><span>Doplňky a filtry</span></a></li><li  class="level1 nav-3-5"><a href="https://www.doubleshot.cz/prislusenstvi/vyrobky-s-logem" ><span>Výrobky s logem</span></a></li><li  class="level1 nav-3-6"><a href="https://www.doubleshot.cz/prislusenstvi/baristicke-pomucky" ><span>Baristické pomůcky</span></a></li><li  class="level1 nav-3-7 last"><a href="https://www.doubleshot.cz/prislusenstvi/nahradni-dily" ><span>Náhradní díly</span></a></li></ul></li><li  class="level0 nav-4 level-top"><a href="https://www.doubleshot.cz/kavove-kurzy"  class="level-top" ><span>Kurzy</span></a></li><li  class="level0 nav-5 last level-top"><a href="https://www.doubleshot.cz/kavarny"  class="level-top" ><span>Kavárny</span></a></li> </ul></nav></div><div class="page messages"> <div data-placeholder="messages"></div> <div data-bind="scope: 'messages'"><div data-bind="foreach: { data: cookieMessages, as: 'message' }" class="messages"><div data-bind="attr: { class: 'message-' + message.type + ' ' + message.type + ' message', 'data-ui-id': 'message-' + message.type }"><div data-bind="html: message.text"></div></div></div><div data-bind="foreach: { data: messages().messages, as: 'message' }" class="messages"><div data-bind="attr: { class: 'message-' + message.type + ' ' + message.type + ' message', 'data-ui-id': 'message-' + message.type }"><div data-bind="html: message.text,afterRender:$parent.showMessage"></div></div></div><div data-bind="click:hideMessage" class="hide-messages"></div></div><script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                        "messages": {
+                            "component": "Magento_Theme/js/view/messages"
+                        }
+                    }
+                }
+            }
+    }</script></div></header>   <div class="sections nav-sections"> <div class="section-items nav-sections-items" data-mage-init='{"tabs":{"openedState":"active"}}'>  <div class="section-item-title nav-sections-item-title" data-role="collapsible"><a class="nav-sections-item-switch" data-toggle="switch" href="#store.menu">Menu</a></div><div class="section-item-content nav-sections-item-content" id="store.menu" data-role="content">     <nav class="navigation" data-action="navigation"><ul data-mage-init='{"menu":{"responsive":false, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'><li  class="level0 nav-1 first level-top"><a href="https://www.doubleshot.cz/uvod"  class="level-top" ><span>Úvod</span></a></li><li  class="level0 nav-2 active level-top parent"><a href="https://www.doubleshot.cz/kava"  class="level-top" ><span>Káva</span></a><ul class="level0 submenu"><li  class="level1 nav-2-1 first"><a href="https://www.doubleshot.cz/kava/espresso-smes" ><span>Espresso</span></a></li><li  class="level1 nav-2-2"><a href="https://www.doubleshot.cz/kava/limitovana-edice" ><span>Limitovaná edice</span></a></li><li  class="level1 nav-2-3"><a href="https://www.doubleshot.cz/kava/degustacni-baleni" ><span>Degustační balení</span></a></li><li  class="level1 nav-2-4"><a href="https://www.doubleshot.cz/kava/kavovepredplatne" ><span>Kávové předplatné</span></a></li><li  class="level1 nav-2-5 last"><a href="https://www.doubleshot.cz/kava/kava-do-kancelare" ><span>Káva do kanceláře</span></a></li></ul></li><li  class="level0 nav-3 level-top parent"><a href="https://www.doubleshot.cz/prislusenstvi"  class="level-top" ><span>Příslušenství</span></a><ul class="level0 submenu"><li  class="level1 nav-3-1 first"><a href="https://www.doubleshot.cz/prislusenstvi/priprava-kavy" ><span>Příprava kávy</span></a></li><li  class="level1 nav-3-2"><a href="https://www.doubleshot.cz/prislusenstvi/mlynky-na-kavu" ><span>Mlýnky</span></a></li><li  class="level1 nav-3-3"><a href="https://www.doubleshot.cz/prislusenstvi/darkove-sety" ><span>Dárkové sety</span></a></li><li  class="level1 nav-3-4"><a href="https://www.doubleshot.cz/prislusenstvi/doplnky-filtry" ><span>Doplňky a filtry</span></a></li><li  class="level1 nav-3-5"><a href="https://www.doubleshot.cz/prislusenstvi/vyrobky-s-logem" ><span>Výrobky s logem</span></a></li><li  class="level1 nav-3-6"><a href="https://www.doubleshot.cz/prislusenstvi/baristicke-pomucky" ><span>Baristické pomůcky</span></a></li><li  class="level1 nav-3-7 last"><a href="https://www.doubleshot.cz/prislusenstvi/nahradni-dily" ><span>Náhradní díly</span></a></li></ul></li><li  class="level0 nav-4 level-top"><a href="https://www.doubleshot.cz/kavove-kurzy"  class="level-top" ><span>Kurzy</span></a></li><li  class="level0 nav-5 last level-top"><a href="https://www.doubleshot.cz/kavarny"  class="level-top" ><span>Kavárny</span></a></li> </ul></nav></div></div></div><main id="maincontent" class="page-main">  <div class="page-title-wrapper product"><h1 class="page-title"  ><span class="base" data-ui-id="page-title-wrapper" itemprop="name">Etiopie Kayo Espresso</span></h1></div> <a id="contentarea" tabindex="-1"></a><div class="product-taste-wrapper">    <div class="product taste product-item-taste">květiny, pomerančová kůra, hroznové víno</div></div><div class="columns"><div class="column main"><input name="form_key" type="hidden" value="5jKEXirez7Y7MwQn" /> <div id="authenticationPopup" data-bind="scope:'authenticationPopup'" style="display: none;"><script>
+        window.authenticationPopup = {"customerRegisterUrl":"https:\/\/www.doubleshot.cz\/customer\/account\/create\/","customerForgotPasswordUrl":"https:\/\/www.doubleshot.cz\/customer\/account\/forgotpassword\/","baseUrl":"https:\/\/www.doubleshot.cz\/"};</script><!-- ko template: getTemplate() --><!-- /ko --><script type="text/x-magento-init">
+        {
+            "#authenticationPopup": {
+                "Magento_Ui/js/core/app": {"components":{"authenticationPopup":{"component":"Magento_Customer\/js\/view\/authentication-popup","children":{"messages":{"component":"Magento_Ui\/js\/view\/messages","displayArea":"messages"}}}}} },
+            "*": {
+                "Magento_Ui/js/block-loader": "https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/images/loader-1.gif"
+            }
+        }</script></div> <script type="text/x-magento-init">
+{"*":{"Magento_Customer\/js\/section-config":{"sections":{"stores\/store\/switch":"*","directory\/currency\/switch":"*","*":["messages"],"customer\/account\/logout":"*","customer\/account\/loginpost":"*","customer\/account\/createpost":"*","customer\/ajax\/login":["checkout-data","cart"],"catalog\/product_compare\/add":["compare-products"],"catalog\/product_compare\/remove":["compare-products"],"catalog\/product_compare\/clear":["compare-products"],"sales\/guest\/reorder":["cart"],"sales\/order\/reorder":["cart"],"checkout\/cart\/add":["cart"],"checkout\/cart\/delete":["cart"],"checkout\/cart\/updatepost":["cart"],"checkout\/cart\/updateitemoptions":["cart"],"checkout\/cart\/couponpost":["cart"],"checkout\/cart\/estimatepost":["cart"],"checkout\/cart\/estimateupdatepost":["cart"],"checkout\/onepage\/saveorder":["cart","checkout-data","last-ordered-items"],"checkout\/sidebar\/removeitem":["cart"],"checkout\/sidebar\/updateitemqty":["cart"],"rest\/*\/v1\/carts\/*\/payment-information":["cart","checkout-data","last-ordered-items"],"rest\/*\/v1\/guest-carts\/*\/payment-information":["cart","checkout-data"],"rest\/*\/v1\/guest-carts\/*\/selected-payment-method":["cart","checkout-data"],"rest\/*\/v1\/carts\/*\/selected-payment-method":["cart","checkout-data"],"multishipping\/checkout\/overviewpost":["cart"],"review\/product\/post":["review"],"authorizenet\/directpost_payment\/place":["cart","checkout-data"],"paypal\/express\/placeorder":["cart","checkout-data"],"paypal\/payflowexpress\/placeorder":["cart","checkout-data"],"braintree\/paypal\/placeorder":["cart","checkout-data"],"wishlist\/index\/add":["wishlist"],"wishlist\/index\/remove":["wishlist"],"wishlist\/index\/updateitemoptions":["wishlist"],"wishlist\/index\/update":["wishlist"],"wishlist\/index\/cart":["wishlist","cart"],"wishlist\/index\/fromcart":["wishlist","cart"],"wishlist\/index\/allcart":["wishlist","cart"],"wishlist\/shared\/allcart":["wishlist","cart"],"wishlist\/shared\/cart":["cart"]},"clientSideSections":["checkout-data"],"baseUrls":["https:\/\/www.doubleshot.cz\/"]}}}</script> <script type="text/x-magento-init">
+{"*":{"Magento_Customer\/js\/customer-data":{"sectionLoadUrl":"https:\/\/www.doubleshot.cz\/customer\/section\/load\/","cookieLifeTime":"3600","updateSessionUrl":"https:\/\/www.doubleshot.cz\/customer\/account\/updateSession\/"}}}</script>  <script type="text/x-magento-init">
+    {
+        "body": {
+            "pageCache": {"url":"https:\/\/www.doubleshot.cz\/page_cache\/block\/render\/id\/697\/category\/8\/","handles":["default","catalog_product_view","catalog_product_view_id_697","catalog_product_view_sku_04452201_350","catalog_product_view_type_simple"],"originalRequest":{"route":"catalog","controller":"product","action":"view","uri":"\/kava\/etiopie-kayo-natural-espresso"},"versionCookieName":"private_content_version"} }
+    }</script><div class="product-info-main">  <div class="mobile-title-wrapper"><div class="h1">Etiopie Kayo Espresso</div> <div class="product taste product-item-taste">květiny, pomerančová kůra, hroznové víno</div></div><div class="product-info-price"><div class="price-box price-final_price" data-role="priceBox" data-product-id="697">      <span class="price-container price-final_price tax weee"  itemprop="offers" itemscope itemtype="http://schema.org/Offer"> <span  id="product-price-697"  data-price-amount="370" data-price-type="finalPrice" class="price-wrapper "  itemprop="price"><span class="price">370 Kč</span></span>   <meta itemprop="priceCurrency" content="CZK" /></span>  </div></div>       <div class="product-add-form is-saleable" ><form class="product-without-option short-price" action="https://www.doubleshot.cz/checkout/cart/add/uenc/aHR0cHM6Ly93d3cuZG91Ymxlc2hvdC5jei9rYXZhL2V0aW9waWUta2F5by1uYXR1cmFsLWVzcHJlc3Nv/product/697/" method="post" id="product_addtocart_form"><input type="hidden" name="product" value="697" /><input type="hidden" name="selected_configurable_option" value="" /><input type="hidden" name="related_product" id="related-products-field" value="" /><input name="form_key" type="hidden" value="5jKEXirez7Y7MwQn" />   <div class="box-tocart"><div class="fieldset"><div class="actions"><button type="submit" title="Do košíku" class="action primary tocart" id="product-addtocart-button" onclick="return AEC.ajax(this,dataLayer)" data-id="04452201_350" data-name="Etiopie Kayo Espresso" data-price="370" data-category="Káva" data-list="Káva" data-brand="doubleshot" data-click="" data-event="addToCart" data-currentstore="cz" data-attributes="[]"><i class="ds-icon icon-cart"></i><span>Do košíku</span></button> </div></div></div> <script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/product/view/validation": {
+                "radioCheckboxClosest": ".nested"
+            }
+        }
+    }</script><script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "catalogAddToCart": {
+                "bindSubmit": true,
+                "addToCartButtonTextWhileAdding": "Přidávání...",
+                "addToCartButtonTextAdded": "Přidáno",
+                "addToCartButtonTextDefault": "Do košíku"
+            }
+        }
+    }</script>
+   </form></div><script>
+    require([
+        'jquery',
+        'priceBox'
+    ], function($){
+        var dataPriceBoxSelector = '[data-role=priceBox]',
+            dataProductIdSelector = '[data-product-id=697]',
+            priceBoxes = $(dataPriceBoxSelector + dataProductIdSelector),
+            priceBoxConfig = {"productId":"697","priceFormat":{"pattern":"%s\u00a0K\u010d","precision":2,"requiredPrecision":2,"decimalSymbol":",","groupSymbol":"\u00a0","groupLength":3,"integerRequired":1}};
+
+        priceBoxes = priceBoxes.filter(function(index, elem){
+            return !$(elem).find('.price-from').length;
+        });
+
+        if ('pattern' in priceBoxConfig.priceFormat) {
+            if (priceBoxConfig.priceFormat.pattern.indexOf('CZK') !== -1) {
+                priceBoxConfig.priceFormat.pattern = 'CZK %s';
+            }
+        }
+
+        priceBoxes.priceBox({'priceConfig': priceBoxConfig});
+    });</script><div class="product-info-attr"> <div class="product-tax">Cena vč. DPH</div> <span class="divider">/</span> <div class="product-weight">Velikost balení: 350 g</div><div class="product-info-stock-sku">    <span class="divider">/</span>  <div class="stock available" title="Dostupnost"><span>Skladem</span></div> </div></div>   <div class="product attribute overview"><div class="value" itemprop="description"><p>Suchým způsobem zpracovaná káva ze soukromé farmy pana <strong>Ismala Hassana</strong>. Čistá a výrazně aromatická káva s tóny kůry citrusů a hroznového vína, kterou pražíme primárně na přípravu espressa.</p> </div></div>   <div class="product info detailed"> <div class="product data items" data-mage-init='{"details":{}}'>  <div class="data item title" aria-labeledby="tab-label-product.info.description-title" data-role="collapsible" id="tab-label-product.info.description"><a class="data switch" tabindex="-1" data-toggle="switch" href="#product.info.description" id="tab-label-product.info.description-title">  Příběh této kávy  </a></div><div class="data item content" id="product.info.description" data-role="content">   <div class="product attribute description"><div class="value" ><p>Farma <strong>Kayon Mountain</strong> se rozkládá na 200 ha v regionu Shakiso, Guji (<a href="https://goo.gl/CyAGDj">mapa</a>). Jedná se o malou soukromou farmu, která byla založena v roce 2009. O provoz farmy se stará pan Workineh, který má na starosti zpracování i pěstování kávy. V nadmořské výšce 2000 m n.m. se pěstují vylepšené varianty původních etiopských odrůd, které nesou většinou jen kódové označení (např. 72110 nebo 74158). Sklizeň probíhá od prosince do února.</p><p>Farma Kayon Mountain pana Hussana je zajímavá tím, že se jedná o <strong>soukromou farmu</strong>, která má možnost prodávat své kávy mimo etiopskou komoditní burzu (ECX). Tím pádem je zabezpečena vyšší transparentnost lotů a také motivace producenta dělat co možná nejkvalitnější produkt za který následně obdrží adekvátní cenu.</p><p>Náš mikrolot je zpracovaný <strong>suchou metodou</strong>, tzn., že se čerstvě sebrané třešně suší ve slupce na afrických postelích (viz. obr.) po dobu cca 10-20 dnů v závislosti na počasí. Následně jsou mechanicky vyloupány a ručně protříděny.</p><p>Kayo má výrazně <strong>květinovou aromatiku</strong>, kterou v chuti doplňují svěží tóny <strong>pomerančové kůry</strong> a <strong>hroznového vína</strong>. Kayo pražíme primárně na přípravu <strong>espressa</strong>. Pokud máte zájem o podobnou kávu na přípravu filtrované kávy, vyzkoušejte kávu ze <a href="/etiopie-mormora">sousední farmy Mormora</a>.</p></div></div></div>  <div class="data item title" aria-labeledby="tab-label-additional-title" data-role="collapsible" id="tab-label-additional"><a class="data switch" tabindex="-1" data-toggle="switch" href="#additional" id="tab-label-additional-title">  Podrobné informace  </a></div><div class="data item content" id="additional" data-role="content">   <div class="additional-attributes-wrapper table-wrapper"><table class="data table additional-attributes" id="product-attribute-specs-table"><caption class="table-caption">Podrobné informace</caption><tbody> <tr><th class="col label" scope="row">Země</th><td class="col data" data-th="Země">Etiopie</td></tr> <tr><th class="col label" scope="row">Farma</th><td class="col data" data-th="Farma">Kayon Mountain Farm, Shakiso, Etiopie</td></tr> <tr><th class="col label" scope="row">Odrůda</th><td class="col data" data-th="Odrůda">Etiopské původní</td></tr> <tr><th class="col label" scope="row">Zpracování</th><td class="col data" data-th="Zpracování">Natural (suchá)</td></tr> <tr><th class="col label" scope="row">Sklizeň</th><td class="col data" data-th="Sklizeň">2016/2017</td></tr> <tr><th class="col label" scope="row">Certifikace</th><td class="col data" data-th="Certifikace">Ne</td></tr> <tr><th class="col label" scope="row">Příprava</th><td class="col data" data-th="Příprava">Espresso</td></tr> <tr><th class="col label" scope="row">Chuť</th><td class="col data" data-th="Chuť">květiny, pomerančová kůra, hroznové víno</td></tr> <tr><th class="col label" scope="row">Balení</th><td class="col data" data-th="Balení">350 g</td></tr> <tr><th class="col label" scope="row">Typ kávy</th><td class="col data" data-th="Typ kávy">zrnková</td></tr> <tr><th class="col label" scope="row">Min. trvanlivost</th><td class="col data" data-th="Min. trvanlivost">V ideálním případě spotřebujte do 30 dní od data pražení uvedeného na obalu.</td></tr> <tr><th class="col label" scope="row">Producent</th><td class="col data" data-th="Producent">doubleshot</td></tr></tbody></table></div></div>  </div></div></div><div class="product media"> <div class="gallery-placeholder _block-content-loading" data-gallery-role="gallery-placeholder"><div data-role="loader" class="loading-mask"><div class="loader"><img src="https://www.doubleshot.cz/pub/static/version1510331080/frontend/Doubleshot/theme/cs_CZ/images/loader-1.gif" alt="Nahrávám..."></div></div></div><!--Fix for jumping content. Loader must be the same size as gallery.--><script>
+    var config = {
+            "width": 700,
+            "thumbheight": 150,
+            "navtype": "thumbs",
+            "height": 700 },
+        thumbBarHeight = 0,
+        loader = document.querySelectorAll('[data-gallery-role="gallery-placeholder"] [data-role="loader"]')[0];
+
+    if (config.navtype === 'horizontal') {
+        thumbBarHeight = config.thumbheight;
+    }
+    loader.style.paddingBottom = ( config.height / config.width * 100) + "%";</script><script type="text/x-magento-init">
+    {
+        "[data-gallery-role=gallery-placeholder]": {
+            "mage/gallery/gallery": {
+                "mixins":["magnifier/magnify"],
+                "magnifierOpts": {"fullscreenzoom":"20","top":"","left":"","width":"","height":"","eventType":"hover","enabled":"false"},
+                "data": [{"thumb":"https:\/\/www.doubleshot.cz\/pub\/media\/catalog\/product\/cache\/thumbnail\/150x150\/1ac472b2e3bed24f4b7f75082897d970\/e\/t\/etiopie_kayo_natural_350.jpg","img":"https:\/\/www.doubleshot.cz\/pub\/media\/catalog\/product\/cache\/image\/700x700\/bcf7ce64d63d93f1f374273bba74938d\/e\/t\/etiopie_kayo_natural_350.jpg","full":"https:\/\/www.doubleshot.cz\/pub\/media\/catalog\/product\/cache\/image\/bcf7ce64d63d93f1f374273bba74938d\/e\/t\/etiopie_kayo_natural_350.jpg","caption":"Etiopie Kayo Natural Espresso","position":"1","isMain":true},{"thumb":"https:\/\/www.doubleshot.cz\/pub\/media\/catalog\/product\/cache\/thumbnail\/150x150\/1ac472b2e3bed24f4b7f75082897d970\/2\/9\/296018e0f5be1c454ba543abd724fd3f.jpg","img":"https:\/\/www.doubleshot.cz\/pub\/media\/catalog\/product\/cache\/image\/700x700\/bcf7ce64d63d93f1f374273bba74938d\/2\/9\/296018e0f5be1c454ba543abd724fd3f.jpg","full":"https:\/\/www.doubleshot.cz\/pub\/media\/catalog\/product\/cache\/image\/bcf7ce64d63d93f1f374273bba74938d\/2\/9\/296018e0f5be1c454ba543abd724fd3f.jpg","caption":"Etiopie Kayo Natural Espresso","position":"2","isMain":false},{"thumb":"https:\/\/www.doubleshot.cz\/pub\/media\/catalog\/product\/cache\/thumbnail\/150x150\/1ac472b2e3bed24f4b7f75082897d970\/f\/9\/f9c97bcac1d583e3287b4eb12fb02c6e.jpg","img":"https:\/\/www.doubleshot.cz\/pub\/media\/catalog\/product\/cache\/image\/700x700\/bcf7ce64d63d93f1f374273bba74938d\/f\/9\/f9c97bcac1d583e3287b4eb12fb02c6e.jpg","full":"https:\/\/www.doubleshot.cz\/pub\/media\/catalog\/product\/cache\/image\/bcf7ce64d63d93f1f374273bba74938d\/f\/9\/f9c97bcac1d583e3287b4eb12fb02c6e.jpg","caption":"Etiopie Kayo Natural Espresso","position":"3","isMain":false},{"thumb":"https:\/\/www.doubleshot.cz\/pub\/media\/catalog\/product\/cache\/thumbnail\/150x150\/1ac472b2e3bed24f4b7f75082897d970\/1\/5\/156d493ec35a88a9a324fe9baf2e8310.jpg","img":"https:\/\/www.doubleshot.cz\/pub\/media\/catalog\/product\/cache\/image\/700x700\/bcf7ce64d63d93f1f374273bba74938d\/1\/5\/156d493ec35a88a9a324fe9baf2e8310.jpg","full":"https:\/\/www.doubleshot.cz\/pub\/media\/catalog\/product\/cache\/image\/bcf7ce64d63d93f1f374273bba74938d\/1\/5\/156d493ec35a88a9a324fe9baf2e8310.jpg","caption":"Seife, Ismal Hussan a pan Workineh na etiopsk\u00e9 farm\u011b Kayon Mountain","position":"4","isMain":false},{"thumb":"https:\/\/www.doubleshot.cz\/pub\/media\/catalog\/product\/cache\/thumbnail\/150x150\/1ac472b2e3bed24f4b7f75082897d970\/1\/2\/129f24438362c2f2276ac9c38c4dfdae.jpg","img":"https:\/\/www.doubleshot.cz\/pub\/media\/catalog\/product\/cache\/image\/700x700\/bcf7ce64d63d93f1f374273bba74938d\/1\/2\/129f24438362c2f2276ac9c38c4dfdae.jpg","full":"https:\/\/www.doubleshot.cz\/pub\/media\/catalog\/product\/cache\/image\/bcf7ce64d63d93f1f374273bba74938d\/1\/2\/129f24438362c2f2276ac9c38c4dfdae.jpg","caption":null,"position":"5","isMain":false}],
+                "options": {
+                    "nav": "thumbs",
+                                            "loop": true,
+                                             "keyboard": true,
+                                             "arrows": true,
+                                             "allowfullscreen": true,
+                                             "showCaption": true,
+                     "width": "700",
+                    "thumbwidth": "150",
+                                            "thumbheight": 150,
+                                             "transitionduration": 500,
+                     "transition": "crossfade",
+                                            "navarrows": true,
+                     "navtype": "thumbs",
+                    "navdir": "horizontal"
+                },
+                "fullscreen": {
+                    "nav": "thumbs",
+                                            "loop": true,
+                     "navdir": "horizontal",
+                     "navtype": "slides",
+                                            "arrows": true,
+                                             "showCaption": true,
+                                             "transitionduration": 500,
+                     "transition": "slide"
+                },
+                "breakpoints": {"mobile":{"conditions":{"max-width":"767px"},"options":{"options":{"navigation":"dots","nav":"dots"}}}} }
+        }
+    }</script></div>  <script type="text/x-magento-init">
+    {
+        "body": {
+            "requireCookie": {"noCookieUrl":"https:\/\/www.doubleshot.cz\/cookie\/index\/noCookies\/","triggers":{"compareProductLink":".action.tocompare"}} }
+    }</script>  <div class="block related" data-mage-init='{"relatedProducts":{"relatedCheckbox":".related.checkbox"}}' data-limit="0" data-shuffle="0">  <div class="block-title title"><strong id="block-related-heading" role="heading" aria-level="2">Také doporučujeme</strong></div><div class="block-content content" aria-labelledby="block-related-heading"> <div class="products wrapper grid products-grid products-related"><ol class="products list items product-items"><li class="item product product-item" style="display: none;" data-category="Příslušenství">  <div class="product-item-info related-available"><!-- related_products_list--> <a href="https://www.doubleshot.cz/hario-v60-nerezova-digitalni-vaha-se-stopkami-vstm-2000hsv" class="product photo product-item-photo" data-id="VSTM-2000HSV" data-name="Hario V60 nerezová digitální váha se stopkami" data-price="1995" data-category="Příslušenství" data-list="Příslušenství" data-brand="Hario (Japonsko)" data-quantity="1" data-click="" data-store="cz" data-position="1" data-event="productClick" data-block="catalog.product.related" onclick="return AEC.click(this,dataLayer)" data-attributes="[]">  <span class="product-image-container" style="width:300px;"><span class="product-image-wrapper" style="padding-bottom: 100%;"><img class="product-image-photo" src="https://www.doubleshot.cz/pub/media/catalog/product/cache/small_image/300x300/1ac472b2e3bed24f4b7f75082897d970/v/s/vstm-2000hsv.jpg" width="300" height="300" alt="Nerezová Hario V60 váha se stopkami"><span class="product-image-lazy"></span></span></span></a> <div class="product details product-item-details"><strong class="product name product-item-name"><a class="product-item-link" title="Hario V60 nerezová digitální váha se stopkami" href="https://www.doubleshot.cz/hario-v60-nerezova-digitalni-vaha-se-stopkami-vstm-2000hsv">Hario V60 nerezová digitální váha se stopkami</a></strong> <span class="product taste product-item-taste">na desetinu gramu přesná, se stopkami, nepotřebuje baterie</span> <div class="price-box price-final_price" data-role="priceBox" data-product-id="461">      <span class="price-container price-final_price tax weee"> <span id="product-price-461" data-price-amount="1995" data-price-type="finalPrice" class="price-wrapper "><span class="price">1 995 Kč</span></span>  </span>  </div>    <div class="product actions product-item-actions"> <div class="actions-primary">   <form data-role="tocart-form" data-post='{"action":"https:\/\/www.doubleshot.cz\/checkout\/cart\/add\/uenc\/aHR0cHM6Ly93d3cuZG91Ymxlc2hvdC5jei9rYXZhL2V0aW9waWUta2F5by1uYXR1cmFsLWVzcHJlc3Nv\/product\/461\/","data":{"product":"461","uenc":"aHR0cHM6Ly93d3cuZG91Ymxlc2hvdC5jei9rYXZhL2V0aW9waWUta2F5by1uYXR1cmFsLWVzcHJlc3Nv"}}' action="#" class="related-items-ajax"><input type="hidden" name="product" value=""><input type="hidden" name="uenc" value=""><input name="form_key" type="hidden" value="5jKEXirez7Y7MwQn"><button class="action tocart primary ajax-button" type="submit" title="Do košíku"><i class="ds-icon icon-cart"></i> <span>Do košíku</span></button></form> </div></div></div></div>         </li><li class="item product product-item" style="display: none;" data-category="Příslušenství">  <div class="product-item-info related-available"><!-- related_products_list--> <a href="https://www.doubleshot.cz/brewista-vodotesna-digitalni-vaha-se-stopkami" class="product photo product-item-photo" data-id="BSSRB2" data-name="Brewista váha Smart Scale V2" data-price="2050" data-category="Příslušenství" data-list="Příslušenství" data-brand="Brewista (Čína)" data-quantity="1" data-click="" data-store="cz" data-position="2" data-event="productClick" data-block="catalog.product.related" onclick="return AEC.click(this,dataLayer)" data-attributes="[]">  <span class="product-image-container" style="width:300px;"><span class="product-image-wrapper" style="padding-bottom: 100%;"><img class="product-image-photo" src="https://www.doubleshot.cz/pub/media/catalog/product/cache/small_image/300x300/1ac472b2e3bed24f4b7f75082897d970/b/s/bssrb2_small.jpg" width="300" height="300" alt="Brewista digitální vodotěsná váha"><span class="product-image-lazy"></span></span></span></a> <div class="product details product-item-details"><strong class="product name product-item-name"><a class="product-item-link" title="Brewista váha Smart Scale V2" href="https://www.doubleshot.cz/brewista-vodotesna-digitalni-vaha-se-stopkami">Brewista váha Smart Scale V2</a></strong> <span class="product taste product-item-taste">voděodolná, nabíjecí, přesná, se stopkami, chybí už jen barista</span> <div class="price-box price-final_price" data-role="priceBox" data-product-id="478">      <span class="price-container price-final_price tax weee"> <span id="product-price-478" data-price-amount="2050" data-price-type="finalPrice" class="price-wrapper "><span class="price">2 050 Kč</span></span>  </span>  </div>    <div class="product actions product-item-actions"> <div class="actions-primary">   <form data-role="tocart-form" data-post='{"action":"https:\/\/www.doubleshot.cz\/checkout\/cart\/add\/uenc\/aHR0cHM6Ly93d3cuZG91Ymxlc2hvdC5jei9rYXZhL2V0aW9waWUta2F5by1uYXR1cmFsLWVzcHJlc3Nv\/product\/478\/","data":{"product":"478","uenc":"aHR0cHM6Ly93d3cuZG91Ymxlc2hvdC5jei9rYXZhL2V0aW9waWUta2F5by1uYXR1cmFsLWVzcHJlc3Nv"}}' action="#" class="related-items-ajax"><input type="hidden" name="product" value=""><input type="hidden" name="uenc" value=""><input name="form_key" type="hidden" value="5jKEXirez7Y7MwQn"><button class="action tocart primary ajax-button" type="submit" title="Do košíku"><i class="ds-icon icon-cart"></i> <span>Do košíku</span></button></form> </div></div></div></div>         </li><li class="item product product-item" style="display: none;" data-category="Příslušenství">  <div class="product-item-info related-available"><!-- related_products_list--> <a href="https://www.doubleshot.cz/baratza-forte-ap" class="product photo product-item-photo" data-id="1085-230V" data-name="Baratza Forté AP (espresso)" data-price="25590" data-category="Příslušenství" data-list="Příslušenství" data-brand="Baratza (Taiwan)" data-quantity="1" data-click="" data-store="cz" data-position="3" data-event="productClick" data-block="catalog.product.related" onclick="return AEC.click(this,dataLayer)" data-attributes="[]">  <span class="product-image-container" style="width:300px;"><span class="product-image-wrapper" style="padding-bottom: 100%;"><img class="product-image-photo" src="https://www.doubleshot.cz/pub/media/catalog/product/cache/small_image/300x300/1ac472b2e3bed24f4b7f75082897d970/f/o/forte_ap.jpg" width="300" height="300" alt="Elektrický mlýnek Baratza Forte AP"><span class="product-image-lazy"></span></span></span></a> <div class="product details product-item-details"><strong class="product name product-item-name"><a class="product-item-link" title="Baratza Forté AP (espresso)" href="https://www.doubleshot.cz/baratza-forte-ap">Baratza Forté AP (espresso)</a></strong> <span class="product taste product-item-taste">namele na to nejjemnější domácí espresso i na filtr</span> <div class="price-box price-final_price" data-role="priceBox" data-product-id="494">      <span class="price-container price-final_price tax weee"> <span id="product-price-494" data-price-amount="25590" data-price-type="finalPrice" class="price-wrapper "><span class="price">25 590 Kč</span></span>  </span>  </div>    <div class="product actions product-item-actions"> <div class="actions-primary">   <form data-role="tocart-form" data-post='{"action":"https:\/\/www.doubleshot.cz\/checkout\/cart\/add\/uenc\/aHR0cHM6Ly93d3cuZG91Ymxlc2hvdC5jei9rYXZhL2V0aW9waWUta2F5by1uYXR1cmFsLWVzcHJlc3Nv\/product\/494\/","data":{"product":"494","uenc":"aHR0cHM6Ly93d3cuZG91Ymxlc2hvdC5jei9rYXZhL2V0aW9waWUta2F5by1uYXR1cmFsLWVzcHJlc3Nv"}}' action="#" class="related-items-ajax"><input type="hidden" name="product" value=""><input type="hidden" name="uenc" value=""><input name="form_key" type="hidden" value="5jKEXirez7Y7MwQn"><button class="action tocart primary ajax-button" type="submit" title="Do košíku"><i class="ds-icon icon-cart"></i> <span>Do košíku</span></button></form> </div></div></div></div>         </li><li class="item product product-item" style="display: none;" data-category="Příslušenství">  <div class="product-item-info related-available"><!-- related_products_list--> <a href="https://www.doubleshot.cz/baratza-sette-270" class="product photo product-item-photo" data-id="sette270" data-name="Baratza Sette 270" data-price="10990" data-category="Příslušenství" data-list="Příslušenství" data-brand="Baratza (Taiwan)" data-quantity="1" data-click="" data-store="cz" data-position="4" data-event="productClick" data-block="catalog.product.related" onclick="return AEC.click(this,dataLayer)" data-attributes="[]">  <span class="product-image-container" style="width:300px;"><span class="product-image-wrapper" style="padding-bottom: 100%;"><img class="product-image-photo" src="https://www.doubleshot.cz/pub/media/catalog/product/cache/small_image/300x300/1ac472b2e3bed24f4b7f75082897d970/s/e/sette270_4.jpg" width="300" height="300" alt="Baratza Sette 270"><span class="product-image-lazy"></span></span></span></a> <div class="product details product-item-details"><strong class="product name product-item-name"><a class="product-item-link" title="Baratza Sette 270" href="https://www.doubleshot.cz/baratza-sette-270">Baratza Sette 270</a></strong> <span class="product taste product-item-taste">domácí elektrický mlýnek, který si nezadá s profesionály</span> <div class="price-box price-final_price" data-role="priceBox" data-product-id="650">      <span class="price-container price-final_price tax weee"> <span id="product-price-650" data-price-amount="10990" data-price-type="finalPrice" class="price-wrapper "><span class="price">10 990 Kč</span></span>  </span>  </div>    <div class="product actions product-item-actions"> <div class="actions-primary">   <form data-role="tocart-form" data-post='{"action":"https:\/\/www.doubleshot.cz\/checkout\/cart\/add\/uenc\/aHR0cHM6Ly93d3cuZG91Ymxlc2hvdC5jei9rYXZhL2V0aW9waWUta2F5by1uYXR1cmFsLWVzcHJlc3Nv\/product\/650\/","data":{"product":"650","uenc":"aHR0cHM6Ly93d3cuZG91Ymxlc2hvdC5jei9rYXZhL2V0aW9waWUta2F5by1uYXR1cmFsLWVzcHJlc3Nv"}}' action="#" class="related-items-ajax"><input type="hidden" name="product" value=""><input type="hidden" name="uenc" value=""><input name="form_key" type="hidden" value="5jKEXirez7Y7MwQn"><button class="action tocart primary ajax-button" type="submit" title="Do košíku"><i class="ds-icon icon-cart"></i> <span>Do košíku</span></button></form> </div></div></div></div></li> </ol></div></div></div><script type="text/x-magento-init">
+    {
+        "[data-role=tocart-form]": {
+            "Magento_Catalog/js/AjaxAddToItems": {
+                "addToCartButtonTextWhileAdding": "Přidávání...",
+                "addToCartButtonTextAdded": "Přidáno",
+                "addToCartButtonTextDefault": "Do košíku"
+            }
+        }
+    }</script>
+ </div></div></main>   <script type="text/javascript">
+        require(['jquery'], function ($) {
+            formsToProtect = [".form.create.account.form-create-account#form-validate"];
+            formsToProtect.forEach(function(item) {
+                formToProtect = $(item)[0];
+                if (formToProtect) {
+                    window.formToProtectOnPage = formToProtect;
+                    return;
+                }
+            });
+            if (window.formToProtectOnPage) {
+                var recaptchaScript = document.createElement('script');
+                recaptchaScript.src = 'https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit';
+                recaptchaScript.attributes = 'async defer';
+                document.body.appendChild(recaptchaScript);
+            }
+        });
+
+        var onSubmit = function (token) {
+            if (window.validationForInvisibleCaptchaForm.valid()){
+                document.getElementById('amasty_invisible_token').setAttribute('value', token);
+                document.getElementById('amasty_invisible_token').form.submit();
+            } else {
+                grecaptcha.reset();
+            }
+        };
+
+        var onloadCallback = function () {
+            window.formToProtectOnPage.innerHTML +=
+                '<input type="hidden" id="amasty_invisible_token" name="amasty_invisible_token" value=""/>';
+            require(['jquery', 'mage/mage'], function ($) {
+                window.validationForInvisibleCaptchaForm = $('#' + window.formToProtectOnPage.id);
+            });
+            var id = "";
+            if (!id) {
+                id = document.getElementById('amasty_invisible_token').form.querySelector("[type='submit']");
+            }
+            grecaptcha.render(id, {
+                'sitekey': '6LeEdy4UAAAAAGIh-iVKkOIevJtoxyMVe4qqWcx0',
+                'callback': onSubmit
+            });
+        };</script> <script>
+	require(['jquery'],function($)
+	{
+		(function($, dataLayer)
+		{
+			var events = 
+			{
+				addToCart: function()
+				{
+					 },
+				removeFromCart: function()
+				{
+					 },
+				productClick: function()
+				{
+					 },
+				addToWishlist: function()
+				{
+					 },
+				addToCompare: function()
+				{
+					 }
+			};
+
+			var b = function(events)
+			{
+				$.each(events, function(event, callback)
+				{
+					var elements = $('[data-event]').filter(function()
+					{
+						return $(this).data('event') == event;
+					});
+
+					elements.each(function()
+					{
+						$(this).off('click.ec').on('click.ec', callback);
+					});
+				});
+			};
+
+			 b(events);
+
+			 (function(events)
+			{
+				$(document).ajaxComplete(function( event, request, settings ) 
+				{
+					b(events);
+				});
+			})(events);
+			
+		})($, dataLayer);
+	});</script> <script>
+	require(['jquery'],function($)
+	{
+		$(document).ready(function()
+		{
+		    var PromotionTrack = (function($, dataLayer)
+		    {
+		        return {
+		            apply: function()
+		            {
+		                var promotions = [], position = 0;
+		
+		                $('[data-promotion]').each(function()
+		                {
+		                    promotions.push(
+	                        {
+	                            id:      	$(this).data('promotion-id'),
+	                            name:    	$(this).data('promotion-name'),
+	                            creative:	$(this).data('promotion-creative'),
+	                            position:	++position
+	                        });
+	
+		                    $(this).on(
+	                        {
+	                            click: function()
+	                            {
+		                           	var data = 
+			                        {
+	                           			'event': 'promotionClick',
+                                        'ecommerce': 
+                                        {
+                                            'promoClick': 
+                                            {
+                                                'promotions':
+                                                [
+	                                                {
+		                                                'id':       $(this).data('promotion-id'),
+		                                                'name':     $(this).data('promotion-name'),
+		                                                'creative': $(this).data('promotion-creative'),
+		                                                'position': $(this).data('promotion-position')
+	                                                }
+                                                ]
+                                            }
+                                        }
+					                };
+					                
+	                                AEC.Cookie.promotionClick(data).push(dataLayer);
+
+	                                /**
+	                                 * Save persistent data
+	                                 */
+	                                AEC.Persist.push(AEC.Persist.CONST_KEY_PROMOTION,
+	    	                        {
+		    	                        'promotion':data.ecommerce.promoClick.promotions[0]
+		    	                    });
+	                            }
+	                        });
+		                });
+		
+		                if (promotions.length)
+		                {
+			                AEC.Cookie.promotion({
+		                        'event':'promoViewNonInteractive',
+	                            'ecommerce':
+	                            {
+	                                'promoView':
+	                                {
+	                                    'promotions': promotions
+	                                }
+	                            }
+	                        }).push(dataLayer);
+		                }
+		
+		                return this;
+		            }
+		        }
+		    })($, dataLayer).apply();
+		});
+	});</script><script>
+
+	if (typeof dataLayer !== "undefined")
+	{
+		       for (a = 0, b = EC.length; a < b; a++)
+		{
+			EC[a].apply(this,[dataLayer]);
+		}
+
+		/* AdWords Remarketing */
+		if (window.google_tag_params)
+		{
+			dataLayer.push(
+			{  
+				'event':				'fireRemarketingTag',
+				'google_tag_params': 	window.google_tag_params
+			});
+		}
+
+		if (typeof FB !== 'undefined') 
+		{
+			FB.Event.subscribe('edge.create',function(href) 
+		 	{
+				dataLayer.push(
+				{
+					'event': 			'socialInt',
+					'socialNetwork': 	'Facebook',
+					'socialAction': 	'Like',
+					'socialTarget': 	href
+				});
+			});
+		}
+
+		window.sendPlus = function(g)
+		{
+		    dataLayer.push(
+			{
+		        'event': 			'socialInt',
+		        'socialNetwork': 	'Google',
+		        'socialAction': 	'+1',
+		        'socialTarget': 	g.href
+		    });
+		};
+
+		if (typeof twttr !== 'undefined') 
+		{
+			twttr.ready(function (twttr) 
+			{
+				twttr.events.bind('click', function()
+				{
+					dataLayer.push(
+					{
+						'event': 			'socialInt',
+						'socialNetwork': 	'Twitter',
+						'socialAction': 	'tweet',
+						'socialTarget': 	window.location.href
+					});
+				}); 
+			});
+		}
+	}
+	else
+	{
+		log('dataLayer[] is not intialized. Check if GTM is installed properly');
+	}</script> <script>
+    /*
+     CSS Browser Selector 0.81
+     Originally written by Rafael Lima (http://rafael.adm.br)
+     http://rafael.adm.br/css_browser_selector
+     License: http://creativecommons.org/licenses/by/2.5/
+
+     Co-maintained by:
+     https://github.com/ridjohansen/css_browser_selector
+     https://github.com/delka/css_browser_selector
+     https://github.com/verbatim/css_browser_selector
+     */
+	(function() {
+		var uaInfo = {
+			ua : '',
+			is : function (t) {
+				return RegExp(t, "i").test(uaInfo.ua);
+			},
+			version : function (p, n) {
+				n = n.replace(".", "_");
+				var i = n.indexOf('_'),
+					ver = "";
+				while (i > 0) {
+					ver += " " + p + n.substring(0, i);
+					i = n.indexOf('_', i + 1);
+				}
+				ver += " " + p + n;
+				return ver;
+			},
+			getBrowser : function() {
+				var g = 'gecko',
+					w = 'webkit',
+					c = 'chrome',
+					f = 'firefox',
+					s = 'safari',
+					o = 'opera',
+
+					ua = uaInfo.ua,
+					is = uaInfo.is;
+
+				return [
+					(!(/opera|webtv/i.test(ua)) && /msie\s(\d+)/.test(ua)) ? ('ie ie' + (/trident\/4\.0/.test(ua) ? '8' : RegExp.$1))
+						:is('edge\/') ? 'edge ie' + (/edge\/(\d+)\.(\d+)/.test(ua) ? RegExp.$1 + ' ie' + RegExp.$1 + '_' + RegExp.$2 : '') 
+						:is('trident\/') ? 'ie ie'+ (/trident\/.+rv:(\d+)/i.test(ua) ? RegExp.$1 : '') 
+							:is('firefox/') ? g + " " + f + (/firefox\/((\d+)(\.(\d+))(\.\d+)*)/.test(ua) ? ' ' + f + RegExp.$2 + ' ' + f + RegExp.$2 + "_" + RegExp.$4 : '')
+								:is('gecko/') ? g
+									:is('opera') ? o + (/version\/((\d+)(\.(\d+))(\.\d+)*)/.test(ua) ? ' ' + o + RegExp.$2 + ' ' + o + RegExp.$2 + "_" + RegExp.$4 : (/opera(\s|\/)(\d+)\.(\d+)/.test(ua) ? ' ' + o + RegExp.$2 + " " + o + RegExp.$2 + "_" + RegExp.$3 : ''))
+										:is('konqueror') ? 'konqueror'
+											:is('chrome') ? w + ' ' + c + (/chrome\/((\d+)(\.(\d+))(\.\d+)*)/.test(ua) ? ' ' + c + RegExp.$2 + ((RegExp.$4 > 0) ? ' ' + c + RegExp.$2 + "_" + RegExp.$4 : '') : '')
+												:is('iron') ? w + ' iron'
+													:is('applewebkit/') ? (w + ' ' + s + (/version\/((\d+)(\.(\d+))(\.\d+)*)/.test(ua) ? ' ' + s + RegExp.$2 + " " + s + RegExp.$2 + RegExp.$3.replace('.', '_') : (/ Safari\/(\d+)/i.test(ua) ? ((RegExp.$1 == "419" || RegExp.$1 == "417" || RegExp.$1 == "416" || RegExp.$1 == "412") ? ' ' + s + '2_0' : RegExp.$1 == "312" ? ' ' + s + '1_3' : RegExp.$1 == "125" ? ' ' + s + '1_2' : RegExp.$1 == "85" ? ' ' + s + '1_0' : '') : ''))) 
+														:is('mozilla/') ? g : ''
+				];
+			},
+			getPlatform : function() {
+				var wp = 'winphone',
+					a  = 'android',
+					bb = 'blackberry',
+					dv = 'device_',
+
+					ua = uaInfo.ua,
+					version = uaInfo.version,
+					is = uaInfo.is;
+
+				return [
+					is('j2me') ? 'j2me'
+						:is('windows phone') ? (wp + (/Windows Phone (\d+)(\.(\d+))+/i.test(ua) ? " " + wp + RegExp.$1 + " " + wp + RegExp.$1 + RegExp.$2.replace('.', '_') : (/Windows Phone OS (\d+)(\.(\d+))+/i.test(ua) ? " " + wp + RegExp.$1 + " " + wp + RegExp.$1 + RegExp.$2.replace('.', '_') : ''))) 
+						:is('blackberry') ? (bb + (/Version\/(\d+)(\.(\d+)+)/i.test(ua) ? " " + bb + RegExp.$1 + " " + bb + RegExp.$1 + RegExp.$2.replace('.', '_') : (/Blackberry ?(([0-9]+)([a-z]?))[\/|;]/gi.test(ua) ? ' ' + bb + RegExp.$2 + (RegExp.$3 ? ' ' + bb + RegExp.$2 + RegExp.$3 : '') : ''))) 
+							:is('android') ? (a + (/Version\/(\d+)(\.(\d+))+/i.test(ua) ? " " + a + RegExp.$1 + " " + a + RegExp.$1 + RegExp.$2.replace('.', '_') : '') + (/Android (.+); (.+) Build/i.test(ua) ? ' ' + dv + ((RegExp.$2).replace(/ /g, "_")).replace(/-/g, "_") : '')) 
+								:is('ipad|ipod|iphone') ? (
+								(/CPU( iPhone)? OS (\d+[_|\.]\d+([_|\.]\d+)*)/i.test(ua) ? 'ios' + version('ios', RegExp.$2) : '') + ' ' + (/(ip(ad|od|hone))/gi.test(ua) ? RegExp.$1 : "")) 
+									
+									
+									:is('playbook') ? 'playbook'
+										:is('kindle|silk') ? 'kindle'
+											:is('playbook') ? 'playbook'
+												:is('mac') ? 'mac' + (/mac os x ((\d+)[.|_](\d+))/.test(ua) ? (' mac' + (RegExp.$2) + ' mac' + (RegExp.$1).replace('.', "_")) : '')
+													:is('win') ? 'win' + (is('windows nt 10.0') ? ' win10'
+															:is('windows nt 6.3') ? ' win8_1'
+																:is('windows nt 6.2') ? ' win8'
+																	:is('windows nt 6.1') ? ' win7'
+																		:is('windows nt 6.0') ? ' vista'
+																			:is('windows nt 5.2') || is('windows nt 5.1') ? ' win_xp'
+																				:is('windows nt 5.0') ? ' win_2k'
+																					:is('windows nt 4.0') || is('WinNT4.0') ? ' win_nt' : '')
+														:is('freebsd') ? 'freebsd'
+															:is('x11|linux') ? 'linux' : ''
+				];
+			},
+			getMobile : function() {
+				var is = uaInfo.is;
+				return [
+					is("android|mobi|mobile|j2me|iphone|ipod|ipad|blackberry|winphone|playbook|kindle|silk") ? 'mobile' : ''
+				];
+			},
+			getIpadApp : function() {
+				var is = uaInfo.is;
+				return [
+					(is('ipad|iphone|ipod') && !is('safari')) ? 'ipad_app' : ''
+				];
+			},
+			getLang : function() {
+				var ua = uaInfo.ua;
+
+				return [
+					/[; |\[](([a-z]{2})(\-[a-z]{2})?)[)|;|\]]/i.test(ua) ? ('lang_' + RegExp.$2).replace("-", "_") + (RegExp.$3 != '' ? (' ' + 'lang_' + RegExp.$1).replace("-", "_") : '') : ''
+				];
+			},
+
+            getIphoneVersion:function() {
+                var iHeight = window.screen.height;
+                var iWidth = window.screen.width;
+
+                if (iWidth === 320 && iHeight === 480) {
+                    return "iphone4";
+                }
+                else if (iWidth === 375 && iHeight === 667) {
+                    return "iphone6";
+                }
+                else if (iWidth === 414 && iHeight === 736) {
+                    return "iphone6+";
+                }
+                else if (iWidth === 320 && iHeight === 568) {
+                    return "iphone5";
+                }
+                else if (iHeight <= 480) {
+                    return "iphone2";
+                }
+		    }
+		}
+
+		if (typeof html =='undefined') {
+			html=document.documentElement;
+		}
+
+		var screenInfo = {
+			width : (window.outerWidth || html.clientWidth) - 15,
+			height : window.outerHeight || html.clientHeight,
+			screens : [0, 768, 980, 1200],
+
+			screenSize : function () {
+				screenInfo.width = (window.outerWidth || html.clientWidth) - 15;
+				screenInfo.height = window.outerHeight || html.clientHeight;
+
+				var screens = screenInfo.screens,
+					i = screens.length,
+					arr = [],
+					maxw,
+					minw;
+
+				while(i--) {
+					if (screenInfo.width >= screens[i]) {
+						if(i) {
+							arr.push("minw_" + screens[(i)]);
+						}
+						if (i <= 2) {
+							arr.push("maxw_" + (screens[(i) + 1] - 1));
+						}
+						break;
+					}
+				}
+				return arr;
+			},
+			getOrientation : function() {
+				return screenInfo.width < screenInfo.height ? ["orientation_portrait"] : ["orientation_landscape"];
+			},
+			getInfo : function() {
+				var arr = [];
+				arr = arr.concat(screenInfo.screenSize());
+				arr = arr.concat(screenInfo.getOrientation());
+				return  arr;
+			},
+			getPixelRatio : function() {
+				var arr = [],
+					pixelRatio = window.devicePixelRatio ? window.devicePixelRatio : 1;
+
+				if(pixelRatio > 1) {
+					arr.push('retina_' + parseInt(pixelRatio) + 'x');
+					arr.push('hidpi');
+				} else {
+					arr.push('no-hidpi');
+				}
+				return arr;
+			}
+		}
+
+		var dataUriInfo = {
+			data : new Image(),
+			div : document.createElement("div"),
+			isIeLessThan9 : false,
+			getImg : function() {
+				dataUriInfo.data.src = "";
+				dataUriInfo.div.innerHTML = "<!--[if lt IE 9]><i></i><![endif]-->";
+				dataUriInfo.isIeLessThan9 = dataUriInfo.div.getElementsByTagName("i").length == 1;
+
+				return dataUriInfo.data;
+			},
+			checkSupport : function() {
+				if(dataUriInfo.data.width != 1 || dataUriInfo.data.height != 1 || dataUriInfo.isIeLessThan9) {
+					return ["no-datauri"];
+				}
+				else {
+					return ["datauri"];
+				}
+			}
+
+		}
+
+		function css_browser_selector(u, ns) {
+			var html = document.documentElement,
+				b = []
+			ns = ns ? ns : "";
+
+            /* ua */
+			uaInfo.ua = u.toLowerCase();
+			b = b.concat(uaInfo.getBrowser());
+			b = b.concat(uaInfo.getPlatform());
+			b = b.concat(uaInfo.getMobile());
+			b = b.concat(uaInfo.getIpadApp());
+			b = b.concat(uaInfo.getLang());
+			b = b.concat(uaInfo.getIphoneVersion());
+
+
+            /* js */
+			b = b.concat(['js']);
+
+            /* pixel ratio */
+			b = b.concat(screenInfo.getPixelRatio());
+
+            /* screen */
+			b = b.concat(screenInfo.getInfo());
+
+			var updateScreen = function() {
+				html.className = html.className.replace(/ ?orientation_\w+/g, "").replace(/ [min|max|cl]+[w|h]_\d+/g, "");
+				html.className = html.className + ' ' + screenInfo.getInfo().join(' ');
+			}
+
+			if (window.addEventListener) {
+				window.addEventListener('resize', updateScreen);
+				window.addEventListener('orientationchange', updateScreen);
+			} else if (window.attachEvent) {
+				window.attachEvent('onresize', updateScreen);
+			}
+
+            /* dataURI */
+			var data = dataUriInfo.getImg();
+			data.onload = data.onerror = function(){
+				html.className += ' ' + dataUriInfo.checkSupport().join(' ');
+			}
+
+
+            /* save & add existing html classes */
+			var classes = html.className;
+			var classesArray = classes.split(/ /);
+
+            /* merge existing classes on html tag */
+			b = b.concat(classesArray);
+
+            /* removendo itens invalidos do array */
+            /* add filter function polyfill for IE8 */
+			if (!Array.prototype.filter) {
+				Array.prototype.filter = function(fun/*, thisArg*/) {
+					'use strict';
+
+					if (this === void 0 || this === null) {
+						throw new TypeError();
+					}
+
+					var t = Object(this);
+					var len = t.length >>> 0;
+					if (typeof fun !== 'function') {
+						throw new TypeError();
+					}
+
+					var res = [];
+					var thisArg = arguments.length >= 2 ? arguments[1] : void 0;
+					for (var i = 0; i < len; i++) {
+						if (i in t) {
+							var val = t[i];
+
+							
+							
+							
+							
+							
+							if (fun.call(thisArg, val, i, t)) {
+								res.push(val);
+							}
+						}
+					}
+
+					return res;
+				};
+			}
+
+			b = b.filter(function(e){
+                /* if no-js class exists, remove it */
+				if (e === 'no-js') {
+					return false;
+				}
+				return e;
+			});
+
+            /* prefixo do namespace */
+			b[0] = ns ? ns + b[0] : b[0];
+			html.className = b.join(' ' + ns);
+			return html.className;
+		}
+
+
+		window.css_browser_selector = css_browser_selector;
+	})();
+
+	
+	var css_browser_selector_ns = css_browser_selector_ns || "";
+
+	
+	css_browser_selector(navigator.userAgent, css_browser_selector_ns);</script></div><footer class="page-footer"><div class="footer content">  <div class="footer-wrapper-links"><div class="ds-footer-inner"><h4>O doubleshotu</h4>
+    <ul>
+        <li><a href="/contact">Kontaktujte nás</a></li>
+        <li><a href="http://form.doubleshot.cz/kariera/">Pracujte s námi</a></li>
+    </ul></div><div class="ds-footer-inner"><h4>Nákup</h4>
+    <ul>
+        <li><a href="/obchodni-podminky">Obchodní podmínky</a></li>
+        <li><a href="/obchodni-podminky#reklamacni-rad">Jak reklamovat zboží</a></li>
+        <li><a href="/nejcastejsi-dotazy">Nejčastější dotazy</a></li>
+        <li><a href="https://velkoobchod.doubleshot.cz">Velkoobchod</a></li>
+        <li><a href="/obchodni-podminky#15">EET</a></li>
+</ul></div><div class="ds-footer-inner"><h4>Provozovny</h4>
+<ul>
+    <li><a href="http://www.mujsalekkavy.cz">Můj šálek kávy</a></li>
+    <li><a href="http://www.mistoprovas.cz">Místo</a></li>
+    <li><a href="http://www.alzacafe.cz">Alza Café</a></li>
+    <li><a href="https://www.cupofcake.cz">Cup of Cake</a></li>
+    <li><a href="/kde-ochutnat-kavu-doubleshot">Odběratelé</a></li>
+</ul></div></div><div class="footer-newsletter"> <div class="block newsletter"><div class="title"><strong>Newsletter</strong></div><div class="content"><form class="form subscribe" novalidate action="https://www.doubleshot.cz/newsletter/subscriber/new/" method="post" data-mage-init='{"validation": {"errorClass": "mage-error"}}' id="newsletter-validate-detail"><div class="tel-container"><a href="tel://420-314-004-550">+420 314 004 550</a></div><div class="newsletter-wrapper"><label class="label" for="newsletter"><span>Novinky emailem</span></label> <div class="fields-wrapper"><div class="field newsletter"><div class="control"><input name="email" type="email" id="newsletter" placeholder="@" data-validate="{required:true, 'validate-email':true}"/></div></div><div class="actions"><button class="action subscribe primary" title="Přihlásit" type="submit"><span>Přihlásit</span></button></div></div></div></form></div></div></div><div class="col-xs-12"><div class="mobile-tel"><div class="tel-container"><a href="tel://420-314-004-550">+420 314 004 550</a></div></div><div class="ds-footer-socials"><ul><li> <a href="https://www.facebook.com/doubleshot.cze"><i class="ds-icon icon-facebook"></i></a></li> <li> <a href="https://www.instagram.com/doubleshotcz/"><i class="ds-icon icon-instagram"></i></a></li> <li> <a href="https://twitter.com/doubleshot_cz"><i class="ds-icon icon-twitter"></i></a></li> <li> <a href="https://www.flickr.com/photos/doubleshot_cz/albums"><i class="ds-icon icon-flickr"></i></a></li> <li> <a href="mailto:info@doubleshot.cz"><i class="ds-icon icon-ds-email-icon"></i></a></li></ul></div><script>
+	require([
+		'jquery',
+		'tabs'], function ($) {
+		var footerCol = false,
+			wWidth = window.innerWidth,
+			footerBlocks = $('.ds-footer-inner,.newsletter-wrapper');
+
+		if (wWidth <= 639) {
+			footerBlocks.accordion({
+				active: false,
+				collapsible: true
+			});
+			footerCol = true;
+		}
+
+		$(window).resize(function() {
+			var wWidth = window.innerWidth;
+
+			if (wWidth <= 639 && !footerCol) {
+				footerBlocks.accordion({
+					active: false,
+					collapsible: true
+				});
+				footerCol = true;
+			}
+			else if (wWidth <= 480 && footerCol) {
+				footerBlocks.accordion('destroy').accordion({
+					active: false,
+					collapsible: true
+				});
+			}
+			else if (wWidth > 639 && footerCol) {
+				footerBlocks.accordion('destroy');
+				footerCol = false;
+			}
+		});
+	});</script></div></div></footer><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"33dd46c4d6","applicationID":"54994561","transactionName":"MVxRMBQHWkIAAkFQDQgWcgcSD1tfTgJUTQMKVlRLFhRbVRQCQRYUD1xE","queueTime":0,"applicationTime":1947,"atts":"HRtSRlwdSUw=","errorBeacon":"bam.nr-data.net","agent":""}</script>
+	
+<script>
+	function x(data) {
+		console.log('LOGGING FROM PLUGIN', data)
+		return data
+	}
+
+	window.extractorConfig = {
+		stage1: {
+			append: false,
+			plugins: [x, 'removeBoilerplate', 'removeSocial', x]
+		},
+		stage3: {
+			append: true,
+			plugins: [x]
+		},
+	}
+</script>
+<script type="text/javascript" src="app.f7257599c00fe447175d.js"></script></body></html>
