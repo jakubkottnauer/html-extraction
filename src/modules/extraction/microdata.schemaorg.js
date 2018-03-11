@@ -5,8 +5,8 @@ import type { Stage1PluginData, Stage2PluginData, Value } from '../../../types/p
 
 const key = 'microdata.schemaorg'
 
-export default (dom: Stage2PluginData): Array<Value> => {
-  const fields = schemaFields()
+export default async (dom: Stage2PluginData): Promise<Array<Value>> => {
+  const fields = await schemaFields()
   return fields
     .map(field => ({ field, value: getMicrodataValue(dom, field) }))
     .filter(r => r.value)

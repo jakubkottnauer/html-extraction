@@ -1,10 +1,15 @@
 // @flow
 import type { Value } from '../../types/plugin'
-import schema from './schema.json'
 
-export default (): Array<string> => {
-  if (!schema) return []
-  return schema['@graph']
-    .filter(node => node['@type'] === 'rdf:Property')
-    .map(node => node['rdfs:label'])
+export default async (): Promise<Array<string>> => {
+  try {
+    const schema = await import('./schema.json')
+    if (!schema) return []
+    return schema['@graph']
+      .filter(node => node['@type'] === 'rdf:Property')
+      .map(node => node['rdfs:label'])
+  } catch (e) {
+    console.log('Schema.org chunk missing. No schema.org properties will be used.')
+    return []
+  }
 }
