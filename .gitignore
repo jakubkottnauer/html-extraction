@@ -1,0 +1,8 @@
+node_modules/
+.vs_code
+dist/
+exp/out.txt
+.eslintcache
+.DS_STORE
+flow-typed
+yarn-error.log
