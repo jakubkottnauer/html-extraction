@@ -14,8 +14,11 @@ export default (dom: JQuery) => (results: Stage3PluginData): Stage3PluginData =>
         bottom: 0;
         right: 0;
         width: 500px;
-        height: auto;
+        max-height: 500px;
+        overflow: scroll;
         padding: 10px;
+        font-size: 13px;
+        font-family: arial;
         background-color: #f2f4ee;
         border: 1px solid black;">
           <p><b>Extraction results</b></p>
