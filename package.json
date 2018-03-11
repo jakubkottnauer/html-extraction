@@ -5,6 +5,7 @@
   "scripts": {
     "build": "webpack --config ./webpack/webpack.config.dev.js",
     "build:prod": "webpack --config ./webpack/webpack.config.prod.js",
+    "build:www": "webpack --config ./webpack/webpack.config.prod.js",
     "clean": "rm -rf ./dist",
     "exp": "mkdir -p ./dist/exp && babel ./exp -d ./dist/exp && node ./dist/exp/index.js",
     "flow:setup": "yarn flow-typed install",
@@ -15,6 +16,10 @@
     "start": "open dist/index.html && yarn build",
     "test": "jest",
     "test:watch": "yarn test --watch"
+  },
+  "dependencies": {
+    "glob": "^7.1.2",
+    "ramda": "^0.25.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.40",
@@ -55,11 +60,5 @@
     "transform": {
       "^.+\\.js$": "babel-jest"
     }
-  },
-  "dependencies": {
-    "glob": "^7.1.2",
-    "npm-check-updates": "^2.14.1",
-    "ramda": "^0.25.0",
-    "whatwg-fetch": "^2.0.3"
   }
 }
