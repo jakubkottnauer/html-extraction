@@ -1,5 +1,7 @@
 # html-extract
 
+There is a simple demo page available at https://jakubkottnauer.github.io/html-extraction
+
 ## Setup
 ```
 yarn
