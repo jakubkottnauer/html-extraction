@@ -16,3 +16,12 @@ yarn build
 ```
 yarn exp
 ```
+
+## Production build
+Production build can be created by running
+
+```
+yarn build:prod
+```
+
+For you convenience, current production build is available in the `dist` folder.

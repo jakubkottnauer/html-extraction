@@ -5,15 +5,14 @@
   "scripts": {
     "build": "webpack --config ./webpack/webpack.config.dev.js",
     "build:prod": "webpack --config ./webpack/webpack.config.prod.js",
-    "build:www": "webpack --config ./webpack/webpack.config.prod.js",
-    "clean": "rm -rf ./dist",
-    "exp": "mkdir -p ./dist/exp && babel ./exp -d ./dist/exp && node ./dist/exp/index.js",
+    "clean": "rm -rf ./build",
+    "exp": "mkdir -p ./build/exp && babel ./exp -d ./build/exp && node ./build/exp/index.js",
     "flow:setup": "yarn flow-typed install",
     "lint": "eslint ./src ./types ./exp ./webpack",
     "lint:fix": "yarn lint --fix",
     "precommit": "yarn lint",
     "prepush": "yarn lint && yarn test && yarn flow",
-    "start": "open dist/index.html && yarn build",
+    "start": "open build/index.html && yarn build",
     "test": "jest",
     "test:watch": "yarn test --watch"
   },

@@ -1,6 +1,6 @@
 node_modules/
 .vs_code
-dist/
+build/
 exp/out.txt
 .eslintcache
 .DS_STORE

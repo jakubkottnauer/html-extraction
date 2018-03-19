@@ -7,7 +7,7 @@ const path = require('path')
 const fs = require('fs')
 const glob = require('glob')
 
-const distPath = path.join(__dirname, '..', '/dist')
+const buildPath = path.join(__dirname, '..', '/build')
 const dataPath = path.join(__dirname, '..', '/templates')
 
 const htmlPlugins = []
@@ -16,7 +16,7 @@ glob.sync(`${dataPath}/*/*.html`).forEach(file => {
     new HtmlWebpackPlugin({
       template: file,
       inject: 'body',
-      filename: path.join(distPath, file.split('/')[file.split('/').length - 1]),
+      filename: path.join(buildPath, file.split('/')[file.split('/').length - 1]),
     })
   )
 })
@@ -25,7 +25,7 @@ module.exports = merge(common, {
   watch: true,
   mode: 'development',
   output: {
-    path: distPath,
+    path: buildPath,
     filename: '[name].[chunkhash].js',
   },
   plugins: [...htmlPlugins],

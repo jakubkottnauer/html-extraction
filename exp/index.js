@@ -11,7 +11,7 @@ const appendFile = promisify(fs.appendFile)
 const readdir = promisify(fs.readdir)
 
 const outputPath = 'exp/out.txt'
-const inputPath = './dist'
+const inputPath = './build'
 
 const main = async () => {
   const files = (await readdir(inputPath)).filter(file => path.extname(file) === '.html')
