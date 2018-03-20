@@ -20,6 +20,7 @@ export default (dom: JQuery) => (results: Stage3PluginData): Stage3PluginData =>
         font-size: 13px;
         font-family: arial;
         background-color: #f2f4ee;
+        text-align:left;
         border: 1px solid black;">
           <p><b>Extraction results</b></p>
           <ul>
