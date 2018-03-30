@@ -3,7 +3,7 @@ import type { Value } from '../../types/plugin'
 
 export default async (): Promise<Array<string>> => {
   try {
-    const schema = await import('./schema.json')
+    const schema = await import(/* webpackChunkName: "schema" */ './schema.json')
     if (!schema) return []
     return schema['@graph']
       .filter(node => node['@type'] === 'rdf:Property')

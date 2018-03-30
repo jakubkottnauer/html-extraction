@@ -12,6 +12,7 @@ module.exports = merge(common, {
   output: {
     path: distPath,
     filename: 'html_extract.js',
+    chunkFilename: 'html_extract_[name].js',
   },
   plugins: [
     new CompressionPlugin({
