@@ -6,6 +6,6 @@
 [libs]
 
 [options]
-esproposal.optional_chaining=enable
+esproposal.optional_chaining=ignore
 
 [lints]

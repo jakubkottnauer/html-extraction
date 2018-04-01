@@ -25,11 +25,21 @@ const main = async () => {
   }
 
   console.log(summary)
+  const csv = summaryToCsv(summary) 
+  console.log(csv)
 }
 
 main().then(() => {
   console.log('All done.')
 })
+
+const summaryToCsv = (summary: Object) => {
+  const props = ['entityType', 'name', 'price', 'description']
+  const firstLine = `file;${props.join(';')}\n`
+  return Object.keys(summary).reduce((acc, k) => {
+    return props.reduce((acc2, p) => acc2 + `;${summary[k][p]}`, acc + `${k}`) + '\n'
+  }, firstLine)
+}
 
 const delay = (timeout: number) =>
   new Promise((resolve: any) => {
