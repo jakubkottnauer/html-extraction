@@ -26,6 +26,14 @@ export default {
     price: '119.99',
     entityType: 'product',
   },
+  bbc: {
+    currency: null,
+    description:
+      'China\'s Xi Jinping could stay in power indefinitely after parliament backs constitutional changes.',
+    name: 'China\'s Xi allowed to remain \'president for life\' as term limits removed',
+    price: null,
+    entityType: 'article',
+  },
   bookdepository: {
     currency: 'CZK',
     description:
@@ -34,12 +42,35 @@ export default {
     price: '121.2',
     entityType: 'product',
   },
+  ceskatelevize: {
+    currency: null,
+    description: 'Abeceda ČT: Č, Česká soda Černé ovce Četnické humoresky',
+    name:'Abeceda ČT',
+    price: null,
+    entityType: 'video',
+  },
   cestujlevnecom: {
     currency: 'CZK',
     description:
       'Akční Letenky Česká republika – Španělsko za 1 540 Kč. Běžně tyto Letenky stojí 2 000 Kč, proto s námi ušetříš 23 %.',
     name: 'Za akční cenu z Prahy a Vídně do Barcelony s Vuelingem. Letenky od 1 540 Kč',
     price: '1540',
+    entityType: 'vacation',
+  },
+  cnn: {
+    currency: null,
+    description:
+      'She hails from a land with no real mountains but Estonian 16-year-old Kelly Sildaru is already an extreme sports phenomenon.',
+    name: 'Meet teenager Kelly Sildaru, the star of the next Winter Olympics?',
+    price: null,
+    entityType: 'article',
+  },
+  costcotravel: {
+    currency: 'USD',
+    description:
+      'This all-inclusive beachfront resort is terraced into the desert hillside and blends into the natural landscape of the region, offering sweeping views of the Sea of Cortez. The SOMMA Wine Spa boasts a comprehensive menu of revitalizing services, including a selection of unique wine-therapy treatments. The renowned courses of the Cabo del Sol Golf Club are located nearby.',
+    name: 'Los Cabos: Grand Fiesta Americana Package',
+    price: null,
     entityType: 'vacation',
   },
   czc: {
@@ -50,6 +81,14 @@ export default {
     price: '899',
     entityType: 'product',
   },
+  dagen: {
+    currency: null,
+    description:
+      'Trots att vi känner oss små och obetydliga ska vi fortsätta med att dela med oss.',
+    name: 'Kan också vi dela med oss av vår matsäck?',
+    price: null,
+    entityType: 'article',
+  },
   doubleshot: {
     currency: 'CZK',
     description:
@@ -58,13 +97,28 @@ export default {
     price: '370',
     entityType: 'product',
   },
+  dovolena: {
+    currency: null,
+    description:
+      'Objednejte si dovolenou v tomto hotelu. Hotel Golden Oasis Hotel ohne Transfer *** letecky v Muscat - Omán, nejlevnější letecká dovolená do Golden Oasis Hotel ohne Transfer ***. Porovnejte si zájezdy do tohoto hotelu, najdeme vám tu nejvýhodnější nabídku.',
+    name: 'Golden Oasis Hotel ohne Transfer',
+    price: null,
+    entityType: 'vacation',
+  },
+  etravel: {
+    currency: null,
+    description: null,
+    name: 'PLAYA MAR',
+    price: null,
+    entityType: 'vacation',
+  },
   foodlover: {
     currency: null,
     description:
       'Symbol neděle? Bábovka. Je to taková jistota, ke které se vracím vždycky, když nemám nápad na nic jiného nebo když toho doma moc nemáme a přesto chci něco upéct. Tahle je s máslem a čokoládou. Skvělá na upršené zimní odpoledne, když si k ní uvaříte čaj nebo kakao, bude vám dobře.',
     name: 'Čokoládová bábovka',
     price: null,
-    entityType: 'recipe',
+    entityType: 'article',
   },
   idnes: {
     currency: null,
@@ -73,6 +127,13 @@ export default {
     name: 'Konec hazardu v hospodďż˝ch. Automaty budou vďż˝hradnďż˝ v hernďż˝ch',
     price: null,
     entityType: 'article',
+  },
+  invia: {
+    currency: 'CZK',
+    description: 'Hotel Korfu, dovolená a zájezdy do hotelu Korfu. Invia.cz, a.s. je největší online prodejce zájezdů v České republice, který nabízí zájezdy od více než 300 cestovních kanceláří.',
+    name: 'Alkyon',
+    price: '12990',
+    entityType: 'vacation',
   },
   iprima: {
     currency: null,
@@ -97,6 +158,36 @@ export default {
     price: '9990',
     entityType: 'product',
   },
+  metacafe: {
+    currency: null,
+    description: 'This man is having the best day of his life',
+    name: 'happy beer accident',
+    price: null,
+    entityType: 'video',
+  },
+  newscientist: {
+    currency: null,
+    description:
+      'Ever felt like you’ve heard a video even though the sound was turned off? As many as 20 per cent of us may “hear” silent GIFs and other moving objects',
+    name: 'A fifth of people hear sounds when watching silent GIFs. Do you?',
+    price: null,
+    entityType: 'article',
+  },
+  novinky: {
+    currency: null,
+    description:
+      'Nedostatek lidí na trhu práce urychlí zavádění inovativních přístupů napříč obory. Vyšší investice firem půjdou především do robotizace a umělé inteligence. Do pěti let tak můžeme očekávat velké změny v rámci profesí.',
+    name: 'Manuální a rutinní profese nahradí roboti',
+    price: null,
+    entityType: 'article',
+  },
+  onthegotours: {
+    currency: 'USD',
+    description: 'Classic Family Adventure is an escorted family tour of Egypt. Start and end in Cairo, experience a fun backed educational trip for you and all the family! (US)',
+    name: 'Classic Family Adventure - 10 Days',
+    price: null,
+    entityType: 'vacation',
+  },
   ponyfoo: {
     currency: null,
     description:
@@ -113,6 +204,21 @@ export default {
     price: 79,
     entityType: 'product',
   },
+  theverge: {
+    currency: null,
+    description:
+      'Sony showed off its Superception Head Light system at SXSW in Austin, Texas to show how senses could affect human perception.',
+    name: 'Sony made a projector helmet to help you understand mosquitoes',
+    price: null,
+    entityType: 'article',
+  },
+  tncz: {
+    currency: null,
+    description: 'Kromě toho, že začíná jaro, připadá na dnešní den také jarní rovnodennost. Znamená to, že den bude přibližně stejně dlouhý jako noc. Podle astrologů se navíc musíme připravit na ohromný příval energie.',
+    name: 'Rovnodennost je tady! Astroložka poradila, co dnes určitě nedělat',
+    price: null,
+    entityType: 'video',
+  },
   vasecocky: {
     currency: 'CZK',
     description:
@@ -121,11 +227,27 @@ export default {
     price: '589.00',
     entityType: 'product',
   },
+  videacesky: {
+    currency: null,
+    description:
+      'NRA TV je platformou Národní střelecké asociace a propaguje na ní své myšlenky a vytváří vlastní pořady. Některé jsou zvláštní, ale myšlenku mají.',
+    name: 'Národní střelecká televize',
+    price: null,
+    entityType: 'video',
+  },
   vimeo: {
     currency: null,
     description:
       'Fly over a Rocky Mountain college town known for its expansive views, hyper-active residents, socks in Chacos, and bikes more expensive than the cars they’re…',
     name: 'ABOVE BOULDER - 4K Drone Film',
+    price: null,
+    entityType: 'video',
+  },
+  voyo: {
+    currency: null,
+    description:
+      'Tentokrát si ke stolu s Ondřejem Novotným sednou dvě nejstarší dámy ostrova – Zina a Blanka, které se vrhnou do komentování dvanáctého dílu díl Robinsonova ostrova. Petr je v očích Ziny jednoznačně upřímný a mírumilovný člověk, který to s ženami prostě umí. Není tedy divu, že se dokázal do Nikol vcítit a dostat z ní věci, o kterých neměl nikdo jiný ani tušení. Petrovi se totiž svěřila se svou nešťastnou minulostí, kdy ji ex-přítel fyzicky týral. Že by na ostrově pomalu vznikala velká láska mezi Petrem a Nikol…? Naopak Blanka má na mladou fitness trenérku úplně jiný názor a Zina vidí Nikol dokonce jako „trosku“, která by na ostrově neměla co dělat. Je tedy jasné, kdo bude další vyřazený, nebo ne?',
+    name: 'JAK TO VIDÍ ROBINSONI - 12. DÍL',
     price: null,
     entityType: 'video',
   },
@@ -144,7 +266,7 @@ export default {
     price: null,
     entityType: 'video',
   },
-  zajezdy_studentagency: {
+  studentagency: {
     currency: 'CZK',
     description: null,
     name: 'The Three Corners Triton Empire ***',

@@ -27,19 +27,20 @@ const main = async () => {
   console.log(summary)
   const csv = summaryToCsv(summary) 
   console.log(csv)
+  await appendFile(outputPath, csv + '\n')
 }
 
 main().then(() => {
   console.log('All done.')
 })
 
-const summaryToCsv = (summary: Object) => {
-  const props = ['entityType', 'name', 'price', 'description']
-  const firstLine = `file;${props.join(';')}\n`
-  return Object.keys(summary).reduce((acc, k) => {
-    return props.reduce((acc2, p) => acc2 + `;${summary[k][p]}`, acc + `${k}`) + '\n'
-  }, firstLine)
-}
+const props = ['entityType', 'name', 'price', 'description']
+
+const summaryToCsv = (summary: Object) => 
+  Object.keys(summary)
+    .reduce((acc, k) => ([...acc, { key: k, value: props.filter((p) => summary[k][p]).length }]), [])
+    .sort((a,b) => b.value - a.value)
+    .reduce((acc, k, i) => `${acc}${i} ${k.key.split('.')[0]} ${k.value}\n`, '')
 
 const delay = (timeout: number) =>
   new Promise((resolve: any) => {
@@ -56,11 +57,11 @@ const diffResultExpected = (file: string, extractionResult: Stage3PluginData) =>
   }
 
   let summary = {}
-  const sortedExtractrationResult = extractionResult.sort(
+  const sortedExtractionResult = extractionResult.sort(
     (a, b) => (a.confidence < b.confidence ? 1 : -1)
   )
   Object.keys(expectedResult).forEach(x => {
-    const res = sortedExtractrationResult.find(r => r.key === x)
+    const res = sortedExtractionResult.find(r => r.key === x)
     if (res) {
       const strValue = res.value ? res.value.toString() : ''
       const areEqual = res.value === expectedResult[x]
@@ -110,7 +111,6 @@ async function testPage(file: string, output: string, onSummary: Function) {
     await dialog.dismiss()
   })
   await page.goto(`file://${absolutePath}`)
-  await delay(2000) // Wait for 2 seconds so that all the parsing has enough time to finish.
   console.log(chalk.gray(`${file} done.\n`))
   await browser.close()
 }
