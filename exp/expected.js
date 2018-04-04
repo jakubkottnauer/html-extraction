@@ -29,8 +29,8 @@ export default {
   bbc: {
     currency: null,
     description:
-      'China\'s Xi Jinping could stay in power indefinitely after parliament backs constitutional changes.',
-    name: 'China\'s Xi allowed to remain \'president for life\' as term limits removed',
+      "China's Xi Jinping could stay in power indefinitely after parliament backs constitutional changes.",
+    name: "China's Xi allowed to remain 'president for life' as term limits removed",
     price: null,
     entityType: 'article',
   },
@@ -45,7 +45,7 @@ export default {
   ceskatelevize: {
     currency: null,
     description: 'Abeceda ČT: Č, Česká soda Černé ovce Četnické humoresky',
-    name:'Abeceda ČT',
+    name: 'Abeceda ČT',
     price: null,
     entityType: 'video',
   },
@@ -130,7 +130,8 @@ export default {
   },
   invia: {
     currency: 'CZK',
-    description: 'Hotel Korfu, dovolená a zájezdy do hotelu Korfu. Invia.cz, a.s. je největší online prodejce zájezdů v České republice, který nabízí zájezdy od více než 300 cestovních kanceláří.',
+    description:
+      'Hotel Korfu, dovolená a zájezdy do hotelu Korfu. Invia.cz, a.s. je největší online prodejce zájezdů v České republice, který nabízí zájezdy od více než 300 cestovních kanceláří.',
     name: 'Alkyon',
     price: '12990',
     entityType: 'vacation',
@@ -183,7 +184,8 @@ export default {
   },
   onthegotours: {
     currency: 'USD',
-    description: 'Classic Family Adventure is an escorted family tour of Egypt. Start and end in Cairo, experience a fun backed educational trip for you and all the family! (US)',
+    description:
+      'Classic Family Adventure is an escorted family tour of Egypt. Start and end in Cairo, experience a fun backed educational trip for you and all the family! (US)',
     name: 'Classic Family Adventure - 10 Days',
     price: null,
     entityType: 'vacation',
@@ -214,7 +216,8 @@ export default {
   },
   tncz: {
     currency: null,
-    description: 'Kromě toho, že začíná jaro, připadá na dnešní den také jarní rovnodennost. Znamená to, že den bude přibližně stejně dlouhý jako noc. Podle astrologů se navíc musíme připravit na ohromný příval energie.',
+    description:
+      'Kromě toho, že začíná jaro, připadá na dnešní den také jarní rovnodennost. Znamená to, že den bude přibližně stejně dlouhý jako noc. Podle astrologů se navíc musíme připravit na ohromný příval energie.',
     name: 'Rovnodennost je tady! Astroložka poradila, co dnes určitě nedělat',
     price: null,
     entityType: 'video',

@@ -19,13 +19,18 @@ const main = async () => {
   console.log(`Starting up. Processing ${files.length} test files.`)
   const summary = {}
   for (const file of files) {
-    await testPage(file, outputPath, s => {
-      summary[file] = s
+    await testPage(file, outputPath, (s, duration) => {
+      const filename = path.basename(file, path.extname(file)) // removing absolute path and extension
+      summary[filename] = {
+        correctlyExtracted: s,
+        duration,
+        filesize: getFilesize(file),
+      }
     })
   }
 
   console.log(summary)
-  const csv = summaryToCsv(summary) 
+  const csv = summaryToCsv(summary)
   console.log(csv)
   await appendFile(outputPath, csv + '\n')
 }
@@ -34,13 +39,34 @@ main().then(() => {
   console.log('All done.')
 })
 
+const getFilesize = file => {
+  const absolutePath = path.resolve(__dirname, '..', file)
+  const stats = fs.statSync(absolutePath)
+  const fileSizeInBytes = stats.size
+  return fileSizeInBytes / 1000.0
+}
+
 const props = ['entityType', 'name', 'price', 'description']
 
-const summaryToCsv = (summary: Object) => 
+// Resulting CSV is in format:
+// idx filename correctlyExtracted duration filesize
+const summaryToCsv = (summary: Object) =>
   Object.keys(summary)
-    .reduce((acc, k) => ([...acc, { key: k, value: props.filter((p) => summary[k][p]).length }]), [])
-    .sort((a,b) => b.value - a.value)
-    .reduce((acc, k, i) => `${acc}${i} ${k.key.split('.')[0]} ${k.value}\n`, '')
+    .reduce(
+      (acc, k) => [
+        ...acc,
+        { key: k, value: props.filter(p => summary[k]['correctlyExtracted'][p]).length },
+      ],
+      []
+    )
+    .sort((a, b) => b.value - a.value)
+    .reduce(
+      (acc, k, i) =>
+        `${acc}${i} "${k.key} (${expected[k.key].entityType})" ${k.value} ${
+          summary[k.key].duration
+        } ${summary[k.key].filesize}\n`,
+      ''
+    )
 
 const delay = (timeout: number) =>
   new Promise((resolve: any) => {
@@ -103,9 +129,13 @@ async function testPage(file: string, output: string, onSummary: Function) {
   console.log(chalk.grey(`${file} starting.`))
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
+  const start = +new Date()
   page.on('console', async msg => {
     const summary = await onConsole(msg, absolutePath, output)
-    summary && onSummary(summary)
+    if (summary) {
+      const end = +new Date()
+      onSummary(summary, end - start)
+    }
   })
   page.on('dialog', async dialog => {
     await dialog.dismiss()

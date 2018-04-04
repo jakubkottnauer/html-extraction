@@ -1,34 +1,34 @@
-0 abebooks 4
-1 bbc 4
-2 wikipedia 4
-3 idnes 4
-4 iprima 4
-5 ponyfoo 4
-6 theverge 4
-7 dagen 3
-8 etravel 3
-9 bookdepository 3
-10 amazon 3
-11 ceskatelevize 3
-12 metacafe 3
-13 newscientist 3
-14 novinky 3
-15 onthegotours 3
-16 vasecocky 3
-17 cnn 3
-18 tncz 3
-19 vimeo 3
-20 foodlover 2
-21 czc 2
-22 youtube 2
-23 dovolena 2
-24 profimed 2
-25 videacesky 2
-26 alza 2
-27 mall 2
-28 voyo 2
-29 studentagency 1
-30 invia 1
-31 costcotravel 1
-32 cestujlevnecom 1
-33 lidl 1
+0 "abebooks (product)" 4 642 108.556
+1 "bbc (article)" 4 1592 180.931
+2 "wikipedia (article)" 4 654 354.059
+3 "idnes (article)" 4 356 90.248
+4 "iprima (video)" 4 650 159.15
+5 "ponyfoo (article)" 4 576 101.944
+6 "theverge (article)" 4 852 148.625
+7 "dagen (article)" 3 1987 126.916
+8 "etravel (vacation)" 3 305 307.764
+9 "bookdepository (product)" 3 887 294.44
+10 "amazon (product)" 3 1527 694.929
+11 "ceskatelevize (video)" 3 776 55.25
+12 "metacafe (video)" 3 1007 222.474
+13 "newscientist (article)" 3 1453 74.209
+14 "novinky (article)" 3 359 49.416
+15 "onthegotours (vacation)" 3 820 230.299
+16 "vasecocky (product)" 3 1342 526.052
+17 "cnn (article)" 3 774 203.526
+18 "tncz (video)" 3 1220 93.583
+19 "vimeo (video)" 3 1170 101.417
+20 "foodlover (article)" 2 1019 94.508
+21 "czc (product)" 2 482 247.804
+22 "youtube (video)" 2 208 375.412
+23 "dovolena (vacation)" 2 729 287.772
+24 "profimed (product)" 2 663 34.855
+25 "videacesky (video)" 2 1231 166.868
+26 "alza (product)" 2 1365 250.046
+27 "mall (product)" 2 375 156.533
+28 "voyo (video)" 2 1059 72.047
+29 "studentagency (vacation)" 1 985 487.661
+30 "invia (vacation)" 1 869 117.238
+31 "costcotravel (vacation)" 1 2224 73.784
+32 "cestujlevnecom (vacation)" 1 491 351.042
+33 "lidl (product)" 1 301 47.156

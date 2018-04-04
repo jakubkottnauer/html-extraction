@@ -1,6 +1,6 @@
 set terminal pdf enhanced size 7,5 font "arial, 16"
 set encoding iso_8859_2
-set output './'.f.'_nar.pdf'
+set output './correctlyExtracted.pdf'
 
 set key off
 set xlabel ''
