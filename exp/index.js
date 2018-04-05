@@ -13,6 +13,8 @@ const readdir = promisify(fs.readdir)
 const outputPath = 'exp/out.txt'
 const inputPath = './build'
 
+const getPlainFilename = (file: string) =>path.basename(file, path.extname(file))
+
 const main = async () => {
   const files = (await readdir(inputPath)).filter(file => path.extname(file) === '.html')
 
@@ -20,9 +22,10 @@ const main = async () => {
   const summary = {}
   for (const file of files) {
     await testPage(file, outputPath, (s, duration) => {
-      const filename = path.basename(file, path.extname(file)) // removing absolute path and extension
+      const filename = getPlainFilename(file)
       summary[filename] = {
-        correctlyExtracted: s,
+        correctlyExtracted: s.summary,
+        extractorSuccessRate: s.extractorSuccessRate,
         duration,
         filesize: getFilesize(file),
       }
@@ -33,6 +36,8 @@ const main = async () => {
   const csv = summaryToCsv(summary)
   console.log(csv)
   await appendFile(outputPath, csv + '\n')
+  const csvExt = extractorSuccessRateToCsv(summary)
+  await appendFile(outputPath, csvExt + '\n')
 }
 
 main().then(() => {
@@ -68,13 +73,17 @@ const summaryToCsv = (summary: Object) =>
       ''
     )
 
+const extractorSuccessRateToCsv = (summary: Object) => {
+  return ''
+}
+
 const delay = (timeout: number) =>
   new Promise((resolve: any) => {
     setTimeout(resolve, timeout)
   })
 
 const diffResultExpected = (file: string, extractionResult: Stage3PluginData) => {
-  const filename = path.basename(file, path.extname(file)) // removing absolute path and extension
+  const filename = getPlainFilename(file) 
   const expectedResult = expected[filename]
 
   if (!expectedResult) {
@@ -111,6 +120,30 @@ const diffResultExpected = (file: string, extractionResult: Stage3PluginData) =>
   return summary
 }
 
+const calcExtractorSuccessRate = (file: string, extractionResult: Stage3PluginData) => {
+  const filename = getPlainFilename(file) 
+  const expectedResult = expected[filename]
+
+  if (!expectedResult) {
+    console.log(chalk.red(`Missing expected result for ${filename}!`))
+    return
+  }
+
+  console.log(extractionResult)
+  return extractionResult.reduce((acc, r) => {
+    const didLookFor = expectedResult.hasOwnProperty(r.key)
+    if(!didLookFor) return acc
+
+    if (r.value === expectedResult[r.key]){
+      return {...acc, [r.extractor]: acc[r.extractor] ? acc[r.extractor] + 1 : 1 }
+    }
+
+    return acc
+    
+  }, {})
+
+}
+
 const onConsole = async (msg: { text: string }, file: string, output: string) => {
   const prefix = 'extractlog'
   const txt = msg.text()
@@ -120,7 +153,9 @@ const onConsole = async (msg: { text: string }, file: string, output: string) =>
     const summary = diffResultExpected(file, jsonResult)
     await appendFile(output, txtResult + '\n')
 
-    return summary
+    const extractorSuccessRate = calcExtractorSuccessRate(file, jsonResult)
+
+    return { summary, extractorSuccessRate }
   }
 }
 
@@ -131,10 +166,10 @@ async function testPage(file: string, output: string, onSummary: Function) {
   const page = await browser.newPage()
   const start = +new Date()
   page.on('console', async msg => {
-    const summary = await onConsole(msg, absolutePath, output)
-    if (summary) {
+    const res = await onConsole(msg, absolutePath, output)
+    if (res) {
       const end = +new Date()
-      onSummary(summary, end - start)
+      onSummary(res, end - start)
     }
   })
   page.on('dialog', async dialog => {
