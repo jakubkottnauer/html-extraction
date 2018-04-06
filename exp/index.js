@@ -4,6 +4,7 @@ import fs from 'fs'
 import path from 'path'
 import { promisify } from 'util'
 import chalk from 'chalk'
+import { toPairs } from 'ramda'
 import expected from './expected'
 import type { Stage3PluginData } from '../types/plugin'
 
@@ -13,7 +14,7 @@ const readdir = promisify(fs.readdir)
 const outputPath = 'exp/out.txt'
 const inputPath = './build'
 
-const getPlainFilename = (file: string) =>path.basename(file, path.extname(file))
+const getPlainFilename = (file: string) => path.basename(file, path.extname(file))
 
 const main = async () => {
   const files = (await readdir(inputPath)).filter(file => path.extname(file) === '.html')
@@ -33,10 +34,17 @@ const main = async () => {
   }
 
   console.log(summary)
-  const csv = summaryToCsv(summary)
+  
+  const csv = summaryToCsv(summary, (a, b) => b.value - a.value)
   console.log(csv)
   await appendFile(outputPath, csv + '\n')
+
+  const durationCsv = summaryToCsv(summary, (a, b) => summary[b.key].duration - summary[a.key].duration)
+  console.log(durationCsv)
+  await appendFile(outputPath, durationCsv + '\n')
+
   const csvExt = extractorSuccessRateToCsv(summary)
+  console.log(csvExt)
   await appendFile(outputPath, csvExt + '\n')
 }
 
@@ -55,7 +63,7 @@ const props = ['entityType', 'name', 'price', 'description']
 
 // Resulting CSV is in format:
 // idx filename correctlyExtracted duration filesize
-const summaryToCsv = (summary: Object) =>
+const summaryToCsv = (summary: Object, sortBy: Function) =>
   Object.keys(summary)
     .reduce(
       (acc, k) => [
@@ -64,7 +72,7 @@ const summaryToCsv = (summary: Object) =>
       ],
       []
     )
-    .sort((a, b) => b.value - a.value)
+    .sort(sortBy)
     .reduce(
       (acc, k, i) =>
         `${acc}${i} "${k.key} (${expected[k.key].entityType})" ${k.value} ${
@@ -73,8 +81,19 @@ const summaryToCsv = (summary: Object) =>
       ''
     )
 
+// Resulting CSV is in format:
+// idx extractorName successCount
 const extractorSuccessRateToCsv = (summary: Object) => {
-  return ''
+  const res = Object.keys(summary).reduce((acc, k) => {
+    const r = summary[k]['extractorSuccessRate']
+    return Object.keys(r).reduce((acc2, ext) => {
+      const currentExtVal = r[ext]
+      return { ...acc2, [ext]: acc2[ext] ? acc2[ext] + currentExtVal : currentExtVal }
+    }, acc)
+  }, {})
+  return toPairs(res)
+    .sort((a, b) => b[1] - a[1])
+    .reduce((acc, k, idx) => `${acc}${idx} ${k[0]} ${k[1]}\n`, '')
 }
 
 const delay = (timeout: number) =>
@@ -83,7 +102,7 @@ const delay = (timeout: number) =>
   })
 
 const diffResultExpected = (file: string, extractionResult: Stage3PluginData) => {
-  const filename = getPlainFilename(file) 
+  const filename = getPlainFilename(file)
   const expectedResult = expected[filename]
 
   if (!expectedResult) {
@@ -121,7 +140,7 @@ const diffResultExpected = (file: string, extractionResult: Stage3PluginData) =>
 }
 
 const calcExtractorSuccessRate = (file: string, extractionResult: Stage3PluginData) => {
-  const filename = getPlainFilename(file) 
+  const filename = getPlainFilename(file)
   const expectedResult = expected[filename]
 
   if (!expectedResult) {
@@ -132,16 +151,14 @@ const calcExtractorSuccessRate = (file: string, extractionResult: Stage3PluginDa
   console.log(extractionResult)
   return extractionResult.reduce((acc, r) => {
     const didLookFor = expectedResult.hasOwnProperty(r.key)
-    if(!didLookFor) return acc
+    if (!didLookFor) return acc
 
-    if (r.value === expectedResult[r.key]){
-      return {...acc, [r.extractor]: acc[r.extractor] ? acc[r.extractor] + 1 : 1 }
+    if (r.value === expectedResult[r.key]) {
+      return { ...acc, [r.extractor]: acc[r.extractor] ? acc[r.extractor] + 1 : 1 }
     }
 
     return acc
-    
   }, {})
-
 }
 
 const onConsole = async (msg: { text: string }, file: string, output: string) => {

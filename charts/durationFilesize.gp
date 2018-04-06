@@ -18,5 +18,5 @@ set y2tics nomirror tc lt 2 textcolor rgb filesizeCol
 set style data histograms
 
 
-plot "<(sed -n '1,15p' results)" using 4:xtic(2) title "Doba extrakce" lc rgb durationCol axis x1y1,\
+plot "<(sed -n '1,15p' duration)" using 4:xtic(2) title "Doba extrakce" lc rgb durationCol axis x1y1,\
      "" using 5 title "Velikost souboru" lc rgb filesizeCol axis x1y2
