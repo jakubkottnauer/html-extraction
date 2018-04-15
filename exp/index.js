@@ -5,6 +5,7 @@ import path from 'path'
 import { promisify } from 'util'
 import chalk from 'chalk'
 import { toPairs } from 'ramda'
+import levenshtein from './levenshtein'
 import expected from './expected'
 import type { Stage3PluginData } from '../types/plugin'
 
@@ -34,12 +35,15 @@ const main = async () => {
   }
 
   console.log(summary)
-  
+
   const csv = summaryToCsv(summary, (a, b) => b.value - a.value)
   console.log(csv)
   await appendFile(outputPath, csv + '\n')
 
-  const durationCsv = summaryToCsv(summary, (a, b) => summary[b.key].duration - summary[a.key].duration)
+  const durationCsv = summaryToCsv(
+    summary,
+    (a, b) => summary[b.key].duration - summary[a.key].duration
+  )
   console.log(durationCsv)
   await appendFile(outputPath, durationCsv + '\n')
 
@@ -118,7 +122,14 @@ const diffResultExpected = (file: string, extractionResult: Stage3PluginData) =>
     const res = sortedExtractionResult.find(r => r.key === x)
     if (res) {
       const strValue = res.value ? res.value.toString() : ''
-      const areEqual = res.value === expectedResult[x]
+
+      const areEqual =
+        typeof expectedResult[x] === 'string'
+          ? levenshtein(
+              strValue.toLowerCase(),
+              (expectedResult[x] || '').toString().toLowerCase()
+            ) <= 3
+          : res.value === expectedResult[x]
       if (areEqual) {
         console.log(chalk.green(`${x}: "${strValue}" === "${expectedResult[x]}".`))
         summary = { ...summary, [res.key]: true }
@@ -164,9 +175,11 @@ const calcExtractorSuccessRate = (file: string, extractionResult: Stage3PluginDa
 const onConsole = async (msg: { text: string }, file: string, output: string) => {
   const prefix = 'extractlog'
   const txt = msg.text()
+
   if (txt.startsWith(prefix)) {
     const txtResult = txt.split(prefix)[1].trim()
     const jsonResult: Stage3PluginData = JSON.parse(txtResult)
+    console.log(jsonResult)
     const summary = diffResultExpected(file, jsonResult)
     await appendFile(output, txtResult + '\n')
 
@@ -178,7 +191,7 @@ const onConsole = async (msg: { text: string }, file: string, output: string) =>
 
 async function testPage(file: string, output: string, onSummary: Function) {
   const absolutePath = path.resolve(__dirname, '..', file)
-  console.log(chalk.grey(`${file} starting.`))
+  console.log(`${file} starting.`)
   const browser = await puppeteer.launch()
   const page = await browser.newPage()
   const start = +new Date()

@@ -26,6 +26,14 @@ export default {
     price: '119.99',
     entityType: 'product',
   },
+  barrandov: {
+    currency: null,
+    description:
+      'Důvěrné a často překvapující odhalení hvězd a osobností v originální diskuzi moderované generálním ředitelem TV Barrandov (Premiéra)',
+    name: 'INSTINKTY Jaromíra Soukupa',
+    price: null,
+    entityType: 'video',
+  },
   bbc: {
     currency: null,
     description:
@@ -55,6 +63,14 @@ export default {
       'Akční Letenky Česká republika – Španělsko za 1 540 Kč. Běžně tyto Letenky stojí 2 000 Kč, proto s námi ušetříš 23 %.',
     name: 'Za akční cenu z Prahy a Vídně do Barcelony s Vuelingem. Letenky od 1 540 Kč',
     price: '1540',
+    entityType: 'vacation',
+  },
+  cksen: {
+    currency: 'CZK',
+    description:
+      'Tři země Střední Ameriky - historie, příroda, pláže i moderní svět. Poznávací zájezdy s českým průvodcem. Dovolená s CK SEN.',
+    name: 'Nikaragua, Kostarika, Panama (Komfort)',
+    price: '95420',
     entityType: 'vacation',
   },
   cnn: {
@@ -112,6 +128,14 @@ export default {
     price: null,
     entityType: 'vacation',
   },
+  eximtours: {
+    currency: 'CZK',
+    description:
+      'Řecko / Rhodos / Lindos. Hotel Cooee Lindos Royal je vystavěn v krásné zahradě na klidné místě v koloniálním stylu s výhledem na malou zátoku Vlicha a má kaskádovitý výhled na moře. Nabízí příjemné ubytování od standardních a komfortních pokojů až po luxusní pokoje, skvěle vybavené. Hotel svým klientům nabízí celou řadu volnočasových aktivit a perfektní služby. Nachází se asi čtyři kilometry od městečka Lindos a cca 43 kilometrů od hlavního města Rhodos. Autobusová zastávka do Lindosu je přibližně 100 metrů od hotelu. Oficiální kategorie hotelu je 5*',
+    name: 'COOEE LINDOS ROYAL ****',
+    price: '18190',
+    entityType: 'vacation',
+  },
   foodlover: {
     currency: null,
     description:
@@ -119,6 +143,14 @@ export default {
     name: 'Čokoládová bábovka',
     price: null,
     entityType: 'article',
+  },
+  fisher: {
+    currency: 'CZK',
+    description:
+      'Dovolená a zájezdy last minute s Cestovní kanceláří FISCHER. Vybírejte ze široké nabídky online.',
+    name: 'PAŘÍŽ NEJEN PRO ZAMILOVANÉ',
+    price: '27980',
+    entityType: 'vacation',
   },
   idnes: {
     currency: null,
@@ -189,6 +221,14 @@ export default {
     name: 'Classic Family Adventure - 10 Days',
     price: null,
     entityType: 'vacation',
+  },
+  pexels: {
+    currency: null,
+    description:
+      'One of many great free stock videos from Pexels Videos. This video is about ice, snow, winter.',
+    name: 'Bubble Turning Into Ice',
+    price: null,
+    entityType: 'video',
   },
   ponyfoo: {
     currency: null,

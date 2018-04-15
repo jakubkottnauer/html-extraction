@@ -1,6 +1,6 @@
 // @flow
 
-export default function levenshtein(a: string, b: string) {
+export default function levenshtein(a: string, b: string): number {
   let tmp
   if (a.length === 0) {
     return b.length
@@ -16,7 +16,7 @@ export default function levenshtein(a: string, b: string) {
 
   let i,
     j,
-    res,
+    res = 0,
     alen = a.length,
     blen = b.length,
     row = Array(alen)

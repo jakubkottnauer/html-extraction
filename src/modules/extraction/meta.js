@@ -1,6 +1,6 @@
 // @flow
 
-import { valueCreator, cleanupString, getMetaValue, levenshtein } from '../../utils'
+import { valueCreator, cleanupString, getMetaValue } from '../../utils'
 import type { Stage1PluginData, Stage2PluginData, Value } from '../../../types/plugin'
 
 const fields = [
