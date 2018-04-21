@@ -282,7 +282,7 @@ export default {
     currency: null,
     description:
       'Fly over a Rocky Mountain college town known for its expansive views, hyper-active residents, socks in Chacos, and bikes more expensive than the cars they’re…',
-    name: 'ABOVE BOULDER - 4K Drone Film',
+    name: 'ABOVE BOULDER',
     price: null,
     entityType: 'video',
   },

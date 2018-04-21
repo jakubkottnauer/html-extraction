@@ -37,6 +37,7 @@ const main = async () => {
   console.log(summary)
 
   const csv = summaryToCsv(summary, (a, b) => b.value - a.value)
+  console.log("summary results")
   console.log(csv)
   await appendFile(outputPath, csv + '\n')
 
@@ -44,9 +45,11 @@ const main = async () => {
     summary,
     (a, b) => summary[b.key].duration - summary[a.key].duration
   )
+  console.log("duration results")
   console.log(durationCsv)
   await appendFile(outputPath, durationCsv + '\n')
 
+  console.log("extractor success rate results")
   const csvExt = extractorSuccessRateToCsv(summary)
   console.log(csvExt)
   await appendFile(outputPath, csvExt + '\n')
@@ -91,7 +94,7 @@ const extractorSuccessRateToCsv = (summary: Object) => {
   const res = Object.keys(summary).reduce((acc, k) => {
     const r = summary[k]['extractorSuccessRate']
     return Object.keys(r).reduce((acc2, ext) => {
-      const currentExtVal = r[ext]
+      const currentExtVal = r[ext] > 0 ? 1 : 0
       return { ...acc2, [ext]: acc2[ext] ? acc2[ext] + currentExtVal : currentExtVal }
     }, acc)
   }, {})
@@ -164,7 +167,7 @@ const calcExtractorSuccessRate = (file: string, extractionResult: Stage3PluginDa
     const didLookFor = expectedResult.hasOwnProperty(r.key)
     if (!didLookFor) return acc
 
-    if (r.value === expectedResult[r.key]) {
+    if (r.value === expectedResult[r.key] && expectedResult[r.key]) {
       return { ...acc, [r.extractor]: acc[r.extractor] ? acc[r.extractor] + 1 : 1 }
     }
 

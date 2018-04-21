@@ -17,6 +17,7 @@ import type {
 const { stage1: stage1Config, stage2: stage2Config, stage3: stage3Config } = getConfig()
 
 const main = async () => {
+  console.log('Extraction started.')
   try {
     const dom = $('html')
     const domClone = dom.clone()
@@ -32,7 +33,7 @@ const main = async () => {
 }
 
 main().then(() => {
-  console.log('All done.')
+  console.log('Extraction finished.')
 })
 
 function cleanup(dom: JQuery) {
@@ -63,7 +64,7 @@ function postprocess(originalDom: JQuery) {
   return function(results) {
     const plugins: Array<Stage3Plugin> = processConfigPlugins(
       3,
-      [entityType, dedup, popup, highlight],
+      [entityType, popup, /*dedup, popup, highlight*/],
       stage3Config
     )
     const p = pipe(...plugins.map(p => p(originalDom)))
