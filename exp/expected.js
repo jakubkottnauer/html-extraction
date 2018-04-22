@@ -14,7 +14,7 @@ export default {
     description:
       'Mobilní telefon 4.7" Retina 1334x750 IPS s technologií 3D Touch, procesor Apple A11 Bionic Hexa Core 64bit, interní paměť 64GB, fotoaparát 12Mpx F/1.8 + 7Mpx F/2.2, optická stabilizace, GPS, NFC, 3G/LTE, Lightning, snímač otisků prstů v tlačítku plochy, Qi bezdrátové nabíjení, rychlé nabíjení, voděodolný dle IP67, Nano SIM, iOS 11',
     name: 'iPhone 8 64GB Stříbrný',
-    price: '20639',
+    price: '20638.61',
     entityType: 'product',
   },
   amazon: {
@@ -117,7 +117,7 @@ export default {
     currency: null,
     description:
       'Objednejte si dovolenou v tomto hotelu. Hotel Golden Oasis Hotel ohne Transfer *** letecky v Muscat - Omán, nejlevnější letecká dovolená do Golden Oasis Hotel ohne Transfer ***. Porovnejte si zájezdy do tohoto hotelu, najdeme vám tu nejvýhodnější nabídku.',
-    name: 'Golden Oasis Hotel ohne Transfer',
+    name: 'Golden Oasis Hotel ohne Transfer ***',
     price: null,
     entityType: 'vacation',
   },

@@ -5,11 +5,11 @@ import type { Stage1PluginData, Stage2PluginData, Value } from '../../../types/p
 
 const key = 'jsonld.schemaorg'
 
-export default async (dom: Stage2PluginData): Promise<?Array<Value>> => {
+export default async (dom: Stage2PluginData): Promise<Array<Value>> => {
   const fields = await schemaFields()
   const jsonld = getJsonld(dom)
-  if (!jsonld) return null
-  console.log(jsonld)
+  if (!jsonld) return []
+
   const extractedFields = fields
     .map(field => ({ field, value: cleanupString((jsonld[field] || '').toString()) }))
     .filter(r => r.value)
@@ -17,6 +17,9 @@ export default async (dom: Stage2PluginData): Promise<?Array<Value>> => {
 
   // Get entityType from JSON-LD
   const entityTypeVal = (jsonld['@type'] || '').toLowerCase()
-  const entityType = valueCreator('entityType', key)(entityTypeVal, entityTypeVal.length> 0 ? 100 : 0)
+  const entityType = valueCreator('entityType', key)(
+    entityTypeVal,
+    entityTypeVal.length > 0 ? 100 : 0
+  )
   return [...extractedFields, entityType]
 }
