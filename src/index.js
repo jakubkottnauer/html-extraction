@@ -64,7 +64,7 @@ function postprocess(originalDom: JQuery) {
   return function(results) {
     const plugins: Array<Stage3Plugin> = processConfigPlugins(
       3,
-      [entityType, dedup, popup, highlight],
+      [entityType, popup, dedup, highlight],
       stage3Config
     )
     const p = pipe(...plugins.map(p => p(originalDom)))
