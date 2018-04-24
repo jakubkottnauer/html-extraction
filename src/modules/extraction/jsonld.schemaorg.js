@@ -17,9 +17,9 @@ export default async (dom: Stage2PluginData): Promise<Array<Value>> => {
 
   // Get entityType from JSON-LD
   const entityTypeVal = (jsonld['@type'] || '').toLowerCase()
-  const entityType = valueCreator('entityType', key)(
+  const entityType = valueCreator('entityType', 'entityType.jsonld')(
     entityTypeVal,
-    entityTypeVal.length > 0 ? 100 : 0
+    entityTypeVal.length > 0 ? 90 : 0
   )
   return [...extractedFields, entityType]
 }

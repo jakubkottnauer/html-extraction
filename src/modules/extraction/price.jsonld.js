@@ -13,7 +13,7 @@ export default (dom: Stage2PluginData): Value | Array<Value> => {
   const { price, priceCurrency } = jsonld.offers
 
   return [
-    createValue(price, price ? 100 : 0),
+    createValue(price.toString(), price ? 100 : 0),
     createCurrencyValue(
       priceCurrency ? normalizeCurrency(priceCurrency) : null,
       priceCurrency ? 100 : 0

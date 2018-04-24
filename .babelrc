@@ -9,6 +9,6 @@
     "targets": {
       "browsers": ["last 2 Chrome versions"]
     }
-  }], "@babel/preset-stage-2"]
+  }], ["@babel/preset-stage-2", { "decoratorsLegacy": true }]]
 }
 

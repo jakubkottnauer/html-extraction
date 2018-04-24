@@ -10,9 +10,6 @@ export default (dom: Stage2PluginData): Value | Array<Value> => {
   if (dom.find('video').length > 0) {
     return createValue(entityTypes.video, 70)
   }
-  if (dom.find('iframe').length > 0) {
-    return createValue(entityTypes.video, 50)
-  }
 
   if (
     dom.find('link[type="application/rss+xml"]').length > 0 ||

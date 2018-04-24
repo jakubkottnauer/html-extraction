@@ -22,9 +22,9 @@ export default (dom: Stage2PluginData): Array<Value> => {
   const results = fields.reduce((acc, f) => [...acc, getValue(dom, f)], [])
 
   const entityTypeVal = (getMetaValue(dom, 'og:type') || '').toLowerCase()
-  const entityType = valueCreator('entityType', key)(
+  const entityType = valueCreator('entityType', 'entityType.meta')(
     entityTypeVal,
-    entityTypeVal.length > 0 ? 100 : 0
+    entityTypeVal.length > 0 ? 90 : 0
   )
 
   return [...results, entityType]

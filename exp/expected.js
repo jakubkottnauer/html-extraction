@@ -92,7 +92,7 @@ export default {
   czc: {
     currency: 'CZK',
     description:
-      'Bezdrátový reproduktor kompaktní pro bezdrátový přenos hudby z mobilního telefonu či tabletu, LED indikace, Bluetooth 4.0, odolné vůči kapkám vody, mikrofon, 3.5mm AUX, microUSB',
+      'Samsung EO-SG510CD EO-SG510CDEGWW - Bezdrátový reproduktor kompaktní pro bezdrátový přenos hudby z mobilního telefonu či tabletu, LED indikace, Bluetooth 4.0, odolné vůči kapkám vody, mikrofon, 3.5mm AUX, microUSB',
     name: 'Samsung EO-SG510CD',
     price: '899',
     entityType: 'product',
@@ -139,7 +139,7 @@ export default {
   foodlover: {
     currency: null,
     description:
-      'Symbol neděle? Bábovka. Je to taková jistota, ke které se vracím vždycky, když nemám nápad na nic jiného nebo když toho doma moc nemáme a přesto chci něco upéct. Tahle je s máslem a čokoládou. Skvělá na upršené zimní odpoledne, když si k ní uvaříte čaj nebo kakao, bude vám dobře.',
+      'Symbol neděle? Bábovka. Je to taková jistota, ke které se vracím vždycky, když nemám nápad na nic jiného nebo když toho doma moc nemáme a p...',
     name: 'Čokoládová bábovka',
     price: null,
     entityType: 'article',
@@ -172,7 +172,7 @@ export default {
     currency: null,
     description:
       'Šedesát tisíc pro nejlepšího hostitele! Výzva, kterou rozhodně stojí za to přijmout. Pět soutěžících, pět večeří, menu tradiční, exotická i experimentální!...',
-    name: 'Prostřeno! XV (43)',
+    name: 'Prostřeno!: Prostřeno! XV (43)',
     price: null,
     entityType: 'video',
   },
