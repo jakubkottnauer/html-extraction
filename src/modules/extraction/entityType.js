@@ -1,6 +1,6 @@
 // @flow
 
-import { valueCreator, cleanupString, getMicrodataValue } from '../../utils'
+import { valueCreator, cleanupString } from '../../utils'
 import type { Stage1PluginData, Stage2PluginData, Value } from '../../../types/plugin'
 import { entityTypes } from '../../constants'
 
