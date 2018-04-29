@@ -21,8 +21,7 @@ export default {
     currency: 'USD',
     description:
       'Our best-selling Kindle. 6" high-resolution display with built-in light--provides crisp, laser quality text with the highest resolution of any ereader.',
-    name:
-      'Kindle Paperwhite E-reader - Black, 6" High-Resolution Display (300 ppi) with Built-in Light, Wi-Fi - Includes Special Offers',
+    name: 'Kindle Paperwhite E-reader',
     price: '119.99',
     entityType: 'product',
   },
