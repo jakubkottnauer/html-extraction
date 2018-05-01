@@ -3,10 +3,10 @@
 2 microdata.schemaorg 15
 3 name.title 14
 4 entityType.post 13
-5 entityType.meta 10
-6 entityType 6
-7 jsonld.schemaorg 4
-8 entityType.jsonld 3
-9 price.jsonld 3
-10 class.schemaorg 2
-11 price.text 1
+5 entityType.meta 12
+6 price.text 12
+7 entityType 6
+8 jsonld.schemaorg 4
+9 entityType.jsonld 3
+10 price.jsonld 3
+11 class.schemaorg 2

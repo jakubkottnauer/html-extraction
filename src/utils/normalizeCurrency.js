@@ -1,5 +1,6 @@
 const mappings = {
   'Kč': 'CZK',
+  ',-': 'CZK',
   CZK: 'CZK',
   's DPH': 'CZK',
   'bez DPH': 'CZK',

@@ -7,13 +7,30 @@ import { priceSymbols } from '../../constants'
 const createValue = valueCreator('price', 'price.text')
 const createCurrencyValue = valueCreator('currency', 'price.text')
 
+const currencySingleCharFirst = str => ({ currency: str.substr(0, 1), price: str.substr(1) })
+const currencyTripleCharFirst = str => ({ currency: str.substr(0, 3), price: str.substr(3) })
+const spaced = str => {
+  const s = str.split(' ')
+  return { currency: s[1], price: s[0] }
+}
+
 export default (dom: Stage2PluginData): Value | Array<Value> => {
-  const value = cleanupString((dom.find('#price')[0] || {}).innerText || '')
-  if (!value) return createValue(null, 0)
+  const txt = dom.text() || ''
 
-  const price = (value.match(/\$\d+(\.\d{1,2})/) || [])[0] || '' // Price in the format $12 (USD)
-  const currency = price.substr(0, 1)
-  const removedCurrency = price.substr(1)
+  const regexes = [
+    { expr: /\$\d+(\.\d{1,2})/, func: currencySingleCharFirst },
+    { expr: /USD\d+(\.\d{1,2})/, func: currencyTripleCharFirst },
+    { expr: /€\d+(\.\d{1,2})/, func: currencySingleCharFirst },
+    { expr: /EUR\d+(\.\d{1,2})/, func: currencyTripleCharFirst },
+    { expr: /\d+(\.\d{1,2}) EUR/, func: spaced },
+    { expr: /\d+(,\d{1,2})? Kč/, func: spaced },
+    { expr: /\d+(,\d{1,2})? ,-/, func: spaced },
+  ]
 
-  return [createValue(removedCurrency, 50), createCurrencyValue(normalizeCurrency(currency), 50)]
+  const matching = regexes.find(r => (txt.match(r.expr) || [])[0])
+  if (!matching) return []
+
+  const { currency, price } = matching.func((txt.match(matching.expr) || [])[0])
+
+  return [createValue(price, 50), createCurrencyValue(normalizeCurrency(currency), 50)]
 }

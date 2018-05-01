@@ -6,6 +6,7 @@ export type Value = {
   extractor: string,
   key: string,
   value: string | number | boolean | null,
+  duration?: number,
 }
 
 export type Stage1PluginData = JQuery

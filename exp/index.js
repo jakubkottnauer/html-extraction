@@ -28,7 +28,8 @@ const main = async () => {
       summary[filename] = {
         correctlyExtracted: s.summary,
         extractorSuccessRate: s.extractorSuccessRate,
-        duration,
+        extractorDurations: s.extractorDurations,
+        duration: s.duration,
         filesize: getFilesize(file),
       }
     })
@@ -37,7 +38,7 @@ const main = async () => {
   console.log(summary)
 
   const csv = summaryToCsv(summary, (a, b) => b.value - a.value)
-  console.log("summary results")
+  console.log('summary results')
   console.log(csv)
   await appendFile(outputPath, csv + '\n')
 
@@ -45,14 +46,19 @@ const main = async () => {
     summary,
     (a, b) => summary[b.key].duration - summary[a.key].duration
   )
-  console.log("duration results")
+  console.log('duration results')
   console.log(durationCsv)
   await appendFile(outputPath, durationCsv + '\n')
 
-  console.log("extractor success rate results")
+  console.log('extractor success rate results')
   const csvExt = extractorSuccessRateToCsv(summary)
   console.log(csvExt)
   await appendFile(outputPath, csvExt + '\n')
+
+  console.log('extractor mean duration')
+  const csvDur = extractorMeanDurationToCsv(summary)
+  console.log(csvDur)
+  await appendFile(outputPath, csvDur + '\n')
 }
 
 main().then(() => {
@@ -101,6 +107,22 @@ const extractorSuccessRateToCsv = (summary: Object) => {
   return toPairs(res)
     .sort((a, b) => b[1] - a[1])
     .reduce((acc, k, idx) => `${acc}${idx} ${k[0]} ${k[1]}\n`, '')
+}
+
+// Resulting CSV is in format:
+// idx extractorName meanDuration
+const extractorMeanDurationToCsv = (summary: Object) => {
+  const files = Object.keys(summary)
+  const res = files.reduce((acc, k) => {
+    const r = summary[k]['extractorDurations']
+    return Object.keys(r).reduce((acc2, ext) => {
+      if (typeof r[ext] === undefined) return acc2
+      return { ...acc2, [ext]: acc2[ext] ? acc2[ext] + r[ext] : r[ext] }
+    }, acc)
+  }, {})
+  return toPairs(res)
+    .sort((a, b) => b[1] - a[1])
+    .reduce((acc, k, idx) => `${acc}${idx} ${k[0]} ${k[1] / files.length}\n`, '')
 }
 
 const delay = (timeout: number) =>
@@ -162,7 +184,6 @@ const calcExtractorSuccessRate = (file: string, extractionResult: Stage3PluginDa
     return
   }
 
-  console.log(extractionResult)
   return extractionResult.reduce((acc, r) => {
     const didLookFor = expectedResult.hasOwnProperty(r.key)
     if (!didLookFor) return acc
@@ -175,20 +196,32 @@ const calcExtractorSuccessRate = (file: string, extractionResult: Stage3PluginDa
   }, {})
 }
 
+const getExtractorDurations = (file: string, extractionResult: Stage3PluginData) => {
+  const filename = getPlainFilename(file)
+  const expectedResult = expected[filename]
+
+  return extractionResult.reduce((acc, r) => {
+    if (acc[r.extractor]) return acc
+
+    return { ...acc, [r.extractor]: r.duration }
+  }, {})
+}
+
 const onConsole = async (msg: { text: string }, file: string, output: string) => {
   const prefix = 'extractlog'
   const txt = msg.text()
 
   if (txt.startsWith(prefix)) {
     const txtResult = txt.split(prefix)[1].trim()
-    const jsonResult: Stage3PluginData = JSON.parse(txtResult)
-    console.log(jsonResult)
-    const summary = diffResultExpected(file, jsonResult)
+    const { results, duration }: { results: Stage3PluginData, duration: number } = JSON.parse(txtResult)
+    console.log(results)
+    const summary = diffResultExpected(file, results)
     await appendFile(output, txtResult + '\n')
 
-    const extractorSuccessRate = calcExtractorSuccessRate(file, jsonResult)
+    const extractorSuccessRate = calcExtractorSuccessRate(file, results)
+    const extractorDurations = getExtractorDurations(file, results)
 
-    return { summary, extractorSuccessRate }
+    return { summary, extractorSuccessRate, extractorDurations, duration }
   }
 }
 

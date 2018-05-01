@@ -242,7 +242,7 @@ export default {
     description:
       'Zubní kartáček s patentovaným zástřihem soft čistících vláken ve tvaru lžíce dokonale kopíruje tvar zubu a umožňuje vláknům 100% kontakt s jeho povrchem.',
     name: 'SWISSDENT WHITENING Soft, zlatý',
-    price: 79,
+    price: '79',
     entityType: 'product',
   },
   theverge: {

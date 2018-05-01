@@ -18,6 +18,7 @@ const { stage1: stage1Config, stage2: stage2Config, stage3: stage3Config } = get
 
 const main = async () => {
   console.log('Extraction started.')
+  const start = +new Date()
   try {
     const dom = $('html')
     const domClone = dom.clone()
@@ -25,8 +26,12 @@ const main = async () => {
     //domClone |> cleanup |> await extract |> postprocess(dom) |> log
     const c = cleanup(domClone)
     const e = await extract(c)
-    const x = postprocess(dom)(e)
-    log(x)
+    const extracted = postprocess(dom)(e)
+    const end = +new Date()
+    const duration = end - start
+
+    const results = { results: extracted, duration }
+    log(results)
   } catch (e) {
     console.warn('Error during extraction', e)
   }
@@ -49,9 +54,16 @@ async function extract(dom: JQuery) {
   let results: Array<Value> = []
   for (const p of plugins) {
     try {
-      const result = await p(dom.clone())
+      const copiedDOM = dom.clone()
+      const start = +new Date()
+      const result = await p(copiedDOM)
+      const end = +new Date()
+      const duration = end - start
+
       const toAppend: Array<Value> = Array.isArray(result) ? result : [result]
-      results = [...results, ...toAppend]
+      const withDuration = toAppend.map(r => ({ ...r, duration }))
+
+      results = [...results, ...withDuration]
     } catch (e) {
       console.log('Uncaught exception in extractor.', e)
     }
