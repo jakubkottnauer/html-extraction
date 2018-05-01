@@ -149,7 +149,7 @@ const diffResultExpected = (file: string, extractionResult: Stage3PluginData) =>
       const strValue = res.value ? res.value.toString() : ''
 
       const areEqual =
-        typeof expectedResult[x] === 'string'
+        typeof expectedResult[x] === 'string' && expectedResult[x].length > 5
           ? levenshtein(
               strValue.toLowerCase(),
               (expectedResult[x] || '').toString().toLowerCase()

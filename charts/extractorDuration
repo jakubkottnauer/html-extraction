@@ -1,8 +1,7 @@
-1 entityType.post NaN
-2 microdata.schemaorg 67.6
-3 class.schemaorg 29.35
-4 id.schemaorg 4.925
-5 meta 1.325
-6 price.text 0.725
+1 microdata.schemaorg 67.6
+2 class.schemaorg 29.35
+3 id.schemaorg 4.925
+4 meta 1.325
+5 price.text 0.725
 6 entityType.meta 0.65
-8 jsonld.schemaorg 0.3
+7 jsonld.schemaorg 0.3
